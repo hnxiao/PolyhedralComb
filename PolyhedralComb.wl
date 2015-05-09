@@ -13,7 +13,11 @@ randomT::usage="randomT[n] generates a random tournament on n vertices";
 goodRandomT::usage="goodRandomT[n] tries to return a random tournament free of forbidden tournaments F1 and F2";
 randomSemiCompleteD::usage="randomSemiCompleteD[n,m] generates a random semicomplete digraph on n vertices";
 goodSemiCompleteD::usage="goodSemiCompleteD[n,m] tries to return a random semicomplete digraphs free of all forbidden structures on 5 vertices";
-maxoutBFShl::usage="maxoutBFShl[d] highlights a bfs tree rooted at a random maximum outdegree vertex";
+outbfsTree::usage="maxoutBFShighlight[d] highlights a bfs tree rooted at a random maximum outdegree vertex";
+bfsVPartition::usage="bfsVPartition[d,r] gives a bfs partition with root r. More, it checks whether each parition is acyclic. If it is acyclic, it sorts all vertcies in topolgical order; if it is not acyclic, it returns all cycles in this pariation";
+randombfsVPartition::usage="randombfsVPartition[d] gives a bfs partition with a random root with maximum out degree. More, it checks whether each parition is acyclic. If it is acyclic, it sorts all vertcies in topolgical order; if it is not acyclic, it returns all cycles in this pariation";
+maxOutDegreeVS::usage="maxOutDegreeVS[d] returns all vertices with maximum out degrees";
+
 Begin["`Private`"]
 
 EdmondsMatrix[g_]:=Module[{el,vl,subl},
@@ -67,7 +71,7 @@ randomSemiCompleteD[n_,m_:1]/;1<=m<=n (n-1)/2:=Module[{g,t,arcsReversed,d},
 
 goodSemiCompleteD[n_,m_:1]/;1<=m<=n (n-1)/2:=Module[{i,d,dsubgraphs,f1,f11,f12,f2,f3,f41,f42,f421,f422,f43,f51,f52,f521,f522,f523,f524,f53,f531,f532,f533,f534,f54,residularcsf54,f54all,dforbiddens},
 	i=1;
-	While[i<=100,
+	While[i<=1000,
 		d= randomSemiCompleteD[n,m];
 		dsubgraphs=Subgraph[d,#]&/@Subsets[VertexList@d,{3,VertexCount@d}];
 		f1=Graph[{1->4,4->3,3->2,2->1,2->5,4->5,5->1,5->3}];
@@ -95,15 +99,15 @@ goodSemiCompleteD[n_,m_:1]/;1<=m<=n (n-1)/2:=Module[{i,d,dsubgraphs,f1,f11,f12,f
 		residularcsf54={{DirectedEdge[1,3],DirectedEdge[3,1]},{DirectedEdge[1,4],DirectedEdge[4,1]},{DirectedEdge[2,4],DirectedEdge[4,2]},{DirectedEdge[2,5],DirectedEdge[5,2]},{DirectedEdge[3,5],DirectedEdge[5,3]}};
 		f54all=EdgeAdd[f54,#]&/@Tuples[residularcsf54];
 		dforbiddens={f11,f12,f2,f3,f41,f421,f422,f43,f51,f521,f522,f523,f524,f531,f532,f533,f534}\[Union]f54all;
-		If[Or@@Flatten@Outer[IsomorphicGraphQ,dsubgraphs,dforbiddens]==False,Return[d]];i++]];
+		If[Or@@Flatten@Outer[IsomorphicGraphQ,dsubgraphs,dforbiddens]==False,Return[d]];
+		i++]];
 
-maxoutBFShl[d_]:=Module[{rd,bfshighlight},
+outbfsTree[d_]:=Module[{rd,bfshighlight},
 	rd=ReverseGraph@d;
 	bfshighlight=Reap[BreadthFirstScan[rd,RandomChoice@Flatten@Position[VertexOutDegree@d,Max[VertexOutDegree@d]],{"FrontierEdge"->Sow}]][[2,1]]//HighlightGraph[rd,#]&;
 	ReverseGraph@bfshighlight];
 
-bfsVertexPartition::usage="bfsVertexPartition[d] gives a bfs partition for all vertices. More, it checks whether each parition is acyclic. If it is acyclic, it sorts all vertcies in topolgical order; if it is not acyclic, it returns all cycles in this pariation";
-bfsVertexPartition[d_]:=Module[{p,vl,vt,ct,vused},
+randombfsVPartition[d_]:=Module[{p,vl,vt,ct,vused},
 	p={}; ct={}; vused={};
 	vt=List@RandomChoice@Flatten@Position[VertexOutDegree@d,Max@VertexOutDegree@d];
 	vl=Complement[VertexList@d,vt];
@@ -112,9 +116,26 @@ bfsVertexPartition[d_]:=Module[{p,vl,vt,ct,vused},
 		AppendTo[vused,#]&/@vt;
 		vt=Complement[#,vused]&@VertexInComponent[d,vt,1];
 		If[AcyclicGraphQ@Subgraph[d,vt],vt=TopologicalSort@Subgraph[d,vt],ct=FindCycle[Subgraph[d,vt],{2,3},All]];
+		AppendTo[p,{vt,ct}];		
 		vl=Complement[vl,vt];
-		AppendTo[p,{vt,ct}]];
+		ct={}];
 	p];
+
+bfsVPartition[d_,r_]:=Module[{p,vl,vt,ct,vused},
+	p={}; ct={}; vused={}; vt={r};
+	vl=Complement[VertexList@d,vt];
+	AppendTo[p,{vt,ct}];
+	While[vl!={},
+		AppendTo[vused,#]&/@vt;
+		vt=Complement[#,vused]&@VertexInComponent[d,vt,1];
+		If[AcyclicGraphQ@Subgraph[d,vt],vt=TopologicalSort@Subgraph[d,vt],ct=FindCycle[Subgraph[d,vt],{2,3},All]];
+		AppendTo[p,{vt,ct}];		
+		vl=Complement[vl,vt];
+		ct={}];
+	p];
+
+maxOutDegreeVS[d_]:=Module[{},
+	Flatten@Position[#,Max[#]]&@VertexOutDegree@d];
 
 End[]
 
