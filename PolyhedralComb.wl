@@ -73,7 +73,7 @@ goodSemiCompleteD[n_,m_:1]/;1<=m<=n (n-1)/2:=Module[{i,d,dsubgraphs,f1,f11,f12,f
 	i=1;
 	While[i<=1000,
 		d= randomSemiCompleteD[n,m];
-		dsubgraphs=Subgraph[d,#]&/@Subsets[VertexList@d,{3,VertexCount@d}];
+		dsubgraphs=Subgraph[d,#]&/@Subsets[VertexList@d,{3,Min[VertexCount@d,5]}];
 		f1=Graph[{1->4,4->3,3->2,2->1,2->5,4->5,5->1,5->3}];
 		f11=EdgeAdd[f1,{1->3,2->4}];
 		f12=EdgeAdd[f1,{1->3,4->2}];
