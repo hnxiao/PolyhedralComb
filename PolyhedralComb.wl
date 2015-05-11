@@ -24,7 +24,15 @@ bfsVertexPartition::usage="bfsVertexPartition[d,r] returns a bfs vertex partitio
 maxOutDegreeVertexSet::usage="maxOutDegreeVertexSet[d] returns all vertices with maximum out degree";
 bfsVertexPartitions::usage="bfsVertexPartitions[d] returns all bfs vertex partitions rooted at vertices with maximum outdegree. Moreover, it returns each partition in topological order if it is acyclic, otherwise it returns a cycle list in this partition";
 
-feedbackVertexSetQ::usage"feedbackVertexSetQ[d,vs] checks whether vertex set vs is a feedback vertex set";
+feedbackVertexSetQ::usage="feedbackVertexSetQ[d,vs] checks whether vertex set vs is a feedback vertex set";
+
+deleteIsomorphicGraphs::usage="";
+distinctDeletionVertices::usage="";
+distinctContractionVertices::usage="";
+distinctEdges::usage="";
+minorOperation::usage="";
+minors::usage="";
+
 
 Begin["`Private`"]
 
@@ -132,26 +140,53 @@ obsSemiCompleteD:=Module[{obs,f3,f41,f42,f421,f422,f43,f51,f52,f521,f522,f523,f5
 	f54all=EdgeAdd[f54,#]&/@Tuples[residf54];
 	obs=obsTournament\[Union]{f3,f41,f421,f422,f43,f51,f521,f522,f523,f524,f531,f532,f533,f534}\[Union]f54all];
 
-(*Working area
+(*Working area*)
+
+(* Highlights a bfs tree rooted at a random vertex with maximum outdegree. *)
 outbfsTree[d_]:=Module[{rd,bfshighlight},
 	rd=ReverseGraph@d;
 	bfshighlight=Reap[BreadthFirstScan[rd,RandomChoice@Flatten@Position[VertexOutDegree@d,Max[VertexOutDegree@d]],{"FrontierEdge"->Sow}]][[2,1]]//HighlightGraph[rd,#]&;
 	ReverseGraph@bfshighlight];
 
-randombfsVPartition[d_]:=Module[{p,vl,vt,ct,vused},
-	p={}; ct={}; vused={};
-	vt=List@RandomChoice@Flatten@Position[VertexOutDegree@d,Max@VertexOutDegree@d];
-	vl=Complement[VertexList@d,vt];
-	AppendTo[p,{vt,ct}];
-	While[vl!={},
-		AppendTo[vused,#]&/@vt;
-		vt=Complement[#,vused]&@VertexInComponent[d,vt,1];
-		If[AcyclicGraphQ@Subgraph[d,vt],vt=TopologicalSort@Subgraph[d,vt],ct=FindCycle[Subgraph[d,vt],{2,3},All]];
-		AppendTo[p,{vt,ct}];		
-		vl=Complement[vl,vt];
-		ct={}];
-	p];
-*)
+deleteIsomorphicGraphs[gl_List]:= Module[{},
+(* Given a list of graphs gl, remove duplicate graphs under isomorphism. *)
+	Return[DeleteDuplicates[gl,IsomorphicGraphQ[#1,#2]&]];];
+
+distinctEdges[g_Graph]:= Module[{el},
+(* Returns a list of the distinct (non-equivalent) edges in graph G, where two edges are equivalent if the graphs that are the result of the removal of those edges are isomorphic.*)
+	el=EdgeList@g;
+	Return[DeleteDuplicates[el,IsomorphicGraphQ[EdgeDelete[g,#1],EdgeDelete[g,#2]]&]];];
+
+distinctDeletionVertices[g_Graph]:= Module[{vl},
+(* Returns a list of the distinct (non-equivalent) vertices in graph G, where two vertices are equivalent if the graphs that are the result of the removal
+of those vertices are isomorphic. *)
+	vl=VertexList@g;
+	Return[DeleteDuplicates[vl,IsomorphicGraphQ[VertexDelete[g,#1],VertexDelete[g,#2]]&]];];
+
+distinctContractionVertices[g_Graph]:= Module[{vl},
+(* Returns a list of the distinct (non-equivalent) vertices in graph G, where two vertices are equivalent if the graphs that are the result of the contraction
+of those vertices are isomorphic. *)
+	vl=VertexList@g;
+	Return[DeleteDuplicates[vl,IsomorphicGraphQ[VertexDelete[g,#1],VertexDelete[g,#2]]&]];];
+
+minorOperation[g_Graph]:=Module[{vld,vlc,el,tminors},
+(* Returns nonisomorphic minors of graph g after one minor operations, i.e., vertex deletion, vertex constraction and edge deletion. *)
+	vld=distinctDeletionVertices@g;
+	vlc=distinctContractionVertices@g;
+	el=distinctEdges@g;
+	tminors=Reap[Sow@VertexDelete[g,#]&/@vld;
+				Sow@VertexContract[g,#]&/@vlc;
+				Sow@EdgeDelete[g,#]&/@el;][[2,1]];
+	tminors=Select[tminors,UnsameQ[#,g]&];
+	tminors=Graph/@Select[EdgeList/@tminors,UnsameQ[#,{}]&];
+	deleteIsomorphicGraphs[tminors]];
+
+minors[g_Graph]:=Module[{tm,m},
+(* Returns all minors of graph g. Caution: this function is rather slow. It takes 15s to find all minors of K7 on my computer. *)
+	m=Reap[Sow[tm=minorOperation@g];
+			NestWhile[Sow[tm=deleteIsomorphicGraphs@Flatten@Map[minorOperation,#]]&,
+						tm,UnsameQ[#,{}]&]]//Flatten;
+	deleteIsomorphicGraphs@m];
 
 End[]
 
