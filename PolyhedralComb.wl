@@ -82,15 +82,15 @@ goodSemiCompleteD[n_,m_:1]/;1<=m<=n (n-1)/2:=Module[{i,d,subgraphs},
 		{i,1000}]];
 
 bfsVertexPartition[d_,r_]:=Module[{p,vl,vt,ct,vused},
-	vt={r}; ct={}; vused=vt; p={{vt,ct}};
+	vt={r}; ct={}; vused=vt;
 	vl=Complement[VertexList@d,vt];
-	While[vl!={},
+	p=Reap[While[vl!={},
 		vt=Complement[#,vused]&@VertexInComponent[d,vt,1];
 		AppendTo[vused,#]&/@vt;
 		If[AcyclicGraphQ@Subgraph[d,vt],vt=TopologicalSort@Subgraph[d,vt],ct=FindCycle[Subgraph[d,vt],{2,3},All]];
-		AppendTo[p,{vt,ct}];		
-		vl=Complement[vl,vt]; ct={}];
-	p];
+		Sow@{vt,ct};		
+		vl=Complement[vl,vt]; ct={}]][[2,1]];
+	Prepend[p,{{r},{}}]];
 
 maxOutDegreeVertexSet[d_]:=Module[{},
 	Flatten@Position[#,Max[#]]&@VertexOutDegree@d];
