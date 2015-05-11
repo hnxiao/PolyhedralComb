@@ -4,21 +4,26 @@ BeginPackage["PolyhedralComb`"]
 
 EdmondsMatrix::usage="EdmondsMatrix[g] returns the LHS matrix of Edmonds odd set constraint Mx<=b";
 EdmondsVector::usage="EdmondsVector[g] returns the RHS vector of Edmonds odd set constraint Mx<=b";
+
 cycleVertexMatrix::usage="cycleVertexMatrix[g] returns the cycle vertex incidence matrix for both undirected and directed graphs";
 cycleEdgeMatrix::usage="cycleEdgeMatrix[g] returns the cycle edge incidence matrix for undirected graphs only";
 cycleArcMatrix::usage="cycleArcMatrix[g] returns the cycle arc incidence matrix for directed graphs only";
+
 preferenceList::usage="preferenceList[g] returns a random prefrence table";
 RothblumMatrix::usage="RothblumMatrix[g,pt] returns the Rothblum stable constraint matrix";
 
 tournament::usage="tournament[n] generates a random tournament on n vertices";
 semiCompleteD::usage="semiCompleteD[n,m] generates a random semicomplete digraph on n vertices";
+
 obsTournament::usage="obsTournamen returns obstructions for a packing tournament";
 obsSemiCompleteD::usage="obsSemiCompleteD returns all obstructions within five vertices for a packing semicomplete digraph";
-packingQ::usage="packingQ[d,obs] tests whether digraph d has packing properties by checking all obstructions";
-goodTournament::usage="goodTournament[n] tries to return a random tournament free of forbidden tournaments F1 and F2";
-goodSemiCompleteD::usage="goodSemiCompleteD[n,m] tries to return a random semicomplete digraphs free of all forbidden structures on 5 vertices";
-bfsVertexPartition::usage="bfsVertexPartition[d,r] gives a bfs partition with root r. More, it checks whether each parition is acyclic. If it is acyclic, it sorts all vertcies in topolgical order; if it is not acyclic, it returns all cycles in this pariation";
-maxOutDegreeVertexSet::usage="maxOutDegreeVertexSet[d] returns all vertices with maximum out degrees";
+packingQ::usage="packingQ[d,obs] tests whether digraph d packs by checking all obstructions";
+goodTournament::usage="goodTournament[n] tries to return a random strongly connected tournament that packs within 1000 attempts";
+goodSemiCompleteD::usage="goodSemiCompleteD[n,m] tries to return a random strongly connected semicomplete digraph that packs within 1000 attempts";
+bfsVertexPartition::usage="bfsVertexPartition[d,r] returns a bfs vertex partition with root r. Moreover, it returns each parition in topological order if it is acyclic, otherwise it returns a cycle list in this partition";
+maxOutDegreeVertexSet::usage="maxOutDegreeVertexSet[d] returns all vertices with maximum out degree";
+bfsVertexPartitions::usage="bfsVertexPartitions[d] returns all bfs vertex partitions rooted at vertices with maximum outdegree. Moreover, it returns each partition in topological order if it is acyclic, otherwise it returns a cycle list in this partition";
+
 feedbackVertexSetQ::usage"feedbackVertexSetQ[d,vs] checks whether vertex set vs is a feedback vertex set";
 
 Begin["`Private`"]
@@ -53,20 +58,56 @@ RothblumMatrix[g_,pl_]:=Module[{el},
 				Position[pl[[Intersection[#1,#2][[1]]]],Complement[#1,Intersection[#1,#2]][[1]]]}]&,el,el,1]];
 
 tournament[n_]:=Module[{g,t},
-	g=CompleteGraph[n,VertexLabels->"Name"];
+	g=CompleteGraph[n];
 	t=DirectedGraph[g,"Random",VertexLabels->"Name"]];
 
-semiCompleteD[n_,m_:1]/;1<=m<=n (n-1)/2:=Module[{g,t,arcsReversed,d},
-	g=CompleteGraph[n,VertexLabels->"Name"];
-	t=DirectedGraph[g,"Random",VertexLabels->"Name"];
+semiCompleteD[n_,m_:1]/;1<=m<=n (n-1)/2:=Module[{t,d,arcsReversed},
+	t=tournament[n];
 	arcsReversed=Reverse/@RandomChoice@Subsets[EdgeList[t],{1,m}];
 	d= EdgeAdd[t,arcsReversed]];
+
+packingQ[d_,obs_]:=Module[{subgraphs,vcobs},
+	vcobs=VertexCount/@obs;
+	subgraphs=Subgraph[d,#]&/@Subsets[VertexList@d,{Min@vcobs,Min[VertexCount@d,Max@vcobs]}];
+	SameQ[Or@@Flatten@Outer[IsomorphicGraphQ,subgraphs,obs],False]];
+
+goodTournament[n_]:=Module[{i,t,subgraphs},
+	Do[t=tournament[n];
+		If[ConnectedGraphQ[#]&&packingQ[#,obsTournament]&@t,Return[t]],
+		{i,1000}]];
+
+goodSemiCompleteD[n_,m_:1]/;1<=m<=n (n-1)/2:=Module[{i,d,subgraphs},
+	Do[d=semiCompleteD[n,m];
+		If[ConnectedGraphQ[#]&&packingQ[#,obsSemiCompleteD]&@d,Return[d]],
+		{i,1000}]];
+
+bfsVertexPartition[d_,r_]:=Module[{p,vl,vt,ct,vused},
+	vt={r}; ct={}; vused=vt; p={{vt,ct}};
+	vl=Complement[VertexList@d,vt];
+	While[vl!={},
+		vt=Complement[#,vused]&@VertexInComponent[d,vt,1];
+		AppendTo[vused,#]&/@vt;
+		If[AcyclicGraphQ@Subgraph[d,vt],vt=TopologicalSort@Subgraph[d,vt],ct=FindCycle[Subgraph[d,vt],{2,3},All]];
+		AppendTo[p,{vt,ct}];		
+		vl=Complement[vl,vt]; ct={}];
+	p];
+
+maxOutDegreeVertexSet[d_]:=Module[{},
+	Flatten@Position[#,Max[#]]&@VertexOutDegree@d];
+
+bfsVertexPartitions[d_]:=Module[{},
+	bfsVertexPartition[d,#]&/@maxOutDegreeVertexSet@d];
+
+feedbackVertexSetQ[d_,vs_]:=Module[{},
+	d//AcyclicGraphQ[Subgraph[#,Complement[VertexList[#],vs]]]&];
+
+(*Data storage area*)
 
 obsTournament:=Module[{obs,f1,f2},
 	f1=Graph[{1->4,4->3,3->2,2->1,2->5,4->5,5->1,5->3}];
 	f2=Graph[{1->2,2->3,3->4,4->5,5->1,2->5,3->1,4->2,5->3,1->4}];
 	obs={EdgeAdd[f1,{1->3,2->4}],EdgeAdd[f1,{1->3,4->2}],f2}
-	]
+	];
 
 obsSemiCompleteD:=Module[{obs,f3,f41,f42,f421,f422,f43,f51,f52,f521,f522,f523,f524,f53,f531,f532,f533,f534,f54,residf54,f54all},
 	f3=Graph[{1->2,2->1,2->3,3->2,3->1,1->3}]; (*3-Ring*)
@@ -91,24 +132,7 @@ obsSemiCompleteD:=Module[{obs,f3,f41,f42,f421,f422,f43,f51,f52,f521,f522,f523,f5
 	f54all=EdgeAdd[f54,#]&/@Tuples[residf54];
 	obs=obsTournament\[Union]{f3,f41,f421,f422,f43,f51,f521,f522,f523,f524,f531,f532,f533,f534}\[Union]f54all];
 
-packingQ[d_,obs_]:=Module[{subgraphs},
-		subgraphs=Subgraph[d,#]&/@Subsets[VertexList@d,{3,Min[VertexCount@d,5]}];
-		SameQ[Or@@Flatten@Outer[IsomorphicGraphQ,subgraphs,obs],False]];
-
-goodTournament[n_]:=Module[{i,t,subgraphs},
-	i=1;
-	While[i<=1000,
-		t=tournament[n];
-		subgraphs=Subgraph[t,#]&/@Subsets[VertexList@t,{5}];
-		If[packingQ[t,obsTournament],Return[t]];i++]];
-
-goodSemiCompleteD[n_,m_:1]/;1<=m<=n (n-1)/2:=Module[{i,d,subgraphs},
-	i=1;
-	While[i<=1000,
-		d= semiCompleteD[n,m];
-		subgraphs=Subgraph[d,#]&/@Subsets[VertexList@d,{3,Min[VertexCount@d,5]}];
-		If[packingQ[d,obsSemiCompleteD],Return[d]];i++]];
-(*
+(*Working area
 outbfsTree[d_]:=Module[{rd,bfshighlight},
 	rd=ReverseGraph@d;
 	bfshighlight=Reap[BreadthFirstScan[rd,RandomChoice@Flatten@Position[VertexOutDegree@d,Max[VertexOutDegree@d]],{"FrontierEdge"->Sow}]][[2,1]]//HighlightGraph[rd,#]&;
@@ -128,25 +152,6 @@ randombfsVPartition[d_]:=Module[{p,vl,vt,ct,vused},
 		ct={}];
 	p];
 *)
-
-bfsVertexPartition[d_,r_]:=Module[{p,vl,vt,ct,vused},
-	p={}; ct={}; vused={}; vt={r};
-	vl=Complement[VertexList@d,vt];
-	AppendTo[p,{vt,ct}];
-	While[vl!={},
-		AppendTo[vused,#]&/@vt;
-		vt=Complement[#,vused]&@VertexInComponent[d,vt,1];
-		If[AcyclicGraphQ@Subgraph[d,vt],vt=TopologicalSort@Subgraph[d,vt],ct=FindCycle[Subgraph[d,vt],{2,3},All]];
-		AppendTo[p,{vt,ct}];		
-		vl=Complement[vl,vt];
-		ct={}];
-	p];
-
-maxOutDegreeVertexSet[d_]:=Module[{},
-	Flatten@Position[#,Max[#]]&@VertexOutDegree@d];
-
-feedbackVertexSetQ[d_,vs_]:=Module[{},
-	d//AcyclicGraphQ[Subgraph[#,Complement[VertexList[#],vs]]]&];
 
 End[]
 
