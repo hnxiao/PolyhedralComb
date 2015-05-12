@@ -34,6 +34,7 @@ minorOperation::usage="minorOperatin[g] returns nonisomorphic minors of graph g 
 minors::usage="minors[g] returns all minors of graph g"; 
 (*Caution: minors[g] is rather slow due to its intrinsic computational hard property. 
 But for specific problems, minor testing can be done in O(n2).*)
+immersionContraction::usge="immersionContraction[d,v] returns immersion minor of graph d after contracting vertex v";
 
 
 Begin["`Private`"]
@@ -146,6 +147,17 @@ minors[g_Graph]:=Module[{tm,m},
 			NestWhile[Sow[tm=nonIsomorphicGraphs@Flatten@Map[minorOperation,#]]&,
 						tm,UnsameQ[#,{}]&]]//Flatten;
 	nonIsomorphicGraphs@m];
+
+(*Working area*)
+
+immersionContraction[d_Graph,v_Integer]:=Module[{td,vl,el,Nin,Nout,Nio},
+Nin=VertexInComponent[d,{#},1]&;
+Nout=VertexOutComponent[d,{#},1]&;
+Nio=Intersection[Nin@#,Nout@#]&;
+vl=Union[List@#,Nio@#]&@v;
+td=VertexDelete[d,vl];
+el=Flatten@Outer[DirectedEdge,Complement[Nin@#,Nio@#],Complement[Nout@#,Nio@#]]&@v;
+Fold[EdgeAdd,td,Complement[el,EdgeList@d]]];
 
 (*Data storage area*)
 
