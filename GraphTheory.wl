@@ -34,7 +34,7 @@ GoodSemiCompleteDigraph::usage="GoodSemiCompleteDigraph[n,m] TRIES to return a s
 BFSVertexPartition::usage="BFSVertexPartition[d,r] returns a bfs vertex partition with root r. Moreover, each parition is returned in topological order if it is acyclic, otherwise a cycle list in this partition is accompanied";
 MaxOutDegreeVertexList::usage="MaxOutDegreeVertexList[d] returns all vertices with maximum out degree";
 BFSVertexPartitionList::usage="BFSVertexPartitionList[d] returns all bfs vertex partitions rooted at vertices with maximum outdegree by using BFSVertexPartition[d,r]";
-PossibleDigraphList::usage="PossibleDigraphList[g] returns all possible orientions in a semicomplete digraph with a given supporting structure";
+PossibleDigraphList::usage="PossibleDigraphList[d] returns all possible orientions in a semicomplete digraph with a given supporting structure";
 
 
 Begin["`Private`"]
@@ -203,9 +203,9 @@ MaxOutDegreeVertexList[d_Graph]:=Module[{},
 BFSVertexPartitionList[d_Graph]:=Module[{},
 	BFSVertexPartition[d,#]&/@MaxOutDegreeVertexList@d];
 
-PossibleDigraphList[gsupp_Graph]:=Module[{el},
-	el=DirectedEdge@@@{#,Reverse@#}&/@EdgeList@GraphComplement@UndirectedGraph@gsupp;
-	EdgeAdd[gsupp,#]&/@Tuples[el]];
+PossibleDigraphList[dsupp_Graph]:=Module[{el},
+	el=DirectedEdge@@@{#,Reverse@#}&/@EdgeList@GraphComplement@UndirectedGraph@dsupp;
+	EdgeAdd[dsupp,#]&/@Tuples[el]];
 
 
 End[]
