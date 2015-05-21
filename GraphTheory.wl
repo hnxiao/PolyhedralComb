@@ -34,6 +34,8 @@ GoodSemiCompleteDigraph::usage="GoodSemiCompleteDigraph[n,m] TRIES to return a s
 BFSVertexPartition::usage="BFSVertexPartition[d,r] returns a bfs vertex partition with root r. Moreover, each parition is returned in topological order if it is acyclic, otherwise a cycle list in this partition is accompanied";
 MaxOutDegreeVertexList::usage="MaxOutDegreeVertexList[d] returns all vertices with maximum out degree";
 BFSVertexPartitionList::usage="BFSVertexPartitionList[d] returns all bfs vertex partitions rooted at vertices with maximum outdegree by using BFSVertexPartition[d,r]";
+HangingCycleList::usage="HangingCycleList[d,v] returns all good distinct cycles incident to vertex v in digrah v";
+
 PossibleDigraphList::usage="PossibleDigraphList[d] returns all possible orientions in a semicomplete digraph with a given supporting structure";
 
 
@@ -202,6 +204,17 @@ MaxOutDegreeVertexList[d_Graph]:=Module[{},
 
 BFSVertexPartitionList[d_Graph]:=Module[{},
 	BFSVertexPartition[d,#]&/@MaxOutDegreeVertexList@d];
+
+HangingCycleList[d_Graph,v_Integer]:=Module[{vl,c2l,c3l,subg,cbad,td,ind},
+	ind={};
+	c2l=FindCycle[{d,v},{2},All];
+	vl=Intersection[VertexInComponent[d,{v},1],VertexOutComponent[d,{v},1]];
+	td=VertexDelete[d,Select[vl,UnsameQ[#,v]&]];
+	c3l=FindCycle[{td,v},{3},All];
+	subg=Subgraph[td,#]&@Union@Flatten[c3l/.DirectedEdge->List];
+	cbad=FindCycle[subg,{2},All];
+	If[cbad!={},Do[If[Flatten[Intersection[c3l[[i]],#]&/@cbad]!={},AppendTo[ind,i]],{i,Length@c3l}]];
+	Union[c2l,Delete[c3l,List/@ind]]];
 
 PossibleDigraphList[dsupp_Graph]:=Module[{el},
 	el=DirectedEdge@@@{#,Reverse@#}&/@EdgeList@GraphComplement@UndirectedGraph@dsupp;
