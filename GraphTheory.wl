@@ -11,20 +11,23 @@ PreferenceList::usage="PreferenceList[g] returns a random prefrence list";
 RothblumMatrix::usage="RothblumMatrix[g,pl] returns the Rothblum stability matrix";
 
 DeleteIsomorphicGraphs::usage="DeleteIsomorphicGraphs[gl] removes duplicate graphs under isomorphism";
-DeletionDistinctVertexList::usage="DeletionDistinctVertexList[g] returns the deletion-distinct vertices in graph g, where two vertices are deletion-distinct if their removal result in nonisomorphic graphs";
-DistinctEdgeList::usage="DistinctEdgeList[g] returns distinct edges in graph G, where two edges are distinct if their removal result in nonisomorphic graphs";
-FirstMinorList::usage="FirstMinorList[g] returns all nonisomorphic minors of graph g after one minor operation (vertex deletion, vertex contraction and edge deletion)";
-MinorList::usage="MinorList[g] returns all nonisomorphic minors of graph g"; 
-(*Caution: MinorList[g] is extremely slow due to its intrinsic computational hard property. 
-But for specific problems, minor testing can be done in O(n2).*)
 ImmersionContract::usage="ImmersionContract[d,v] returns the immersion minor of graph d after contracting vertex v";
-ImmersionDistinctVertexList::usage="ImmersionDistinctVertexList[g] returns the immersion-distinct vertices in graph d";
+DeletionDistinctVertexList::usage="DeletionDistinctVertexList[g] returns the deletion-distinct vertices in graph g, where two vertices are deletion-distinct if their removal result in nonisomorphic graphs";
+ContractionDistinctVertexList::usage="ContractionDistinctVertexList[g] returns the immersion-distinct vertices in graph d";
+DeletionDistinctEdgeList::usage="DeletionDistinctEdgeList[g] returns distinct edges in graph g, the deletion of which result in nonisomorphic graphs";
+ContractionDistinctEdgeList::usage="ContractionDistinctEdgeList[g] returns distinct edges in graph g, the constraction of which result in nonisomorphic graphs";
+FirstMinorList::usage="FirstMinorList[g] returns all nonisomorphic minors of graph g after one minor operation (vertex deletion, vertex contraction and edge deletion)";
 FirstImmersionList::usage="FirstImmersionList[d] returns all nonisomorphic immersions of graph d after one immersion operation (vertex deletion and immersion contraction)";
+(*Caution: MinorList and ImmersionList are extremely slow due to their intrinsic computational hard property. 
+But for specific problems, minor testing can be done in O(n2).*)
+MinorList::usage="MinorList[g] returns all nonisomorphic minors of graph g"; 
+ImmersionList::usage="ImmersionList[d] returns all nonisomorphic immersions of digraph d";
 
 ObstructionFreeQ::usage="ObstructionFreeQ[d,obs] tests whether digraph d is free of obstructions obs";
 ObstructionList::usage="ObstructionList[graphtype] returns the obstruction list of the given graph type";
 
 FeedbackVertexSetQ::usage="FeedbackVertexSetQ[d,vs] tests whether vertex set vs is a feedback vertex set";
+FeedbackVertexSetList::usage="FeedbackVertexSetList[g] returns all minimum feedback vertex sets";
 
 Tournament::usage="Tournament[n] returns a random tournament";
 SemiCompleteDigraph::usage="SemiCompleteDigraph[n,m] returns a random semicomplete digraph with m opposite oriented arcs ";
@@ -77,9 +80,21 @@ RothblumMatrix[g_Graph,pl_List]:=Module[{el},
 DeleteIsomorphicGraphs[gl_List]:= Module[{},
 	Return[DeleteDuplicates[gl,IsomorphicGraphQ[#1,#2]&]];];
 
+ImmersionContract[d_Graph,v_Integer]:=Module[{vl,el,Nin,Nout,Nio},
+	Nin=VertexInComponent[d,{#},1]&;
+	Nout=VertexOutComponent[d,{#},1]&;
+	Nio=Intersection[Nin@#,Nout@#]&;
+	vl=Union[List@#,Nio@#]&@v;
+	el=Flatten@Outer[DirectedEdge,Complement[Nin@#,Nio@#],Complement[Nout@#,Nio@#]]&@v;
+	EdgeAdd[VertexDelete[d,vl],#]&@Complement[el,EdgeList@d]];
+
 DeletionDistinctVertexList[g_Graph]:= Module[{vl},
 	vl=VertexList@g;
 	Return[DeleteDuplicates[vl,IsomorphicGraphQ[VertexDelete[g,#1],VertexDelete[g,#2]]&]];];
+
+ContractionDistinctVertexList[d_Graph]:= Module[{vl},
+	vl=VertexList@d;
+	Return[DeleteDuplicates[vl,IsomorphicGraphQ[ImmersionContract[d,#1],ImmersionContract[d,#2]]&]];];
 
 DeletionDistinctEdgeList[g_Graph]:= Module[{el},
 	el=EdgeList@g;
@@ -89,44 +104,48 @@ ContractionDistinctEdgeList[g_Graph]:= Module[{el},
 	el=EdgeList@g;
 	Return[DeleteDuplicates[el,IsomorphicGraphQ[EdgeContract[g,#1],EdgeContract[g,#2]]&]];];
 
-FirstMinorList[g_Graph]:=Module[{dvl,del,cel,ml},
+FirstMinorList[g_Graph]:=Module[{dvl,del,cel,fml},
 	dvl=DeletionDistinctVertexList@g;
 	del=DeletionDistinctEdgeList@g;
 	cel=ContractionDistinctEdgeList@g;
-	ml=Reap[Sow@VertexDelete[g,#]&/@dvl;
-				Sow@EdgeContract[g,#]&/@cel;
-				Sow@EdgeDelete[g,#]&/@del;][[2,1]];
-	ml=Graph/@Select[EdgeList/@ml,UnsameQ[#,{}]&]; (*Delete isolated vertices*)
-	DeleteIsomorphicGraphs[ml]];
+	fml=Union[VertexDelete[g,#]&/@dvl,EdgeDelete[g,#]&/@del,EdgeContract[g,#]&/@cel];
+	fml=Select[fml,WeaklyConnectedGraphQ];
+	fml=Graph/@Select[EdgeList/@fml,UnsameQ[#,{}]&]; (*Delete isolated vertices*)
+	DeleteIsomorphicGraphs[fml]];
 
-MinorList[g_Graph]:=Module[{tml,ml},
-	ml=Reap[Sow[tml=FirstMinorList@g];
-			NestWhile[Sow[tml=DeleteIsomorphicGraphs@Flatten@Map[FirstMinorList,#]]&,
-						tml,UnsameQ[#,{}]&]]//Flatten;
-	DeleteIsomorphicGraphs@ml];
-
-ImmersionContract[d_Graph,v_Integer]:=Module[{vl,el,Nin,Nout,Nio},
-	Nin=VertexInComponent[d,{#},1]&;
-	Nout=VertexOutComponent[d,{#},1]&;
-	Nio=Intersection[Nin@#,Nout@#]&;
-	vl=Union[List@#,Nio@#]&@v;
-	el=Flatten@Outer[DirectedEdge,Complement[Nin@#,Nio@#],Complement[Nout@#,Nio@#]]&@v;
-	Fold[EdgeAdd,VertexDelete[d,vl],Complement[el,EdgeList@d]]];
-
-ImmersionDistinctVertexList[d_Graph]:= Module[{vl},
-	vl=VertexList@d;
-	Return[DeleteDuplicates[vl,IsomorphicGraphQ[ImmersionContract[d,#1],ImmersionContract[d,#2]]&]];];
-
-FirstImmersionList[d_Graph]:=Module[{dvl,ivl,iml},
+FirstImmersionList[d_Graph]:=Module[{dvl,cvl,fiml},
 	dvl=DeletionDistinctVertexList[d];
-	ivl=ImmersionDistinctVertexList[d];
-	iml=Reap[Sow@VertexDelete[d,#]&/@dvl;
-				Sow@ImmersionContract[d,#]&/@ivl][[2,1]];
-	iml=Graph/@Select[EdgeList/@iml,UnsameQ[#,{}]&]; (*Delete isolated vertices*)
-	DeleteIsomorphicGraphs@iml];
+	cvl=ContractionDistinctVertexList[d];
+	fiml=Union[VertexDelete[d,#]&/@dvl,ImmersionContract[d,#]&/@cvl];
+	fiml=Select[fiml,WeaklyConnectedGraphQ];
+	fiml=Graph/@Select[EdgeList/@fiml,UnsameQ[#,{}]&]; (*Delete isolated vertices*)
+	DeleteIsomorphicGraphs@fiml];
+
+(*Danger zone*)
+MinorList[g_Graph]:=Module[{fml,ml},
+	fml=FirstMinorList@g;
+	ml=NestWhileList[DeleteIsomorphicGraphs@Flatten@Map[FirstMinorList,#]&,fml,UnsameQ[#,{}]&];
+	DeleteIsomorphicGraphs@Flatten@ml];
+(* Not working yet, just try to put it recursively
+MinorList[g_Graph]:=Module[{fml},
+fml=FirstMinorList@g;
+DeleteIsomorphicGraphs@Flatten@Reap[If[UnsameQ[#,{}],Sow@Apply[MinorList,#,{2}]]&@fml]];
+*)
+ImmersionList[d_Graph]:=Module[{fiml,iml},
+	fiml=FirstImmersionList@d;
+	iml=NestWhileList[DeleteIsomorphicGraphs@Flatten@Map[FirstImmersionList,#]&,fiml,UnsameQ[#,{}]&];
+	DeleteIsomorphicGraphs@Flatten@iml];
+
+(*To do*)
+(*
+SubgraphQ[g,sub]
+
+MinorQ[g,m]
+*)
 
 
-(*Graph obstructions*)
+
+(*Obstruction tests*)
 ObstructionFreeQ[d_Graph,obsl_List]:=Module[{subgl,vcobs},
 	vcobs=VertexCount/@obsl;
 	subgl=Subgraph[d,#]&/@Subsets[VertexList@d,{Min@vcobs,Min[VertexCount@d,Max@vcobs]}];
@@ -164,9 +183,15 @@ ObstructionList[s_String]:=Module[{obs,f1Supp,f1,f2,f3,f41,f42Supp,f42,f43,f51Su
 	Return[{}]];
 
 
-(*Miscellaneous*)
-FeedbackVertexSetQ[d_Graph,vs_List]:=Module[{},
-	AcyclicGraphQ[Subgraph[#,Complement[VertexList[#],vs]]]&@d];
+(*Feedback Vertex Sets*)
+FeedbackVertexSetQ[g_Graph,vs_List]:=Module[{},
+	AcyclicGraphQ[Subgraph[#,Complement[VertexList[#],vs]]]&@g];
+
+FeedbackVertexSetList[g_Graph]:=Module[{vsl,fvsl},
+	vsl=Subsets[VertexList@g,{#}]&/@Range[VertexCount@g];
+	Do[fvsl=Select[vsl[[i]],FeedbackVertexSetQ[g,#]&];
+		If[fvsl!={},Return@fvsl],{i,Length@vsl}]
+	];
 
 
 (*Min-Max properties in semicomplete digraphs*)
