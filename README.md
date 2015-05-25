@@ -1,5 +1,5 @@
-# PolyhedralComb
-Functions for polyhedral combinatorics in Wolfram Language
+# GraphTheory
+Functions for Graph Theory in Wolfram Language
 
 ## To Do
 1. Domination matrix

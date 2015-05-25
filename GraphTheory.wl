@@ -126,10 +126,9 @@ MinorList[g_Graph]:=Module[{fml,ml},
 	fml=FirstMinorList@g;
 	ml=NestWhileList[DeleteIsomorphicGraphs@Flatten@Map[FirstMinorList,#]&,fml,UnsameQ[#,{}]&];
 	DeleteIsomorphicGraphs@Flatten@ml];
-(* Not working yet, just try to put it recursively
-MinorList[g_Graph]:=Module[{fml},
-fml=FirstMinorList@g;
-DeleteIsomorphicGraphs@Flatten@Reap[If[UnsameQ[#,{}],Sow@Apply[MinorList,#,{2}]]&@fml]];
+(* Since recursion backtrace is extremely slow in Mma, we use Nest here instead. But a MinorList in recursive way is attached below.
+MinorList[g_Graph]:=Module[{},
+	Return@DeleteIsomorphicGraphs@Union[#,Flatten@Map[MinorList,#]]&@FirstMinorList[g]];
 *)
 ImmersionList[d_Graph]:=Module[{fiml,iml},
 	fiml=FirstImmersionList@d;
@@ -139,7 +138,6 @@ ImmersionList[d_Graph]:=Module[{fiml,iml},
 (*To do*)
 (*
 SubgraphQ[g,sub]
-
 MinorQ[g,m]
 *)
 
