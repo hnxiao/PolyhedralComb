@@ -36,6 +36,7 @@ GoodTournament::usage="GoodTournament[n] TRIES to return a strongly connected ra
 GoodSemiCompleteDigraph::usage="GoodSemiCompleteDigraph[n,m] TRIES to return a strongly connected random semicomplete digraph without obstructions within 1000 attempts";
 BFSVertexPartition::usage="BFSVertexPartition[d,r] returns a bfs vertex partition with root r. Moreover, each parition is returned in topological order if it is acyclic, otherwise a cycle list in this partition is accompanied";
 MaxOutDegreeVertexList::usage="MaxOutDegreeVertexList[d] returns all vertices with maximum out degree";
+MinInDegreeVertexList::usage="MinInDegreeVertexList[d] returns all vertices with minimum in degree";
 BFSVertexPartitionList::usage="BFSVertexPartitionList[d] returns all bfs vertex partitions rooted at vertices with maximum outdegree by using BFSVertexPartition[d,r]";
 HangingCycleList::usage="HangingCycleList[d,v] returns all good distinct cycles incident to vertex v in digrah v";
 
@@ -224,6 +225,9 @@ BFSVertexPartition[d_Graph,r_Integer]:=Module[{p,vl,vt,ct,vused},
 
 MaxOutDegreeVertexList[d_Graph]:=Module[{},
 	Flatten@Position[#,Max[#]]&@VertexOutDegree@d];
+
+MinInDegreeVertexList[d_Graph]:=Module[{},
+	Flatten@Position[#,Min[#]]&@VertexInDegree@d];
 
 BFSVertexPartitionList[d_Graph]:=Module[{},
 	BFSVertexPartition[d,#]&/@MaxOutDegreeVertexList@d];
