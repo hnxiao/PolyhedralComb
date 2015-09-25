@@ -9,6 +9,8 @@ CycleEdgeMatrix::usage="CycleEdgeMatrix[g] returns the cycle edge incidence matr
 CycleArcMatrix::usage="CycleArcMatrix[d] returns the cycle arc incidence matrix for directed graphs ONLY";
 PreferenceList::usage="PreferenceList[g] returns a random prefrence list";
 RothblumMatrix::usage="RothblumMatrix[g,pl] returns the Rothblum stability matrix";
+CliqueVertexMatrix::usage="CliqueVertexMatrix[g] returns the clique vertex incidence matrix for graph g";
+DominationMatrix::usage="DominationMatrix[g] returns the kernel domination matrix";
 
 DeleteIsomorphicGraphs::usage="DeleteIsomorphicGraphs[gl] removes duplicate graphs under isomorphism";
 ImmersionContract::usage="ImmersionContract[d,v] returns the immersion minor of graph d after contracting vertex v";
@@ -246,6 +248,12 @@ HangingCycleList[d_Graph,v_Integer]:=Module[{vl,c2l,c3l,subg,cbad,td,ind},
 PossibleDigraphList[dsupp_Graph]:=Module[{el},
 	el=DirectedEdge@@@{#,Reverse@#}&/@EdgeList@GraphComplement@UndirectedGraph@dsupp;
 	EdgeAdd[dsupp,#]&/@Tuples[el]];
+
+
+DominationMatrix[g_Graph]:=Module[{},
+	Outer[Boole[MemberQ[Flatten[List@@@#1],#2]]&,VertexOutComponent[g,{#},1]&/@VertexList[g],VertexList@g,1]];
+CliqueVertexMatrix[g_Graph]:=Module[{},
+	Outer[Boole[MemberQ[Flatten[List@@@#1],#2]]&,FindClique[UndirectedGraph@g,Infinity,All],VertexList@g,1]];
 
 
 End[]
