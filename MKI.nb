@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     18946,        520]
-NotebookOptionsPosition[     18181,        491]
-NotebookOutlinePosition[     18539,        507]
-CellTagsIndexPosition[     18496,        504]
+NotebookDataLength[     19053,        523]
+NotebookOptionsPosition[     18287,        494]
+NotebookOutlinePosition[     18646,        510]
+CellTagsIndexPosition[     18603,        507]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -425,7 +425,10 @@ Cell[BoxData[
        RowBox[{"Sort", "@", 
         RowBox[{"VertexInComponent", "[", 
          RowBox[{"g", ",", "l", ",", "1"}], "]"}]}], "\[Equal]", 
-       RowBox[{"VertexList", "@", "g"}]}], "]"}]}], "]"}]}], ";"}]], "Input"],
+       RowBox[{"Sort", "@", 
+        RowBox[{"VertexList", "[", "g", "]"}]}]}], "]"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.653911200220748*^9, 3.653911206010627*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -490,7 +493,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{808, 586},
-WindowMargins->{{Automatic, -7}, {Automatic, 42}},
+WindowMargins->{{189, Automatic}, {Automatic, 18}},
 FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
 2014)",
 StyleDefinitions->"Default.nb"
@@ -517,9 +520,9 @@ Cell[9288, 230, 1375, 36, 148, "Input"],
 Cell[10666, 268, 2297, 65, 148, "Input"],
 Cell[12966, 335, 1368, 36, 148, "Input"],
 Cell[14337, 373, 1376, 39, 97, "Input"],
-Cell[15716, 414, 470, 13, 46, "Input"],
-Cell[16189, 429, 822, 23, 80, "Input"],
-Cell[17014, 454, 1139, 33, 148, "Input"]
+Cell[15716, 414, 576, 16, 80, "Input"],
+Cell[16295, 432, 822, 23, 80, "Input"],
+Cell[17120, 457, 1139, 33, 114, "Input"]
 }, Open  ]]
 }, Open  ]]
 }
