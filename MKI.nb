@@ -1,0 +1,529 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     18946,        520]
+NotebookOptionsPosition[     18181,        491]
+NotebookOutlinePosition[     18539,        507]
+CellTagsIndexPosition[     18496,        504]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Minimal kernel-imperfect (MKI)", "Title",
+ CellChangeTimes->{{3.653906624517919*^9, 3.653906643173071*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Generating functions", "Chapter",
+ CellChangeTimes->{{3.6539067831630297`*^9, 3.65390678715387*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"LineGraphObstList", "[", 
+    RowBox[{"n_Integer:", "7"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "f1", ",", "f2", ",", "f3", ",", "f4", ",", "f5", ",", "f6", ",", 
+       "f7"}], "}"}], ",", "\n", "        ", 
+     RowBox[{
+      RowBox[{"f1", "=", 
+       RowBox[{"Graph", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "\[UndirectedEdge]", "2"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "3"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "4"}]}], "}"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"f2", "=", 
+       RowBox[{"Graph", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "\[UndirectedEdge]", "2"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "3"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "3"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "4"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "4"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "5"}], ",", 
+          RowBox[{"4", "\[UndirectedEdge]", "5"}], ",", 
+          RowBox[{"4", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"5", "\[UndirectedEdge]", "6"}]}], "}"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"f3", "=", 
+       RowBox[{"Graph", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "\[UndirectedEdge]", "2"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "3"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "4"}], ",", 
+          RowBox[{"4", "\[UndirectedEdge]", "5"}], ",", 
+          RowBox[{"5", "\[UndirectedEdge]", "1"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"4", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"5", "\[UndirectedEdge]", "6"}]}], "}"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"f4", "=", 
+       RowBox[{"Graph", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "\[UndirectedEdge]", "2"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "3"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "4"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "5"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "3"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "4"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"4", "\[UndirectedEdge]", "5"}], ",", 
+          RowBox[{"5", "\[UndirectedEdge]", "6"}]}], "}"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"f5", "=", 
+       RowBox[{"Graph", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "\[UndirectedEdge]", "2"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "3"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "4"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "5"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "3"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "4"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"4", "\[UndirectedEdge]", "5"}], ",", 
+          RowBox[{"4", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"5", "\[UndirectedEdge]", "6"}]}], "}"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"f6", "=", 
+       RowBox[{"Graph", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "\[UndirectedEdge]", "2"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "3"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "4"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "5"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "7"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "3"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "4"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "7"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "5"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "7"}], ",", 
+          RowBox[{"4", "\[UndirectedEdge]", "5"}], ",", 
+          RowBox[{"4", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"4", "\[UndirectedEdge]", "7"}], ",", 
+          RowBox[{"5", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"5", "\[UndirectedEdge]", "7"}], ",", 
+          RowBox[{"6", "\[UndirectedEdge]", "7"}]}], "}"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"f7", "=", 
+       RowBox[{"Graph", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "\[UndirectedEdge]", "2"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "3"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "4"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "5"}], ",", 
+          RowBox[{"1", "\[UndirectedEdge]", "7"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "3"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "4"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"2", "\[UndirectedEdge]", "7"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "5"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"3", "\[UndirectedEdge]", "7"}], ",", 
+          RowBox[{"4", "\[UndirectedEdge]", "5"}], ",", 
+          RowBox[{"4", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"4", "\[UndirectedEdge]", "7"}], ",", 
+          RowBox[{"5", "\[UndirectedEdge]", "6"}], ",", 
+          RowBox[{"5", "\[UndirectedEdge]", "7"}], ",", 
+          RowBox[{"6", "\[UndirectedEdge]", "7"}]}], "}"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Which", "[", 
+       RowBox[{
+        RowBox[{"n", "<", "6"}], ",", 
+        RowBox[{"{", "f1", "}"}], ",", 
+        RowBox[{"n", "\[Equal]", "6"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"f1", ",", "f2", ",", "f3", ",", "f4", ",", "f5"}], "}"}], 
+        ",", 
+        RowBox[{"n", ">", "6"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+         "f1", ",", "f2", ",", "f3", ",", "f4", ",", "f5", ",", "f6", ",", 
+          "f7"}], "}"}]}], "]"}]}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "All", " ", "connected", " ", "graphs", " ", "with", " ", "n", " ", 
+    "vertices"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ConnectedGraphList", "[", "n_Integer", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"g", ",", "el", ",", "elp", ",", "gl", ",", "cgl"}], "}"}], 
+      ",", "\n", "        ", 
+      RowBox[{
+       RowBox[{"g", "=", 
+        RowBox[{"CompleteGraph", "[", "n", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"el", "=", 
+        RowBox[{"EdgeList", "[", "g", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"elp", "=", 
+        RowBox[{"Subsets", "[", "el", "]"}]}], ";", " ", 
+       RowBox[{"(*", 
+        RowBox[{
+        "Power", " ", "set", " ", "of", " ", "the", " ", "edge", " ", 
+         "list"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"gl", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"EdgeDelete", "[", 
+           RowBox[{"g", ",", "#"}], "]"}], "&"}], "/@", "elp"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"cgl", "=", 
+        RowBox[{"Select", "[", 
+         RowBox[{"gl", ",", "ConnectedGraphQ"}], "]"}]}], ";", " ", 
+       RowBox[{"(*", "Connected", "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"Return", "@", 
+        RowBox[{"DeleteIsomorphicGraphs", "[", "cgl", "]"}]}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], ";"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"LineGraphList", "[", "n_Integer", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "gl", "}"}], ",", "\n", "       ", 
+     RowBox[{
+      RowBox[{"gl", "=", 
+       RowBox[{"ConnectedGraphList", "[", "n", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "@", 
+       RowBox[{"Select", "[", 
+        RowBox[{"gl", ",", 
+         RowBox[{
+          RowBox[{"ObstructionFreeQ", "[", 
+           RowBox[{"#", ",", 
+            RowBox[{"LineGraphObstList", "[", "n", "]"}]}], "]"}], "&"}]}], 
+        "]"}]}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"SuperOrientationList", "[", "g_Graph", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"el", ",", "al1", ",", "al2", ",", "al3", ",", "al"}], "}"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"el", "=", 
+       RowBox[{"EdgeList", "[", "g", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"al1", "=", 
+       RowBox[{"DirectedEdge", "@@@", "el"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"al2", "=", 
+       RowBox[{"Reverse", "/@", 
+        RowBox[{"DirectedEdge", "@@@", "el"}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"al3", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Subsets", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "2"}], "}"}]}], "]"}], "&"}], "/@", 
+        RowBox[{"Thread", "[", 
+         RowBox[{"List", "[", 
+          RowBox[{"al1", ",", "al2"}], "]"}], "]"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"al", "=", 
+       RowBox[{"Flatten", "/@", 
+        RowBox[{"Tuples", "@", "al3"}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "@", 
+       RowBox[{"DeleteIsomorphicGraphs", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Graph", "[", "#", "]"}], "&"}], "/@", "al"}], "]"}]}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"CliqueAcyclicQ", "[", "g_Graph", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"cl", ",", "subgl", ",", "vpl", ",", "onewayal", ",", "gl"}], 
+      "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"cl", "=", 
+       RowBox[{"FindClique", "[", 
+        RowBox[{
+         RowBox[{"UndirectedGraph", "@", "g"}], ",", 
+         RowBox[{"Length", "@", 
+          RowBox[{"VertexList", "[", "g", "]"}]}], ",", "All"}], "]"}]}], ";",
+       " ", 
+      RowBox[{"(*", 
+       RowBox[{"All", " ", "cliques"}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"subgl", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Subgraph", "[", 
+          RowBox[{"g", ",", "#"}], "]"}], "&"}], "/@", "cl"}]}], ";", " ", 
+      RowBox[{"(*", 
+       RowBox[{
+       "All", " ", "subgraph", " ", "induced", " ", "on", " ", "cliques"}], 
+       "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"vpl", "=", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"Subsets", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"{", "2", "}"}]}], "]"}], "&"}], "/@", "cl"}], ",", 
+         "1"}], "]"}]}], ";", " ", 
+      RowBox[{"(*", 
+       RowBox[{
+       "All", " ", "vertex", " ", "pairs", " ", "from", " ", "each", " ", 
+        "clique"}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"onewayal", "=", 
+       RowBox[{"Tuples", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"EdgeList", "@", 
+           RowBox[{"Subgraph", "[", 
+            RowBox[{"g", ",", "#"}], "]"}]}], "&"}], "/@", "vpl"}], "]"}]}], 
+      ";", " ", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"All", " ", "one"}], "-", 
+        RowBox[{"way", " ", "arc", " ", "sets"}]}], "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"gl", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Graph", "[", "#", "]"}], "&"}], "/@", "onewayal"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Apply", "[", 
+        RowBox[{"And", ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"AcyclicGraphQ", "[", "#", "]"}], "&"}], "/@", "gl"}]}], 
+        "]"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"FindChordQ", "[", 
+    RowBox[{"g_Graph", ",", "l_List"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"c", ",", "vl", ",", "vpl", ",", "pal", ",", "chordlist"}], 
+      "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"c", "=", 
+       RowBox[{"Graph", "@", "l"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"vl", "=", 
+       RowBox[{"VertexList", "@", "c"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"vpl", "=", 
+       RowBox[{"Subsets", "[", 
+        RowBox[{"vl", ",", 
+         RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"pal", "=", 
+       RowBox[{"Union", "[", 
+        RowBox[{
+         RowBox[{"DirectedEdge", "@@@", "vpl"}], ",", 
+         RowBox[{"Reverse", "/@", 
+          RowBox[{"DirectedEdge", "@@@", "vpl"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"chordlist", "=", 
+       RowBox[{"Complement", "[", 
+        RowBox[{"pal", ",", "l"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "@", 
+       RowBox[{"Apply", "[", 
+        RowBox[{"Or", ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"EdgeQ", "[", 
+            RowBox[{"g", ",", "#"}], "]"}], "&"}], "/@", "chordlist"}]}], 
+        "]"}]}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Good", ":", " ", 
+    RowBox[{
+     RowBox[{"It", " ", "is", " ", "clique"}], "-", 
+     RowBox[{
+     "acyclic", " ", "and", " ", "every", " ", "directed", " ", "odd", " ", 
+      "cycle", " ", "has", " ", "a", " ", 
+      RowBox[{"(", 
+       RowBox[{"pseudo", "-"}], ")"}], "chord"}]}]}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"GoodQ", "[", "g_Graph", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "cl", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"cl", "=", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"FindCycle", "[", 
+            RowBox[{"g", ",", 
+             RowBox[{"{", "#", "}"}], ",", "All"}], "]"}], "&"}], "/@", 
+          RowBox[{"Select", "[", 
+           RowBox[{
+            RowBox[{"VertexList", "@", "g"}], ",", "OddQ"}], "]"}]}], ",", 
+         "1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{
+        RowBox[{"CliqueAcyclicQ", "[", "g", "]"}], "&&", 
+        RowBox[{"Apply", "[", 
+         RowBox[{"And", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"FindChordQ", "[", 
+             RowBox[{"g", ",", "#"}], "]"}], "&"}], "/@", "cl"}]}], "]"}]}], 
+       "]"}]}]}], "\[IndentingNewLine]", "]"}]}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"KernelQ", "[", 
+    RowBox[{"g_Graph", ",", "l_List"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{
+       RowBox[{"Sort", "@", 
+        RowBox[{"VertexInComponent", "[", 
+         RowBox[{"g", ",", "l", ",", "1"}], "]"}]}], "\[Equal]", 
+       RowBox[{"VertexList", "@", "g"}]}], "]"}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"FindKernelQ", "[", "g_Graph", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "pkl", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"pkl", "=", 
+       RowBox[{"FindIndependentVertexSet", "[", 
+        RowBox[{"g", ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", 
+           RowBox[{"Length", "@", 
+            RowBox[{"VertexList", "[", "g", "]"}]}]}], "}"}], ",", "All"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Apply", "[", 
+        RowBox[{"Or", ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"KernelQ", "[", 
+            RowBox[{"g", ",", "#"}], "]"}], "&"}], "/@", "pkl"}]}], "]"}], 
+       "]"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"MKIQ", "[", "g_Graph", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"vl", ",", "subvl", ",", "subgl"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"vl", "=", 
+       RowBox[{"VertexList", "@", "g"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"subvl", "=", 
+       RowBox[{"Subsets", "[", 
+        RowBox[{"vl", ",", 
+         RowBox[{"{", 
+          RowBox[{"3", ",", 
+           RowBox[{
+            RowBox[{"Length", "@", "vl"}], "-", "1"}]}], "}"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"subgl", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Subgraph", "[", 
+          RowBox[{"g", ",", "#"}], "]"}], "&"}], "/@", "subvl"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{
+        RowBox[{"Not", "@", 
+         RowBox[{"FindKernelQ", "[", "g", "]"}]}], "&&", 
+        RowBox[{"Apply", "[", 
+         RowBox[{"And", ",", 
+          RowBox[{"FindKernelQ", "/@", "subgl"}]}], "]"}]}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]], "Input"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 586},
+WindowMargins->{{Automatic, -7}, {Automatic, 42}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 113, 1, 92, "Title"],
+Cell[CellGroupData[{
+Cell[718, 27, 106, 1, 65, "Chapter"],
+Cell[827, 30, 6339, 138, 199, "Input"],
+Cell[7169, 170, 1465, 38, 165, "Input"],
+Cell[8637, 210, 648, 18, 80, "Input"],
+Cell[9288, 230, 1375, 36, 148, "Input"],
+Cell[10666, 268, 2297, 65, 148, "Input"],
+Cell[12966, 335, 1368, 36, 148, "Input"],
+Cell[14337, 373, 1376, 39, 97, "Input"],
+Cell[15716, 414, 470, 13, 46, "Input"],
+Cell[16189, 429, 822, 23, 80, "Input"],
+Cell[17014, 454, 1139, 33, 148, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
