@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     46268,       1211]
-NotebookOptionsPosition[     42246,       1084]
-NotebookOutlinePosition[     42602,       1100]
-CellTagsIndexPosition[     42559,       1097]
+NotebookDataLength[    146692,       3090]
+NotebookOptionsPosition[    142303,       2958]
+NotebookOutlinePosition[    142660,       2974]
+CellTagsIndexPosition[    142617,       2971]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -32,21 +32,1838 @@ Cell["All MKIs with 6 vertices", "Section",
 Cell[BoxData[
  RowBox[{
   RowBox[{"LGList", "=", 
-   RowBox[{"LineGraphList", "[", "6", "]"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.653907145952566*^9, 3.653907160325858*^9}, {
-  3.653907200205402*^9, 3.653907201168931*^9}, {3.653974199205757*^9, 
-  3.6539742014816303`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Length", "@", "LGList"}]], "Input",
- CellChangeTimes->{{3.653907187761389*^9, 3.653907214841226*^9}, 
-   3.653974213679949*^9}],
-
-Cell[BoxData["46"], "Output",
- CellChangeTimes->{3.653907215569343*^9, 3.6539742149105387`*^9}]
-}, Open  ]],
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 5, 10, 15, 20, 25, 30}, {{2}, {3}, {4}, {5}, {6}, {1}, {
+              3}, {4}, {5}, {6}, {1}, {2}, {4}, {5}, {6}, {1}, {2}, {3}, {
+              5}, {6}, {1}, {2}, {3}, {4}, {6}, {1}, {2}, {3}, {4}, {5}}}, 
+             Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 2}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 4, 8, 13, 18, 23, 28}, {{3}, {4}, {5}, {6}, {3}, {4}, {
+              5}, {6}, {1}, {2}, {4}, {5}, {6}, {1}, {2}, {3}, {5}, {6}, {
+              1}, {2}, {3}, {4}, {6}, {1}, {2}, {3}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 3, 7, 11, 16, 21, 26}, {{4}, {5}, {6}, {3}, {4}, {5}, {
+              6}, {2}, {4}, {5}, {6}, {1}, {2}, {3}, {5}, {6}, {1}, {2}, {
+              3}, {4}, {6}, {1}, {2}, {3}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 4, 8, 12, 16, 21, 26}, {{3}, {4}, {5}, {6}, {3}, {4}, {
+              5}, {6}, {1}, {2}, {5}, {6}, {1}, {2}, {5}, {6}, {1}, {2}, {
+              3}, {4}, {6}, {1}, {2}, {3}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 6, 10, 14, 19, 24}, {{5}, {6}, {3}, {4}, {5}, {6}, {
+              2}, {4}, {5}, {6}, {2}, {3}, {5}, {6}, {1}, {2}, {3}, {4}, {
+              6}, {1}, {2}, {3}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 3, 6, 10, 14, 19, 24}, {{4}, {5}, {6}, {3}, {5}, {6}, {
+              2}, {4}, {5}, {6}, {1}, {3}, {5}, {6}, {1}, {2}, {3}, {4}, {
+              6}, {1}, {2}, {3}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 3, 7, 11, 15, 19, 24}, {{4}, {5}, {6}, {3}, {4}, {5}, {
+              6}, {2}, {4}, {5}, {6}, {1}, {2}, {3}, {6}, {1}, {2}, {3}, {
+              6}, {1}, {2}, {3}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 4, 8, 12, 16, 20, 24}, {{3}, {4}, {5}, {6}, {3}, {4}, {
+              5}, {6}, {1}, {2}, {5}, {6}, {1}, {2}, {5}, {6}, {1}, {2}, {
+              3}, {4}, {1}, {2}, {3}, {4}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 5, 9, 13, 17, 22}, {{6}, {3}, {4}, {5}, {6}, {2}, {
+              4}, {5}, {6}, {2}, {3}, {5}, {6}, {2}, {3}, {4}, {6}, {1}, {
+              2}, {3}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 5, 9, 13, 17, 22}, {{5}, {6}, {3}, {4}, {6}, {2}, {
+              4}, {5}, {6}, {2}, {3}, {5}, {6}, {1}, {3}, {4}, {6}, {1}, {
+              2}, {3}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 6, 10, 14, 18, 22}, {{5}, {6}, {3}, {4}, {5}, {6}, {
+              2}, {4}, {5}, {6}, {2}, {3}, {5}, {6}, {1}, {2}, {3}, {4}, {
+              1}, {2}, {3}, {4}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 3, 6, 9, 12, 17, 22}, {{4}, {5}, {6}, {3}, {5}, {6}, {
+              2}, {5}, {6}, {1}, {5}, {6}, {1}, {2}, {3}, {4}, {6}, {1}, {
+              2}, {3}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 3, 6, 9, 13, 17, 22}, {{4}, {5}, {6}, {3}, {5}, {6}, {
+              2}, {4}, {6}, {1}, {3}, {5}, {6}, {1}, {2}, {4}, {6}, {1}, {
+              2}, {3}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 3, 7, 11, 14, 18, 22}, {{4}, {5}, {6}, {3}, {4}, {5}, {
+              6}, {2}, {4}, {5}, {6}, {1}, {2}, {3}, {1}, {2}, {3}, {6}, {
+              1}, {2}, {3}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 4, 8, 12, 16, 20}, {{6}, {3}, {4}, {5}, {2}, {4}, {
+              5}, {6}, {2}, {3}, {5}, {6}, {2}, {3}, {4}, {6}, {1}, {3}, {
+              4}, {5}}}, Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 4, 8, 12, 16, 20}, {{5}, {6}, {3}, {4}, {2}, {4}, {
+              5}, {6}, {2}, {3}, {5}, {6}, {1}, {3}, {4}, {6}, {1}, {3}, {
+              4}, {5}}}, Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 5, 8, 12, 15, 20}, {{5}, {6}, {3}, {4}, {6}, {2}, {
+              4}, {6}, {2}, {3}, {5}, {6}, {1}, {4}, {6}, {1}, {2}, {3}, {
+              4}, {5}}}, Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 5, 8, 12, 16, 20}, {{5}, {6}, {3}, {4}, {6}, {2}, {
+              4}, {5}, {2}, {3}, {5}, {6}, {1}, {3}, {4}, {6}, {1}, {2}, {
+              4}, {5}}}, Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 5, 9, 13, 16, 20}, {{5}, {6}, {3}, {4}, {6}, {2}, {
+              4}, {5}, {6}, {2}, {3}, {5}, {6}, {1}, {3}, {4}, {1}, {2}, {
+              3}, {4}}}, Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 3, 6, 9, 12, 16, 20}, {{4}, {5}, {6}, {3}, {5}, {6}, {
+              2}, {5}, {6}, {1}, {5}, {6}, {1}, {2}, {3}, {4}, {1}, {2}, {
+              3}, {4}}}, Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 3, 6, 10, 14, 18}, {{6}, {4}, {5}, {4}, {5}, {6}, {
+              2}, {3}, {5}, {6}, {2}, {3}, {4}, {6}, {1}, {3}, {4}, {5}}}, 
+             Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 4, 7, 11, 15, 18}, {{6}, {3}, {4}, {5}, {2}, {4}, {
+              5}, {2}, {3}, {5}, {6}, {2}, {3}, {4}, {6}, {1}, {4}, {5}}}, 
+             Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 4, 6, 10, 14, 18}, {{5}, {6}, {4}, {6}, {4}, {5}, {
+              2}, {3}, {5}, {6}, {1}, {3}, {4}, {6}, {1}, {2}, {4}, {5}}}, 
+             Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 5, 8, 11, 13, 18}, {{5}, {6}, {3}, {4}, {6}, {2}, {
+              4}, {6}, {2}, {3}, {6}, {1}, {6}, {1}, {2}, {3}, {4}, {5}}}, 
+             Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 5, 8, 11, 14, 18}, {{5}, {6}, {3}, {4}, {6}, {2}, {
+              4}, {6}, {2}, {3}, {5}, {1}, {4}, {6}, {1}, {2}, {3}, {5}}}, 
+             Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 5, 8, 12, 14, 18}, {{5}, {6}, {3}, {4}, {6}, {2}, {
+              4}, {6}, {2}, {3}, {5}, {6}, {1}, {4}, {1}, {2}, {3}, {4}}}, 
+             Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 5, 8, 12, 15, 18}, {{5}, {6}, {3}, {4}, {6}, {2}, {
+              4}, {5}, {2}, {3}, {5}, {6}, {1}, {3}, {4}, {1}, {2}, {4}}}, 
+             Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 3, 6, 9, 12, 15, 18}, {{4}, {5}, {6}, {3}, {5}, {6}, {
+              2}, {4}, {6}, {1}, {3}, {5}, {1}, {2}, {4}, {1}, {2}, {3}}}, 
+             Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 2, 5, 8, 12, 16}, {{6}, {5}, {4}, {5}, {6}, {3}, {5}, {
+              6}, {2}, {3}, {4}, {6}, {1}, {3}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 3, 6, 9, 13, 16}, {{6}, {4}, {5}, {4}, {5}, {6}, {2}, {
+              3}, {5}, {2}, {3}, {4}, {6}, {1}, {3}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 4, 7, 10, 14, 16}, {{6}, {3}, {4}, {5}, {2}, {4}, {
+              5}, {2}, {3}, {5}, {2}, {3}, {4}, {6}, {1}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 4, 6, 9, 12, 16}, {{5}, {6}, {4}, {6}, {4}, {5}, {2}, {
+              3}, {6}, {1}, {3}, {6}, {1}, {2}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 4, 6, 10, 13, 16}, {{5}, {6}, {3}, {4}, {2}, {4}, {
+              2}, {3}, {5}, {6}, {1}, {4}, {6}, {1}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 4, 7, 10, 13, 16}, {{5}, {6}, {3}, {4}, {2}, {4}, {
+              6}, {2}, {3}, {5}, {1}, {4}, {6}, {1}, {3}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 5, 8, 11, 13, 16}, {{5}, {6}, {3}, {4}, {6}, {2}, {
+              4}, {6}, {2}, {3}, {5}, {1}, {4}, {1}, {2}, {3}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 2, 5, 8, 11, 14}, {{6}, {5}, {4}, {5}, {6}, {3}, {5}, {
+              6}, {2}, {3}, {4}, {1}, {3}, {4}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 3, 5, 7, 11, 14}, {{6}, {5}, {6}, {4}, {5}, {3}, {5}, {
+              2}, {3}, {4}, {6}, {1}, {2}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 3, 6, 8, 11, 14}, {{6}, {4}, {5}, {4}, {5}, {6}, {2}, {
+              3}, {2}, {3}, {6}, {1}, {3}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 3, 6, 9, 12, 14}, {{6}, {4}, {5}, {4}, {5}, {6}, {2}, {
+              3}, {5}, {2}, {3}, {4}, {1}, {3}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 4, 6, 8, 11, 14}, {{5}, {6}, {4}, {6}, {4}, {5}, {2}, {
+              3}, {1}, {3}, {6}, {1}, {2}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 4, 6, 9, 11, 14}, {{5}, {6}, {3}, {4}, {2}, {4}, {2}, {
+              3}, {6}, {1}, {6}, {1}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 2, 3, 6, 9, 12}, {{6}, {5}, {4}, {3}, {5}, {6}, {2}, {
+              4}, {6}, {1}, {4}, {5}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 2, 4, 7, 9, 12}, {{6}, {5}, {4}, {6}, {3}, {5}, {6}, {
+              2}, {4}, {1}, {3}, {4}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 3, 5, 7, 10, 12}, {{6}, {5}, {6}, {4}, {5}, {3}, {5}, {
+              2}, {3}, {4}, {1}, {2}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 2, 4, 6, 8, 10, 12}, {{5}, {6}, {4}, {6}, {4}, {5}, {2}, {
+              3}, {1}, {3}, {1}, {2}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]], ",", 
+     GraphicsBox[
+      NamespaceBox["NetworkGraphics",
+       DynamicModuleBox[{Typeset`graph = HoldComplete[
+         Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+           SparseArray[
+           Automatic, {6, 6}, 0, {
+            1, {{0, 1, 2, 4, 6, 8, 10}, {{6}, {5}, {4}, {6}, {3}, {5}, {2}, {
+              4}, {1}, {3}}}, Pattern}]}, {
+          GraphLayout -> "CircularEmbedding"}]]}, 
+        TagBox[
+         GraphicsGroupBox[
+          GraphicsComplexBox[{{-0.8660254037844389, 
+           0.5000000000000008}, {-0.8660254037844384, -0.4999999999999994}, {
+           3.8285686989269494`*^-16, -1.}, {
+           0.8660254037844389, -0.5000000000000012}, {0.8660254037844386, 
+           0.4999999999999993}, {1.8369701987210297`*^-16, 1.}}, {
+            {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+             {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+             {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}}, 
+            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+             DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286],
+              DiskBox[3, 0.02261146496815286], 
+             DiskBox[4, 0.02261146496815286], DiskBox[5, 0.02261146496815286],
+              DiskBox[6, 0.02261146496815286]}}]],
+         MouseAppearanceTag["NetworkGraphics"]],
+        AllowKernelInitialization->False]],
+      DefaultBaseStyle->{
+       "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+        Hue[0.8, 1., 0.6]},
+      FrameTicks->None,
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]]]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.654146981504745*^9, 3.654146983121047*^9}, {
+  3.6541470883274384`*^9, 3.6541470995324802`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -1072,18 +2889,75 @@ Cell[BoxData[
   3.654081295743992*^9, 3.654081297944009*^9}, {3.654081398644576*^9, 
   3.654081410313693*^9}}],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "8", 
    "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
   SequenceForm["Working on the ", 8, "th graph in the list"],
   Editable->False]], "Print",
- CellChangeTimes->{3.65408155964963*^9}]
+ CellChangeTimes->{3.65408155964963*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654083677846427*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "7", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 7, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65408367785128*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6540855291819897`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<Working on the \>\"", ",", "i", ",", 
+      "\"\<th graph in the list\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Print", "@", 
+     RowBox[{"DeleteIsomorphicGraphs", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"SuperOrientationList", "[", 
+           RowBox[{"LGList", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", "GoodQ"}], "]"}], ",",
+         "MKIQ"}], "]"}], "]"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "6", ",", "3", ",", 
+     RowBox[{"-", "1"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.65412311578937*^9, 3.654123127196907*^9}, {
+  3.654123637733725*^9, 3.654123642542926*^9}, {3.654147135830431*^9, 
+  3.654147143642363*^9}, {3.6541472335297117`*^9, 3.654147253325671*^9}, {
+  3.6541472933720913`*^9, 3.654147296271743*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 6, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654123137714263*^9, 3.6541471462262297`*^9, 
+  3.654147325020884*^9}]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{808, 586},
-WindowMargins->{{4, Automatic}, {Automatic, 0}},
+WindowMargins->{{27, Automatic}, {Automatic, 0}},
 FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
 2014)",
 StyleDefinitions->"Default.nb"
@@ -1102,115 +2976,120 @@ Notebook[{
 Cell[558, 20, 124, 2, 28, "Input"],
 Cell[CellGroupData[{
 Cell[707, 26, 252, 3, 64, "Section"],
-Cell[962, 31, 279, 6, 28, "Input"],
+Cell[962, 31, 98769, 1834, 1152, InheritFromParent],
 Cell[CellGroupData[{
-Cell[1266, 41, 151, 3, 28, "Input"],
-Cell[1420, 46, 95, 1, 28, "Output"]
-}, Open  ]],
+Cell[99756, 1869, 800, 22, 63, "Input"],
 Cell[CellGroupData[{
-Cell[1552, 52, 800, 22, 63, "Input"],
-Cell[CellGroupData[{
-Cell[2377, 78, 291, 6, 22, "Print"],
-Cell[2671, 86, 86, 2, 21, "Print"],
-Cell[2760, 90, 291, 6, 22, "Print"],
-Cell[3054, 98, 86, 2, 21, "Print"],
-Cell[3143, 102, 291, 6, 22, "Print"],
-Cell[3437, 110, 88, 2, 21, "Print"],
-Cell[3528, 114, 293, 6, 22, "Print"],
-Cell[3824, 122, 86, 2, 21, "Print"],
-Cell[3913, 126, 291, 6, 22, "Print"],
-Cell[4207, 134, 86, 2, 21, "Print"],
-Cell[4296, 138, 291, 6, 22, "Print"],
-Cell[4590, 146, 86, 2, 21, "Print"],
-Cell[4679, 150, 291, 6, 22, "Print"],
-Cell[4973, 158, 86, 2, 21, "Print"],
-Cell[5062, 162, 293, 6, 22, "Print"],
-Cell[5358, 170, 86, 2, 21, "Print"],
-Cell[5447, 174, 293, 6, 22, "Print"],
-Cell[5743, 182, 86, 2, 21, "Print"],
-Cell[5832, 186, 291, 6, 22, "Print"],
-Cell[6126, 194, 86, 2, 21, "Print"],
-Cell[6215, 198, 291, 6, 22, "Print"],
-Cell[6509, 206, 86, 2, 21, "Print"],
-Cell[6598, 210, 291, 6, 22, "Print"],
-Cell[6892, 218, 3472, 67, 127, "Print"],
-Cell[10367, 287, 291, 6, 22, "Print"],
-Cell[10661, 295, 86, 2, 21, "Print"],
-Cell[10750, 299, 291, 6, 22, "Print"],
-Cell[11044, 307, 86, 2, 21, "Print"],
-Cell[11133, 311, 291, 6, 22, "Print"],
-Cell[11427, 319, 88, 2, 21, "Print"],
-Cell[11518, 323, 291, 6, 22, "Print"],
-Cell[11812, 331, 86, 2, 21, "Print"]
+Cell[100581, 1895, 291, 6, 22, "Print"],
+Cell[100875, 1903, 86, 2, 21, "Print"],
+Cell[100964, 1907, 291, 6, 22, "Print"],
+Cell[101258, 1915, 86, 2, 21, "Print"],
+Cell[101347, 1919, 291, 6, 22, "Print"],
+Cell[101641, 1927, 88, 2, 21, "Print"],
+Cell[101732, 1931, 293, 6, 22, "Print"],
+Cell[102028, 1939, 86, 2, 21, "Print"],
+Cell[102117, 1943, 291, 6, 22, "Print"],
+Cell[102411, 1951, 86, 2, 21, "Print"],
+Cell[102500, 1955, 291, 6, 22, "Print"],
+Cell[102794, 1963, 86, 2, 21, "Print"],
+Cell[102883, 1967, 291, 6, 22, "Print"],
+Cell[103177, 1975, 86, 2, 21, "Print"],
+Cell[103266, 1979, 293, 6, 22, "Print"],
+Cell[103562, 1987, 86, 2, 21, "Print"],
+Cell[103651, 1991, 293, 6, 22, "Print"],
+Cell[103947, 1999, 86, 2, 21, "Print"],
+Cell[104036, 2003, 291, 6, 22, "Print"],
+Cell[104330, 2011, 86, 2, 21, "Print"],
+Cell[104419, 2015, 291, 6, 22, "Print"],
+Cell[104713, 2023, 86, 2, 21, "Print"],
+Cell[104802, 2027, 291, 6, 22, "Print"],
+Cell[105096, 2035, 3472, 67, 127, "Print"],
+Cell[108571, 2104, 291, 6, 22, "Print"],
+Cell[108865, 2112, 86, 2, 21, "Print"],
+Cell[108954, 2116, 291, 6, 22, "Print"],
+Cell[109248, 2124, 86, 2, 21, "Print"],
+Cell[109337, 2128, 291, 6, 22, "Print"],
+Cell[109631, 2136, 88, 2, 21, "Print"],
+Cell[109722, 2140, 291, 6, 22, "Print"],
+Cell[110016, 2148, 86, 2, 21, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11947, 339, 718, 20, 63, "Input"],
+Cell[110151, 2156, 718, 20, 63, "Input"],
 Cell[CellGroupData[{
-Cell[12690, 363, 293, 6, 22, "Print"],
-Cell[12986, 371, 86, 2, 21, "Print"],
-Cell[13075, 375, 291, 6, 22, "Print"],
-Cell[13369, 383, 86, 2, 21, "Print"],
-Cell[13458, 387, 293, 6, 22, "Print"],
-Cell[13754, 395, 86, 2, 21, "Print"],
-Cell[13843, 399, 291, 6, 22, "Print"],
-Cell[14137, 407, 17489, 334, 309, "Print"],
-Cell[31629, 743, 293, 6, 22, "Print"],
-Cell[31925, 751, 86, 2, 21, "Print"]
+Cell[110894, 2180, 293, 6, 22, "Print"],
+Cell[111190, 2188, 86, 2, 21, "Print"],
+Cell[111279, 2192, 291, 6, 22, "Print"],
+Cell[111573, 2200, 86, 2, 21, "Print"],
+Cell[111662, 2204, 293, 6, 22, "Print"],
+Cell[111958, 2212, 86, 2, 21, "Print"],
+Cell[112047, 2216, 291, 6, 22, "Print"],
+Cell[112341, 2224, 17489, 334, 309, "Print"],
+Cell[129833, 2560, 293, 6, 22, "Print"],
+Cell[130129, 2568, 86, 2, 21, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[32060, 759, 718, 20, 63, "Input"],
+Cell[130264, 2576, 718, 20, 63, "Input"],
 Cell[CellGroupData[{
-Cell[32803, 783, 293, 6, 22, "Print"],
-Cell[33099, 791, 86, 2, 21, "Print"],
-Cell[33188, 795, 291, 6, 22, "Print"],
-Cell[33482, 803, 86, 2, 21, "Print"],
-Cell[33571, 807, 291, 6, 22, "Print"],
-Cell[33865, 815, 88, 2, 21, "Print"],
-Cell[33956, 819, 291, 6, 22, "Print"],
-Cell[34250, 827, 86, 2, 21, "Print"],
-Cell[34339, 831, 293, 6, 22, "Print"],
-Cell[34635, 839, 86, 2, 21, "Print"]
+Cell[131007, 2600, 293, 6, 22, "Print"],
+Cell[131303, 2608, 86, 2, 21, "Print"],
+Cell[131392, 2612, 291, 6, 22, "Print"],
+Cell[131686, 2620, 86, 2, 21, "Print"],
+Cell[131775, 2624, 291, 6, 22, "Print"],
+Cell[132069, 2632, 88, 2, 21, "Print"],
+Cell[132160, 2636, 291, 6, 22, "Print"],
+Cell[132454, 2644, 86, 2, 21, "Print"],
+Cell[132543, 2648, 293, 6, 22, "Print"],
+Cell[132839, 2656, 86, 2, 21, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[34770, 847, 769, 21, 63, "Input"],
+Cell[132974, 2664, 769, 21, 63, "Input"],
 Cell[CellGroupData[{
-Cell[35564, 872, 291, 6, 22, "Print"],
-Cell[35858, 880, 86, 2, 21, "Print"],
-Cell[35947, 884, 291, 6, 22, "Print"],
-Cell[36241, 892, 86, 2, 21, "Print"],
-Cell[36330, 896, 293, 6, 22, "Print"],
-Cell[36626, 904, 88, 2, 21, "Print"],
-Cell[36717, 908, 290, 6, 22, "Print"],
-Cell[37010, 916, 88, 2, 21, "Print"],
-Cell[37101, 920, 291, 6, 22, "Print"],
-Cell[37395, 928, 86, 2, 21, "Print"],
-Cell[37484, 932, 291, 6, 22, "Print"],
-Cell[37778, 940, 88, 2, 21, "Print"],
-Cell[37869, 944, 291, 6, 22, "Print"],
-Cell[38163, 952, 86, 2, 21, "Print"]
+Cell[133768, 2689, 291, 6, 22, "Print"],
+Cell[134062, 2697, 86, 2, 21, "Print"],
+Cell[134151, 2701, 291, 6, 22, "Print"],
+Cell[134445, 2709, 86, 2, 21, "Print"],
+Cell[134534, 2713, 293, 6, 22, "Print"],
+Cell[134830, 2721, 88, 2, 21, "Print"],
+Cell[134921, 2725, 290, 6, 22, "Print"],
+Cell[135214, 2733, 88, 2, 21, "Print"],
+Cell[135305, 2737, 291, 6, 22, "Print"],
+Cell[135599, 2745, 86, 2, 21, "Print"],
+Cell[135688, 2749, 291, 6, 22, "Print"],
+Cell[135982, 2757, 88, 2, 21, "Print"],
+Cell[136073, 2761, 291, 6, 22, "Print"],
+Cell[136367, 2769, 86, 2, 21, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[38298, 960, 765, 21, 63, "Input"],
+Cell[136502, 2777, 765, 21, 63, "Input"],
 Cell[CellGroupData[{
-Cell[39088, 985, 291, 6, 22, "Print"],
-Cell[39382, 993, 86, 2, 21, "Print"],
-Cell[39471, 997, 291, 6, 22, "Print"],
-Cell[39765, 1005, 88, 2, 21, "Print"],
-Cell[39856, 1009, 291, 6, 22, "Print"],
-Cell[40150, 1017, 86, 2, 21, "Print"],
-Cell[40239, 1021, 291, 6, 22, "Print"],
-Cell[40533, 1029, 88, 2, 21, "Print"],
-Cell[40624, 1033, 291, 6, 22, "Print"],
-Cell[40918, 1041, 86, 2, 21, "Print"]
+Cell[137292, 2802, 291, 6, 22, "Print"],
+Cell[137586, 2810, 86, 2, 21, "Print"],
+Cell[137675, 2814, 291, 6, 22, "Print"],
+Cell[137969, 2822, 88, 2, 21, "Print"],
+Cell[138060, 2826, 291, 6, 22, "Print"],
+Cell[138354, 2834, 86, 2, 21, "Print"],
+Cell[138443, 2838, 291, 6, 22, "Print"],
+Cell[138737, 2846, 88, 2, 21, "Print"],
+Cell[138828, 2850, 291, 6, 22, "Print"],
+Cell[139122, 2858, 86, 2, 21, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[41053, 1049, 874, 23, 63, "Input"],
-Cell[41930, 1074, 288, 6, 22, "Print"]
+Cell[139257, 2866, 874, 23, 63, "Input"],
+Cell[CellGroupData[{
+Cell[140156, 2893, 288, 6, 22, "Print"],
+Cell[140447, 2901, 86, 2, 21, "Print"],
+Cell[140536, 2905, 288, 6, 22, "Print"],
+Cell[140827, 2913, 88, 2, 21, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[140964, 2921, 970, 24, 63, "Input"],
+Cell[141937, 2947, 338, 7, 22, "Print"]
 }, Open  ]]
 }, Open  ]]
 }

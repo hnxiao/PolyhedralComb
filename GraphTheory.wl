@@ -147,41 +147,10 @@ MinorQ[g,m]
 
 
 (*Obstruction tests*)
-ObstructionFreeQ[d_Graph,obsl_List]:=Module[{subgl,vcobs},
-	vcobs=VertexCount/@obsl;
+ObstructionFreeQ[d_Graph,obstl_List]:=Module[{subgl,vcobs},
+	vcobs=VertexCount/@obstl;
 	subgl=Subgraph[d,#]&/@Subsets[VertexList@d,{Min@vcobs,Min[VertexCount@d,Max@vcobs]}];
-	SameQ[Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obsl],False]];
-
-ObstructionList[s_String]:=Module[{obs,f1Supp,f1,f2,f3,f41,f42Supp,f42,f43,f51Supp,f51Resid,f51,f52Supp,f52Resid,f52,f53Supp,f53Resid,f53,f54Supp,f54Resid,f54},	
-	(*begin: Data storage*)
-	f1Supp=Graph[{1->4,4->3,3->2,2->1,2->5,4->5,5->1,5->3}];
-	f1=EdgeAdd[f1Supp,#]&/@{{1->3,2->4},{1->3,4->2}};
-	f2=List@Graph[{1->2,2->3,3->4,4->5,5->1,2->5,3->1,4->2,5->3,1->4}];
-	f3=List@Graph[{1->2,2->1,2->3,3->2,3->1,1->3}]; (*3-Ring R3*)
-	f41=List@Graph[{1->2,2->3,3->2,1->3,2->4,3->4,4->1}]; (*K4 with one C2*)
-	f42Supp=Graph[{1->2,2->4,4->1,2->3,3->2,3->4,4->3}]; 
-	f42=DeleteIsomorphicGraphs[EdgeAdd[f42Supp,#]&/@{{1->3},{3->1}}]; (*K4 with two C2*)
-	f43=List@Graph[{1->2,2->3,3->1,1->4,4->1,2->4,4->2,3->4,4->3}]; (*K4 with three C2, 3-wheel W3*)
-	f51Supp=Graph[{1->2,2->3,3->4,4->3,4->5,5->1,3->1,1->4,5->2}];
-	f51Resid=Tuples@{{2->4,4->2},{3->5,5->3}};
-	f51=DeleteIsomorphicGraphs[EdgeAdd[f51Supp,#]&/@f51Resid];
-	(*f51=List@Graph[{1->2,2->3,3->4,4->5,5->1,4->3,1->4,3->1,4->2,5->2,5->3}]; (*K5 with one C2, case 1*)*)
-	f52Supp=Graph[{1->2,2->3,3->1,1->5,5->4,4->1,3->4,4->3}];
-	f52Resid=Tuples@{{2->4,4->2},{2->5,5->2},{3->5,5->3}};
-	f52=DeleteIsomorphicGraphs[EdgeAdd[f52Supp,#]&/@f52Resid]; (*K5 with one C2, case 2*)
-	f53Supp=Graph[{1->3,3->2,2->1,1->4,4->5,5->1,3->4,4->3}];
-	f53Resid=f52Resid;
-	f53=DeleteIsomorphicGraphs[EdgeAdd[f53Supp,#]&/@f53Resid];
-	f54Supp=Graph[{1->2,2->1,2->3,3->2,3->4,4->3,4->5,5->4,5->1,1->5}]; (*5-Ring*)
-	f54Resid=Tuples@{{1->3,3->1},{1->4,4->1},{2->4,4->2},{2->5,5->2},{3->5,5->3}};
-	f54=DeleteIsomorphicGraphs[EdgeAdd[f54Supp,#]&/@f54Resid]; (*K5 with one C2, case3*)
-	(*end: Data stroage*)
-	Which[StringMatchQ[#,"Tournament",IgnoreCase->True],
-		Return@Union[f1,f2],
-		StringMatchQ[#,"SemiCompleteDigraph",IgnoreCase->True],
-		Return@DeleteIsomorphicGraphs@Union[f1,f2,f3,f41,f42,f43,f51,f52,f53,f54]]&
-		@s;
-	Return[{}]];
+	SameQ[Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obstl],False]];
 
 
 (*Feedback Vertex Sets*)
