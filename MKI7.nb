@@ -1,0 +1,1265 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     45663,       1256]
+NotebookOptionsPosition[     40164,       1091]
+NotebookOutlinePosition[     40521,       1107]
+CellTagsIndexPosition[     40478,       1104]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"<<", "GraphTheory`"}]], "Input",
+ CellChangeTimes->{{3.6538827458318863`*^9, 3.653882748610435*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["All MKIs with 7 vertices", "Section",
+ CellChangeTimes->{{3.653903956728448*^9, 3.653903975975663*^9}, {
+  3.653904451135734*^9, 3.653904453734249*^9}, {3.65390709819449*^9, 
+  3.653907113488242*^9}, {3.653974194905954*^9, 3.653974195473022*^9}, {
+  3.654225837819335*^9, 3.654225838296719*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LGList", "=", "LG7L"}], ";"}]], "Input",
+ CellChangeTimes->{{3.654146981504745*^9, 3.654146983121047*^9}, {
+  3.6541470883274384`*^9, 3.6541470995324802`*^9}, {3.654225853343256*^9, 
+  3.654225859986761*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "@", "LGList"}]], "Input",
+ CellChangeTimes->{{3.654225941404478*^9, 3.654225945590047*^9}}],
+
+Cell[BoxData["153"], "Output",
+ CellChangeTimes->{3.654225946964836*^9, 3.654229804225233*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<Working on the \>\"", ",", "i", ",", 
+      "\"\<th graph in the list\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Print", "@", 
+     RowBox[{"DeleteIsomorphicGraphs", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"SuperOrientationList", "[", 
+           RowBox[{"LGList", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", "GoodQ"}], "]"}], ",",
+         "MKIQ"}], "]"}], "]"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "20"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.654081262393176*^9, 3.6540812626321487`*^9}, {
+  3.654081295743992*^9, 3.654081297944009*^9}, {3.654081398644576*^9, 
+  3.654081410313693*^9}, {3.6542259115988617`*^9, 3.654225913660288*^9}, {
+  3.6542259619914503`*^9, 3.65422596215797*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 1, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.65422981726236*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654229822711659*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 2, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654229822716783*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654229841471229*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 3, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.6542298414743137`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654229856970769*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 4, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654229856973914*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654229872973421*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "5", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 5, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.6542298729763327`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.6542298894792423`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 6, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654229889482457*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.65422990505647*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "7", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 7, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654229905059455*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654229949565228*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "8", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 8, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654229949568042*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654229999685309*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "9", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 9, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.6542299996879177`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.6542300464369698`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "10", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 10, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230046439679*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230092305352*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "11", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 11, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.6542300923083*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230137751894*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "12", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 12, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230137754685*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.6542301875965242`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "13", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 13, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230187599318*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230232410039*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "14", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 14, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.6542302324129868`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.6542302818022213`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "15", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 15, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230281805582*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230336144576*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "16", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 16, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.6542303361487722`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230384746192*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "17", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 17, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230384749009*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.6542305155106487`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "18", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 18, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230515513686*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230654746757*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "19", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 19, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.6542306547497997`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230782379004*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "20", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 20, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.654230782382164*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65422596744941*^9, 3.6542309165621347`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<Working on the \>\"", ",", "i", ",", 
+      "\"\<th graph in the list\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Print", "@", 
+     RowBox[{"DeleteIsomorphicGraphs", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"SuperOrientationList", "[", 
+           RowBox[{"LGList", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", "GoodQ"}], "]"}], ",",
+         "MKIQ"}], "]"}], "]"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "21", ",", "35"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.654230991131629*^9, 3.654230993994224*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "21", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 21, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542310069764147`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654231129534964*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "22", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 22, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542311295407143`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542312589744587`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "23", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 23, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542312589771147`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654231375535285*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "24", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 24, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654231375537985*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654231494341138*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "25", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 25, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65423149434415*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542316270984993`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "26", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 26, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65423162710126*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654231755473811*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "27", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 27, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654231755476536*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654231875189578*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "28", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 28, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542318751923532`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542319919822702`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "29", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 29, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542319919848557`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542321086597958`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "30", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 30, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654232108662485*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542322381057167`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "31", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 31, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654232238108493*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654232352626205*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "32", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 32, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542323526296263`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654232721687271*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "33", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 33, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542327216901207`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654233061854375*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "34", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 34, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654233061856978*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542333853154907`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "35", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 35, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542333853184853`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654233722610169*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<Working on the \>\"", ",", "i", ",", 
+      "\"\<th graph in the list\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Print", "@", 
+     RowBox[{"DeleteIsomorphicGraphs", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"SuperOrientationList", "[", 
+           RowBox[{"LGList", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", "GoodQ"}], "]"}], ",",
+         "MKIQ"}], "]"}], "]"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "36", ",", "50"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.654234917295454*^9, 3.6542349229093237`*^9}, {
+  3.654234997738841*^9, 3.654235027348105*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "36", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 36, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.654235017509321*^9, 3.654235032592709*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654235451106633*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "37", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 37, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654235451113627*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654235834064455*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "38", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 38, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.6542358340674257`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654236145135947*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "39", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 39, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654236145138668*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.6542365490555487`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "40", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 40, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.6542365490582647`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654236921182558*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "41", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 41, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654236921185296*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.6542372509726877`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "42", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 42, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654237250975399*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654237577643529*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "43", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 43, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654237577646529*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.6542379448038073`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "44", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 44, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654237944806576*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654238293559779*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "45", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 45, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654238293562711*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.6542386659149323`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "46", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 46, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.6542386659176207`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654239028273584*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "47", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 47, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.6542390282762117`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654239344474002*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "48", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 48, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654239344476862*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654239704088274*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "49", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 49, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654239704091032*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654240052760998*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "50", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 50, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654240052764049*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654235017509321*^9, 3.654240382247613*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<Working on the \>\"", ",", "i", ",", 
+      "\"\<th graph in the list\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Print", "@", 
+     RowBox[{"DeleteIsomorphicGraphs", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"SuperOrientationList", "[", 
+           RowBox[{"LGList", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", "GoodQ"}], "]"}], ",",
+         "MKIQ"}], "]"}], "]"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "51", ",", "56"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.654247313585752*^9, 3.654247316662142*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "51", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 51, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542473272068977`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654248301347024*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "52", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 52, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542483013553133`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654249322577071*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "53", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 53, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654249322585854*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542502682607307`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "54", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 54, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654250268269252*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654251302195345*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "55", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 55, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654251302203753*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654252339856307*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "56", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 56, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542523398649273`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542532881733093`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<Working on the \>\"", ",", "i", ",", 
+      "\"\<th graph in the list\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Print", "@", 
+     RowBox[{"DeleteIsomorphicGraphs", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"SuperOrientationList", "[", 
+           RowBox[{"LGList", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", "GoodQ"}], "]"}], ",",
+         "MKIQ"}], "]"}], "]"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "57", ",", "57"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.654246202856853*^9, 3.654246205862527*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "57", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 57, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654246207987369*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   GraphicsBox[
+    NamespaceBox["NetworkGraphics",
+     DynamicModuleBox[{Typeset`graph = HoldComplete[
+       Graph[{1, 3, 5, 6, 2, 4, 
+        7}, {{{1, 2}, {3, 1}, {1, 4}, {4, 1}, {5, 6}, {6, 5}, {5, 4}, {7, 
+         5}, {2, 3}, {3, 2}, {2, 7}, {4, 6}, {6, 7}, {7, 3}}, Null}]]}, 
+      TagBox[GraphicsGroupBox[GraphicsComplexBox[CompressedData["
+1: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
+9pZbDd+QkCi6cYdbSkWcK+HzvCYS/gKRtBQQ
+         "], {
+          {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[0.03149327642371566], 
+           ArrowBox[{1, 2}, 0.026002086870796], 
+           ArrowBox[BezierCurveBox[{
+            1, {1.2141442685407788`, 0.20271423527049987`}, 4}], 
+            0.026002086870796], 
+           ArrowBox[BezierCurveBox[{
+            2, {0.20915393310756722`, 0.787295016843307}, 3}], 
+            0.026002086870796], ArrowBox[{2, 7}, 0.026002086870796], 
+           ArrowBox[{3, 1}, 0.026002086870796], 
+           ArrowBox[BezierCurveBox[{
+            3, {0.020587985320392223`, 0.8628528822942901}, 2}], 
+            0.026002086870796], 
+           ArrowBox[BezierCurveBox[{
+            4, {1.2139612848612105`, -0.20215785346519344`}, 1}], 
+            0.026002086870796], ArrowBox[{4, 6}, 0.026002086870796], 
+           ArrowBox[{5, 4}, 0.026002086870796], 
+           ArrowBox[BezierCurveBox[{
+            5, {2.4087632670471923`, 0.8633298716926981}, 6}], 
+            0.026002086870796], 
+           ArrowBox[BezierCurveBox[{
+            6, {2.2193442368034817`, 0.7875227162344056}, 5}], 
+            0.026002086870796], ArrowBox[{6, 7}, 0.026002086870796], 
+           ArrowBox[{7, 3}, 0.026002086870796], 
+           ArrowBox[{7, 5}, 0.026002086870796]}, 
+          {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+           DiskBox[1, 0.026002086870796], DiskBox[2, 0.026002086870796], 
+           DiskBox[3, 0.026002086870796], DiskBox[4, 0.026002086870796], 
+           DiskBox[5, 0.026002086870796], DiskBox[6, 0.026002086870796], 
+           DiskBox[7, 0.026002086870796]}}]],
+       MouseAppearanceTag["NetworkGraphics"]],
+      AllowKernelInitialization->False]],
+    DefaultBaseStyle->{
+     "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+    
+    FrameTicks->None,
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]]], ",", 
+   GraphicsBox[
+    NamespaceBox["NetworkGraphics",
+     DynamicModuleBox[{Typeset`graph = HoldComplete[
+       Graph[{1, 3, 5, 6, 2, 4, 
+        7}, {{{1, 2}, {1, 3}, {3, 1}, {4, 1}, {5, 6}, {5, 4}, {4, 5}, {7, 
+         5}, {2, 3}, {2, 7}, {7, 2}, {6, 4}, {6, 7}, {7, 6}, {3, 7}}, 
+         Null}]]}, 
+      TagBox[GraphicsGroupBox[GraphicsComplexBox[CompressedData["
+1:eJw9VHkw1Ysf/Vp6ShIpefZX9LKE5FWSzreUXhJSSqFEboulTWlRJOElKvwo
+WiRUqCS5tnDL9mQpuQkX13Ltvvd+jeX2cD2/md/8zsyZM3NmzvnjM585v7md
+svcQJwgidJb/1SW3XJ4ZOHeC+B/uzzh31pPVUAlnr1cXo//vm+9d7O15ggvV
+LGuHJRJTIDJ4OV6rrSF6Hyap9ZUg556wn79kSoAnwbzEwRhx0verP911lov5
+XetqZO+PoOiW+bMF0XwEvOgzpBPb8eXuGcfq9kQozFwwzzzYhso6eStn9xRI
+K259x1JphRG16Y9F7mlQWJvD6OxugWAi7riw5Q2mXO8fq8ppht2LgdzjvCy8
+vqsRrR/VBC3NM5ILFHNQVy6hm+P3A6O1v0fNuZaHX54OnpA93gih7oiyjcoH
+jK5uMak/xULeMcbW8WMNcL6f7Pmptgi3x4+fUnBmI+Ncc+5cKh8mm42UPZ2/
+w8hFW6kETLw4anDNY7an207r7NLyd1jWY0i7B/zARvnRELUbmfCYtLZgJTbh
+hcFDr+t0GjheTM36z83IrE95n7A7BYo6en68mRa4ydCa59Mb4N3ZklbkQ6Pf
+NGPykcN3BHv/vWwglIaxqUeDhuQP/NlPtFEJNPxU+som3zfB14wUZ6XRCC4V
+UEYnW5Abqfj3/mwa3YIt0h80WqHOULz5KpeG1UyM1CN2G0x1jFOKmTQeXrpU
+z9jGRYje5pzItzS4f0q46toPoWGLXsmgCY0FeHmvX28Yi1xjva7o0LiW/ynP
+RpIC+5D+5XolGps1snKbmikcdNMo/0ecxoa8e6Hz3/Dh9XkVxPoEWFiZt3kN
+KUDY9M/WsQoBXD+0O617LsDE3f8kDCYJ4LCmWsFBhoZs+DaG8KIAma93OGW6
+ZMP1grJta04bnPfKaWdfyEOQT4+d54o2BApbdvmcLUJ2VWC0b0grDAvnlYyl
+suD/cknN/kYOnBjbirQlSsEQDaf7/8qB8Jd1x45Yl+OMq8yDPbta8D7ex9Tm
+eiWKsh+fdzjXDMuex3mPEqtQqOa1R+J2E4yv7NL3JTgIuh6sx2JXYjH11TND
+shUc9wB2yHA5SL9gpZapVkTUCgIah0rRXviW9O5rQ3LoKLOz4SNGZlafbCxv
+R1Yw/ZWXWgJKKmCkaicXjtk+TvsqC6FXEX1b8RUX/lQpb5FqLgb1JfoWS3Ug
+ZnosvGznOxTrpUf7/zOJB0uXr7mnWgLOYQU778lJSBYke6auLMXGJ2fK48Sn
+MGf56T36ayqRa/Ykd2LhFDa+HDhaZFoNWnjQ7ObyKYQ5Vq6fVv0CzQM/803M
+p5Bt93gOS6ketCPEJ5ynYJ8YPzYt24CocHeLvKApSPosTb8lYiPkFE/r2EcR
+fA8WfBuI6sOYdpakAiUCp9jKpTykHxukPz6P1JiBa8GVdysuDEDCsY5VuG8G
+ms5OKtdcB7E3Sea5f/QMHj1WY2/eNvtHXP/DaewZOM3b6jOwfBiMFxqH7sgS
+ZHR1nfzo5DAoyyPMRhOCPN1v+72tmoL+pQMep9kEGVs2T3uRcBjqh7WlhA0E
+Wejc/11mbAg+GP/sNrsnBUHjzp4jgzA6016fVUWQhh1xP8oFA4iJui4/VEKQ
+pod92ExBP666Ze1enE2Qy9wl+OyRPsS4LTRYk0yQe83m+DEnemGx4+oC+3sE
+eaXBUpWe6UHM64um450iyLkZbIz7UQ9tYfoBK6YIZNxCHa7gCzoVHubU3hTh
+HOn0c5NWLZaWRz5MtBHh9AfOgY7LVSi7spvJlRfB/923s/W95bA07xBl1U0j
+eO4GWSPvT7CpUU/aFDaN5EnpwHkLSrDpbgL/ldk0XOWWcAqj8qBUYXNZ+YIY
+qfhrrCojgwvX9qu6r1aJkW/Xrtw+wOKi4t7qwDgeQabFj1Q48Lgo9fDXkXxM
+kJVzt6RGK3YgeMgyVG0/QQbpu+eHOHRAZLc+ZoE8QdoweUXzkjrg3pMTNxk3
+g9Q3rxj8yQ6Uh6trGcjNoLW9zE/cvRPKilYf05ImUDa+aKT9VB8SrtZ8C1Cb
+wNp4I4+urj60asy1sEwYh2Ii+6+oo/3IeByqu1N1HOIaUwZP6X7sFmjlNSWO
+oabb+EvBrQHoZgTOMdMZg9BLriLUcBAp3wo7378fReR4W+Cz9kF05ETkRFqO
+wnbkSG5q/BB6sL1j55gAKhyj4momhWDf+2msWwIMlTnUnb9JIcvkpMlvGgIw
+anscvVwobBEuOr3Xgw8Z3eNylaCQ/yyyxTR8NnejIChen0J4BK/mXOYwchoK
+pPnLKTiGbKy7wR7CDZvgqiptCkduRwQO/jOIvh2MF/rGFDZcluqx5bTDWiUq
+5qweH9yIgqCvK9tQxy0w27OFD1FsiLHURQ6suu5oprjzcanmpQld1QyS8zJs
+7x0+Qh4MxEYsa4KadETs9jI+igdXPGkMaMSI/WX9N+IC+CveWVvRxUZQcZtP
+3u8CPN/Uus/OdnbvywySM3YLoHTIQ/ktexTqFloXww/wEbZKKj+cMYZg7ahd
+Ulv5KKx8IsscH8MtVkV1giYfnzSlC1tvjsNrz0XKhU/BQuE8ka4wgSzD/c0n
+MynYWkX1VD2ZQE9yA7vXnULvHGu/AR0hIjNkDMSlZ+/k2j3AfCuEo/+oKj9p
+GEqezqmPFhKkj8fzJPnYXjgy49XW2BOkiPWXoeyyXqxjTPNsowlSvbBb+vDT
+HtSlmp+tqSdIY/MiD7vFPZiapnRD5MRIhl9o6R9XeJDTZAU7WIuRZvyXNSe+
+d2OPzHJFpRAxMsWjRcFmRTey4zdkpH8QI7tPOHKsPLvwL8lyQBo=
+         "], {
+          {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[
+           0.032038000116956004`], ArrowBox[{1, 2}, 0.02517720975057583], 
+           ArrowBox[BezierCurveBox[{
+            1, {0.20253985674081446`, 0.16208597985431208`}, 3}], 
+            0.02517720975057583], ArrowBox[{2, 3}, 0.02517720975057583], 
+           ArrowBox[BezierCurveBox[{
+            2, {0.703935234509634, 1.1795406351813338`}, 7}], 
+            0.02517720975057583], 
+           ArrowBox[BezierCurveBox[{
+            3, {0.37121285081020955`, 0.350782627710375}, 1}], 
+            0.02517720975057583], ArrowBox[{3, 7}, 0.02517720975057583], 
+           ArrowBox[{4, 1}, 0.02517720975057583], 
+           ArrowBox[BezierCurveBox[{
+            4, {1.7520165979586246`, 0.5889809502376183}, 5}], 
+            0.02517720975057583], 
+           ArrowBox[BezierCurveBox[{
+            5, {2.100855648424683, 0.4734229406676029}, 4}], 
+            0.02517720975057583], ArrowBox[{5, 6}, 0.02517720975057583], 
+           ArrowBox[{6, 4}, 0.02517720975057583], 
+           ArrowBox[BezierCurveBox[{
+            6, {1.6646920545945019`, 0.5595142299106642}, 7}], 
+            0.02517720975057583], 
+           ArrowBox[BezierCurveBox[{
+            7, {0.6789165207879809, 0.8699331662754601}, 2}], 
+            0.02517720975057583], ArrowBox[{7, 5}, 0.02517720975057583], 
+           ArrowBox[BezierCurveBox[{
+            7, {1.8201464870451662`, 0.9412113164340854}, 6}], 
+            0.02517720975057583]}, 
+          {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+           DiskBox[1, 0.02517720975057583], DiskBox[2, 0.02517720975057583], 
+           DiskBox[3, 0.02517720975057583], DiskBox[4, 0.02517720975057583], 
+           DiskBox[5, 0.02517720975057583], DiskBox[6, 0.02517720975057583], 
+           DiskBox[7, 0.02517720975057583]}}]],
+       MouseAppearanceTag["NetworkGraphics"]],
+      AllowKernelInitialization->False]],
+    DefaultBaseStyle->{
+     "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+    
+    FrameTicks->None,
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]]]}], "}"}]], "Print",
+ CellChangeTimes->{3.65424727004853*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<Working on the \>\"", ",", "i", ",", 
+      "\"\<th graph in the list\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Print", "@", 
+     RowBox[{"DeleteIsomorphicGraphs", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"SuperOrientationList", "[", 
+           RowBox[{"LGList", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", "GoodQ"}], "]"}], ",",
+         "MKIQ"}], "]"}], "]"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "58", ",", "90"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.654253345605371*^9, 3.654253348689562*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "58", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 58, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654257507822815*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 586},
+WindowMargins->{{27, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 124, 2, 28, "Input"],
+Cell[CellGroupData[{
+Cell[707, 26, 301, 4, 64, "Section"],
+Cell[1011, 32, 243, 5, 28, "Input"],
+Cell[CellGroupData[{
+Cell[1279, 41, 125, 2, 28, "Input"],
+Cell[1407, 45, 94, 1, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1538, 51, 942, 23, 63, "Input"],
+Cell[CellGroupData[{
+Cell[2505, 78, 309, 6, 22, "Print"],
+Cell[2817, 86, 107, 2, 21, "Print"],
+Cell[2927, 90, 310, 6, 22, "Print"],
+Cell[3240, 98, 107, 2, 21, "Print"],
+Cell[3350, 102, 312, 6, 22, "Print"],
+Cell[3665, 110, 107, 2, 21, "Print"],
+Cell[3775, 114, 310, 6, 22, "Print"],
+Cell[4088, 122, 107, 2, 21, "Print"],
+Cell[4198, 126, 312, 6, 22, "Print"],
+Cell[4513, 134, 109, 2, 21, "Print"],
+Cell[4625, 138, 310, 6, 22, "Print"],
+Cell[4938, 146, 106, 2, 21, "Print"],
+Cell[5047, 150, 310, 6, 22, "Print"],
+Cell[5360, 158, 107, 2, 21, "Print"],
+Cell[5470, 162, 310, 6, 22, "Print"],
+Cell[5783, 170, 107, 2, 21, "Print"],
+Cell[5893, 174, 312, 6, 22, "Print"],
+Cell[6208, 182, 109, 2, 21, "Print"],
+Cell[6320, 186, 312, 6, 22, "Print"],
+Cell[6635, 194, 107, 2, 21, "Print"],
+Cell[6745, 198, 310, 6, 22, "Print"],
+Cell[7058, 206, 107, 2, 21, "Print"],
+Cell[7168, 210, 312, 6, 22, "Print"],
+Cell[7483, 218, 109, 2, 21, "Print"],
+Cell[7595, 222, 312, 6, 22, "Print"],
+Cell[7910, 230, 107, 2, 21, "Print"],
+Cell[8020, 234, 314, 6, 22, "Print"],
+Cell[8337, 242, 109, 2, 21, "Print"],
+Cell[8449, 246, 312, 6, 22, "Print"],
+Cell[8764, 254, 107, 2, 21, "Print"],
+Cell[8874, 258, 314, 6, 22, "Print"],
+Cell[9191, 266, 107, 2, 21, "Print"],
+Cell[9301, 270, 312, 6, 22, "Print"],
+Cell[9616, 278, 109, 2, 21, "Print"],
+Cell[9728, 282, 312, 6, 22, "Print"],
+Cell[10043, 290, 107, 2, 21, "Print"],
+Cell[10153, 294, 314, 6, 22, "Print"],
+Cell[10470, 302, 107, 2, 21, "Print"],
+Cell[10580, 306, 312, 6, 22, "Print"],
+Cell[10895, 314, 109, 2, 21, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11053, 322, 745, 20, 63, "Input"],
+Cell[CellGroupData[{
+Cell[11823, 346, 293, 6, 22, "Print"],
+Cell[12119, 354, 86, 2, 21, "Print"],
+Cell[12208, 358, 293, 6, 22, "Print"],
+Cell[12504, 366, 88, 2, 21, "Print"],
+Cell[12595, 370, 293, 6, 22, "Print"],
+Cell[12891, 378, 86, 2, 21, "Print"],
+Cell[12980, 382, 291, 6, 22, "Print"],
+Cell[13274, 390, 86, 2, 21, "Print"],
+Cell[13363, 394, 290, 6, 22, "Print"],
+Cell[13656, 402, 88, 2, 21, "Print"],
+Cell[13747, 406, 290, 6, 22, "Print"],
+Cell[14040, 414, 86, 2, 21, "Print"],
+Cell[14129, 418, 291, 6, 22, "Print"],
+Cell[14423, 426, 86, 2, 21, "Print"],
+Cell[14512, 430, 293, 6, 22, "Print"],
+Cell[14808, 438, 88, 2, 21, "Print"],
+Cell[14899, 442, 293, 6, 22, "Print"],
+Cell[15195, 450, 88, 2, 21, "Print"],
+Cell[15286, 454, 291, 6, 22, "Print"],
+Cell[15580, 462, 88, 2, 21, "Print"],
+Cell[15671, 466, 291, 6, 22, "Print"],
+Cell[15965, 474, 86, 2, 21, "Print"],
+Cell[16054, 478, 293, 6, 22, "Print"],
+Cell[16350, 486, 86, 2, 21, "Print"],
+Cell[16439, 490, 293, 6, 22, "Print"],
+Cell[16735, 498, 86, 2, 21, "Print"],
+Cell[16824, 502, 291, 6, 22, "Print"],
+Cell[17118, 510, 88, 2, 21, "Print"],
+Cell[17209, 514, 293, 6, 22, "Print"],
+Cell[17505, 522, 86, 2, 21, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17640, 530, 796, 21, 63, "Input"],
+Cell[CellGroupData[{
+Cell[18461, 555, 315, 6, 22, "Print"],
+Cell[18779, 563, 108, 2, 21, "Print"],
+Cell[18890, 567, 313, 6, 22, "Print"],
+Cell[19206, 575, 108, 2, 21, "Print"],
+Cell[19317, 579, 315, 6, 22, "Print"],
+Cell[19635, 587, 108, 2, 21, "Print"],
+Cell[19746, 591, 313, 6, 22, "Print"],
+Cell[20062, 599, 110, 2, 21, "Print"],
+Cell[20175, 603, 315, 6, 22, "Print"],
+Cell[20493, 611, 108, 2, 21, "Print"],
+Cell[20604, 615, 313, 6, 22, "Print"],
+Cell[20920, 623, 110, 2, 21, "Print"],
+Cell[21033, 627, 313, 6, 22, "Print"],
+Cell[21349, 635, 108, 2, 21, "Print"],
+Cell[21460, 639, 313, 6, 22, "Print"],
+Cell[21776, 647, 110, 2, 21, "Print"],
+Cell[21889, 651, 313, 6, 22, "Print"],
+Cell[22205, 659, 108, 2, 21, "Print"],
+Cell[22316, 663, 313, 6, 22, "Print"],
+Cell[22632, 671, 110, 2, 21, "Print"],
+Cell[22745, 675, 315, 6, 22, "Print"],
+Cell[23063, 683, 108, 2, 21, "Print"],
+Cell[23174, 687, 315, 6, 22, "Print"],
+Cell[23492, 695, 108, 2, 21, "Print"],
+Cell[23603, 699, 313, 6, 22, "Print"],
+Cell[23919, 707, 108, 2, 21, "Print"],
+Cell[24030, 711, 313, 6, 22, "Print"],
+Cell[24346, 719, 108, 2, 21, "Print"],
+Cell[24457, 723, 313, 6, 22, "Print"],
+Cell[24773, 731, 108, 2, 21, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24930, 739, 745, 20, 63, "Input"],
+Cell[CellGroupData[{
+Cell[25700, 763, 293, 6, 22, "Print"],
+Cell[25996, 771, 86, 2, 21, "Print"],
+Cell[26085, 775, 293, 6, 22, "Print"],
+Cell[26381, 783, 86, 2, 21, "Print"],
+Cell[26470, 787, 291, 6, 22, "Print"],
+Cell[26764, 795, 88, 2, 21, "Print"],
+Cell[26855, 799, 291, 6, 22, "Print"],
+Cell[27149, 807, 86, 2, 21, "Print"],
+Cell[27238, 811, 291, 6, 22, "Print"],
+Cell[27532, 819, 86, 2, 21, "Print"],
+Cell[27621, 823, 293, 6, 22, "Print"],
+Cell[27917, 831, 88, 2, 21, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28054, 839, 745, 20, 63, "Input"],
+Cell[CellGroupData[{
+Cell[28824, 863, 291, 6, 22, "Print"],
+Cell[29118, 871, 9930, 182, 111, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39097, 1059, 745, 20, 63, "Input"],
+Cell[39845, 1081, 291, 6, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
