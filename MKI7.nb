@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     45663,       1256]
-NotebookOptionsPosition[     40164,       1091]
-NotebookOutlinePosition[     40521,       1107]
-CellTagsIndexPosition[     40478,       1104]
+NotebookDataLength[     68079,       1787]
+NotebookOptionsPosition[     60878,       1578]
+NotebookOutlinePosition[     61235,       1594]
+CellTagsIndexPosition[     61192,       1591]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1079,13 +1079,500 @@ Cell[BoxData[
     RowBox[{"i", ",", "58", ",", "90"}], "}"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.654253345605371*^9, 3.654253348689562*^9}}],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "58", 
    "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
   SequenceForm["Working on the ", 58, "th graph in the list"],
   Editable->False]], "Print",
- CellChangeTimes->{3.654257507822815*^9}]
+ CellChangeTimes->{3.654257507822815*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542584241274137`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "59", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 59, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654258424132255*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654259472381551*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "60", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 60, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542594723844423`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654260515140809*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "61", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 61, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654260515143732*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654261447002213*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "62", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 62, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654261447005103*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542626063758383`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "63", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 63, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542626063786917`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542636782525187`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "64", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 64, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654263678255447*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542647882440023`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "65", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 65, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654264788246787*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654265900365608*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "66", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 66, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654265900368373*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654266863251478*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "67", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 67, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654266863254302*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654267823622327*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "68", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 68, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654267823625166*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654268835317863*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "69", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 69, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.65426883532073*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654269768191379*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "70", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 70, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654269768194376*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654272770773658*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "71", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 71, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542727707851*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654275857410234*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "72", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 72, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654275857421668*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654279112608582*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "73", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 73, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654279112626617*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  GraphicsBox[
+   NamespaceBox["NetworkGraphics",
+    DynamicModuleBox[{Typeset`graph = HoldComplete[
+      Graph[{1, 3, 5, 6, 7, 4, 
+       2}, {{{1, 2}, {3, 1}, {1, 4}, {4, 1}, {1, 5}, {5, 1}, {6, 7}, {7, 3}, {
+        3, 7}, {7, 5}, {2, 3}, {3, 2}, {2, 4}, {2, 5}, {5, 2}, {4, 6}, {5, 
+        3}}, Null}]]}, 
+     TagBox[GraphicsGroupBox[GraphicsComplexBox[CompressedData["
+1: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
+h7l94Xe17CbxHw1aOfM=
+        "], {
+         {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[0.033434211874593577`],
+           ArrowBox[{1, 2}, 0.023173473654918425`], 
+          ArrowBox[BezierCurveBox[{
+           1, {1.5137379655942895`, -0.022384181929712338`}, 4}], 
+           0.023173473654918425`], 
+          ArrowBox[BezierCurveBox[{
+           1, {1.9052206976361552`, 0.8583017817677201}, 5}], 
+           0.023173473654918425`], 
+          ArrowBox[BezierCurveBox[{
+           2, {1.4133328780080474`, 0.8573259118594105}, 3}], 
+           0.023173473654918425`], ArrowBox[{2, 4}, 0.023173473654918425`], 
+          ArrowBox[BezierCurveBox[{
+           2, {1.659245021257586, 0.99390316302091}, 5}], 
+           0.023173473654918425`], ArrowBox[{3, 1}, 0.023173473654918425`], 
+          ArrowBox[BezierCurveBox[{
+           3, {1.6759406950025546`, 0.8572940287277712}, 2}], 
+           0.023173473654918425`], 
+          ArrowBox[BezierCurveBox[{
+           3, {1.1181689224486908`, 1.3712251816032521`}, 7}], 
+           0.023173473654918425`], 
+          ArrowBox[BezierCurveBox[{
+           4, {1.3955589983813057`, 0.3817202018560126}, 1}], 
+           0.023173473654918425`], ArrowBox[{4, 6}, 0.023173473654918425`], 
+          ArrowBox[BezierCurveBox[{
+           5, {2.2333611728039493`, 0.8581171085134923}, 1}], 
+           0.023173473654918425`], 
+          ArrowBox[BezierCurveBox[{
+           5, {1.9549149879701992`, 0.8212458443725489}, 2}], 
+           0.023173473654918425`], ArrowBox[{5, 3}, 0.023173473654918425`], 
+          ArrowBox[{6, 7}, 0.023173473654918425`], 
+          ArrowBox[BezierCurveBox[{
+           7, {1.2694943028112595`, 1.602003724367079}, 3}], 
+           0.023173473654918425`], ArrowBox[{7, 5}, 0.023173473654918425`]}, 
+         {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+          DiskBox[1, 0.023173473654918425`], 
+          DiskBox[2, 0.023173473654918425`], 
+          DiskBox[3, 0.023173473654918425`], 
+          DiskBox[4, 0.023173473654918425`], 
+          DiskBox[5, 0.023173473654918425`], 
+          DiskBox[6, 0.023173473654918425`], 
+          DiskBox[7, 0.023173473654918425`]}}]],
+      MouseAppearanceTag["NetworkGraphics"]],
+     AllowKernelInitialization->False]],
+   DefaultBaseStyle->{
+    "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+   FrameTicks->None,
+   GridLinesStyle->Directive[
+     GrayLevel[0.5, 0.4]]], "}"}]], "Print",
+ CellChangeTimes->{3.654282183708853*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "74", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 74, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542821839034433`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  GraphicsBox[
+   NamespaceBox["NetworkGraphics",
+    DynamicModuleBox[{Typeset`graph = HoldComplete[
+      Graph[{1, 3, 5, 6, 7, 4, 
+       2}, {{{1, 2}, {3, 1}, {1, 4}, {4, 1}, {1, 5}, {5, 1}, {6, 7}, {7, 3}, {
+        2, 3}, {3, 2}, {2, 4}, {4, 2}, {2, 5}, {4, 6}, {3, 5}, {5, 3}, {5, 
+        4}}, Null}]]}, 
+     TagBox[GraphicsGroupBox[GraphicsComplexBox[CompressedData["
+1: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
+ay2FME++1E0LEOJ/X2A5kg==
+        "], {
+         {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[0.03160572347921909], 
+          ArrowBox[{1, 2}, 0.025829722164337265`], 
+          ArrowBox[BezierCurveBox[{
+           1, {0.6256315616894913, 0.45698021580837195`}, 4}], 
+           0.025829722164337265`], 
+          ArrowBox[BezierCurveBox[{
+           1, {0.10862668072979323`, 0.8073303104980574}, 5}], 
+           0.025829722164337265`], 
+          ArrowBox[BezierCurveBox[{
+           2, {0.5768389849956889, 0.6520981508814916}, 3}], 
+           0.025829722164337265`], 
+          ArrowBox[BezierCurveBox[{
+           2, {0.7354666661758815, 0.16884356299561215`}, 4}], 
+           0.025829722164337265`], ArrowBox[{2, 5}, 0.025829722164337265`], 
+          ArrowBox[{3, 1}, 0.025829722164337265`], 
+          ArrowBox[BezierCurveBox[{
+           3, {0.8857115437797382, 0.413975268284993}, 2}], 
+           0.025829722164337265`], 
+          ArrowBox[BezierCurveBox[{
+           3, {0.7349173430954005, 0.8697125425451051}, 5}], 
+           0.025829722164337265`], 
+          ArrowBox[BezierCurveBox[{
+           4, {0.46711105907150513`, 0.09759738973476381}, 1}], 
+           0.025829722164337265`], 
+          ArrowBox[BezierCurveBox[{
+           4, {0.7265319404856356, -0.0690978026313004}, 2}], 
+           0.025829722164337265`], ArrowBox[{4, 6}, 0.025829722164337265`], 
+          ArrowBox[BezierCurveBox[{
+           5, {0.25898578367362496`, 0.6864293738574442}, 1}], 
+           0.025829722164337265`], 
+          ArrowBox[BezierCurveBox[{
+           5, {0.7259896641829285, 1.1083759489483538`}, 3}], 
+           0.025829722164337265`], ArrowBox[{5, 4}, 0.025829722164337265`], 
+          ArrowBox[{6, 7}, 0.025829722164337265`], 
+          ArrowBox[{7, 3}, 0.025829722164337265`]}, 
+         {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+          DiskBox[1, 0.025829722164337265`], 
+          DiskBox[2, 0.025829722164337265`], 
+          DiskBox[3, 0.025829722164337265`], 
+          DiskBox[4, 0.025829722164337265`], 
+          DiskBox[5, 0.025829722164337265`], 
+          DiskBox[6, 0.025829722164337265`], 
+          DiskBox[7, 0.025829722164337265`]}}]],
+      MouseAppearanceTag["NetworkGraphics"]],
+     AllowKernelInitialization->False]],
+   DefaultBaseStyle->{
+    "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+   FrameTicks->None,
+   GridLinesStyle->Directive[
+     GrayLevel[0.5, 0.4]]], "}"}]], "Print",
+ CellChangeTimes->{3.654285134424469*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "75", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 75, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542851345564938`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654288130055479*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "76", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 76, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654288130075264*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542909334978724`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "77", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 77, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654290933520697*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.654293687894759*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "78", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 78, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.654293687897573*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.6542968098062563`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working on the \"\>", "\[InvisibleSpace]", "79", 
+   "\[InvisibleSpace]", "\<\"th graph in the list\"\>"}],
+  SequenceForm["Working on the ", 79, "th graph in the list"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6542968098168163`*^9}]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
@@ -1255,7 +1742,51 @@ Cell[29118, 871, 9930, 182, 111, "Print"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[39097, 1059, 745, 20, 63, "Input"],
-Cell[39845, 1081, 291, 6, 22, "Print"]
+Cell[CellGroupData[{
+Cell[39867, 1083, 291, 6, 22, "Print"],
+Cell[40161, 1091, 88, 2, 21, "Print"],
+Cell[40252, 1095, 291, 6, 22, "Print"],
+Cell[40546, 1103, 86, 2, 21, "Print"],
+Cell[40635, 1107, 293, 6, 22, "Print"],
+Cell[40931, 1115, 86, 2, 21, "Print"],
+Cell[41020, 1119, 291, 6, 22, "Print"],
+Cell[41314, 1127, 86, 2, 21, "Print"],
+Cell[41403, 1131, 291, 6, 22, "Print"],
+Cell[41697, 1139, 88, 2, 21, "Print"],
+Cell[41788, 1143, 293, 6, 22, "Print"],
+Cell[42084, 1151, 88, 2, 21, "Print"],
+Cell[42175, 1155, 291, 6, 22, "Print"],
+Cell[42469, 1163, 88, 2, 21, "Print"],
+Cell[42560, 1167, 291, 6, 22, "Print"],
+Cell[42854, 1175, 86, 2, 21, "Print"],
+Cell[42943, 1179, 291, 6, 22, "Print"],
+Cell[43237, 1187, 86, 2, 21, "Print"],
+Cell[43326, 1191, 291, 6, 22, "Print"],
+Cell[43620, 1199, 86, 2, 21, "Print"],
+Cell[43709, 1203, 291, 6, 22, "Print"],
+Cell[44003, 1211, 86, 2, 21, "Print"],
+Cell[44092, 1215, 290, 6, 22, "Print"],
+Cell[44385, 1223, 86, 2, 21, "Print"],
+Cell[44474, 1227, 291, 6, 22, "Print"],
+Cell[44768, 1235, 86, 2, 21, "Print"],
+Cell[44857, 1239, 289, 6, 22, "Print"],
+Cell[45149, 1247, 86, 2, 21, "Print"],
+Cell[45238, 1251, 291, 6, 22, "Print"],
+Cell[45532, 1259, 86, 2, 21, "Print"],
+Cell[45621, 1263, 291, 6, 22, "Print"],
+Cell[45915, 1271, 6382, 117, 152, "Print"],
+Cell[52300, 1390, 293, 6, 22, "Print"],
+Cell[52596, 1398, 6408, 119, 100, "Print"],
+Cell[59007, 1519, 293, 6, 22, "Print"],
+Cell[59303, 1527, 86, 2, 21, "Print"],
+Cell[59392, 1531, 291, 6, 22, "Print"],
+Cell[59686, 1539, 88, 2, 21, "Print"],
+Cell[59777, 1543, 291, 6, 22, "Print"],
+Cell[60071, 1551, 86, 2, 21, "Print"],
+Cell[60160, 1555, 291, 6, 22, "Print"],
+Cell[60454, 1563, 88, 2, 21, "Print"],
+Cell[60545, 1567, 293, 6, 22, "Print"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
