@@ -25,8 +25,7 @@ But for specific problems, minor testing can be done in O(n2).*)
 MinorList::usage="MinorList[g] returns all nonisomorphic minors of graph g"; 
 ImmersionList::usage="ImmersionList[d] returns all nonisomorphic immersions of digraph d";
 
-ObstructionFreeQ::usage="ObstructionFreeQ[d,obs] tests whether digraph d is free of obstructions obs";
-ObstructionList::usage="ObstructionList[graphtype] returns the obstruction list of the given graph type";
+ObstructionFreeQ::usage="ObstructionFreeQ[d,obstl] tests whether digraph d is free of obstructions obstl";
 
 FeedbackVertexSetQ::usage="FeedbackVertexSetQ[d,vs] tests whether vertex set vs is a feedback vertex set";
 FeedbackVertexSetList::usage="FeedbackVertexSetList[g] returns all minimum feedback vertex sets";
@@ -146,11 +145,19 @@ MinorQ[g,m]
 
 
 
-(*Obstruction tests*)
-ObstructionFreeQ[d_Graph,obstl_List]:=Module[{subgl,vcobs},
-	vcobs=VertexCount/@obstl;
-	subgl=Subgraph[d,#]&/@Subsets[VertexList@d,{Min@vcobs,Min[VertexCount@d,Max@vcobs]}];
-	SameQ[Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obstl],False]];
+(*Obstruction (induced subgraph) test*)
+ObstructionFreeQ[d_Graph,obstl_List]:=Module[{subgl,obstvc},
+	obstvc=VertexCount/@obstl;
+	subgl=Select[Subgraph[d,#]&/@Subsets[VertexList@d,{Min@obstvc,Max@obstvc}],WeaklyConnectedGraphQ];
+(*
+	subgl=Select[Subgraph[d,#]&/@Subsets[VertexList@d,MinMax[obstvc]],WeaklyConnectedGraphQ];
+*)
+	Return[\[Not]Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obstl]]];
+(*
+An interface to function "vf2_subgraph_iso" in Boost graph library (C++),
+or "igraph_subisomorphic_lad" or "graph.get.subisomorphisms.vf2" in igraph C library
+might boost the performance of obstruction test.
+*)
 
 
 (*Feedback Vertex Sets*)
