@@ -80,7 +80,7 @@ RothblumMatrix[g_Graph,pl_List]:=Module[{el},
 
 (*Graph minors and immersions*)
 DeleteIsomorphicGraphs[gl_List]:= Module[{},
-	Return[DeleteDuplicates[gl,IsomorphicGraphQ]];];
+	DeleteDuplicates[gl,IsomorphicGraphQ]];
 
 ImmersionContract[d_Graph,v_Integer]:=Module[{vl,el,Nin,Nout,Nio},
 	Nin=VertexInComponent[d,{#},1]&;
@@ -152,7 +152,7 @@ ObstructionFreeQ[d_Graph,obstl_List]:=Module[{subgl,obstvc},
 (*
 	subgl=Select[Subgraph[d,#]&/@Subsets[VertexList@d,MinMax[obstvc]],WeaklyConnectedGraphQ];
 *)
-	Return[\[Not]Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obstl]]];
+	\[Not]Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obstl]];
 (*
 An interface to function "vf2_subgraph_iso" in Boost graph library (C++),
 or "igraph_subisomorphic_lad" or "graph.get.subisomorphisms.vf2" in igraph C library
