@@ -80,7 +80,7 @@ RothblumMatrix[g_Graph,pl_List]:=Module[{el},
 
 (*Graph minors and immersions*)
 DeleteIsomorphicGraphs[gl_List]:= Module[{},
-	Return[DeleteDuplicates[gl,IsomorphicGraphQ[#1,#2]&]];];
+	Return[DeleteDuplicates[gl,IsomorphicGraphQ]];];
 
 ImmersionContract[d_Graph,v_Integer]:=Module[{vl,el,Nin,Nout,Nio},
 	Nin=VertexInComponent[d,{#},1]&;
