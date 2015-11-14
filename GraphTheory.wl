@@ -155,7 +155,8 @@ ObstructionFreeQ[d_Graph,obstl_List]:=Module[{subgl,obstvc},
 	\[Not]Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obstl]];
 (*
 An interface to function "vf2_subgraph_iso" in Boost graph library (C++),
-or "igraph_subisomorphic_lad" or "graph.get.subisomorphisms.vf2" in igraph C library
+or "igraph_subisomorphic_lad" or "graph.get.subisomorphisms.vf2" in igraph C library,
+or "IGLADFindSubisomorphisms" in IGraphM package
 might boost the performance of obstruction test.
 *)
 
