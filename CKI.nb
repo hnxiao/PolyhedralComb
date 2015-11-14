@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     26844,        727]
-NotebookOptionsPosition[     25692,        686]
-NotebookOutlinePosition[     26050,        702]
-CellTagsIndexPosition[     26007,        699]
+NotebookDataLength[     26934,        729]
+NotebookOptionsPosition[     25782,        688]
+NotebookOutlinePosition[     26140,        704]
+CellTagsIndexPosition[     26097,        701]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -370,12 +370,12 @@ Cell[BoxData[{
 Cell[BoxData[{
  RowBox[{
   RowBox[{
-   RowBox[{"MKIGraphQ", "::", "usage"}], "=", 
+   RowBox[{"CKIGraphQ", "::", "usage"}], "=", 
    "\"\<CKIGraphQ[g] yields True if g is critical kernel imperfect (CKI) and \
 False otherwise.\>\""}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"MKIGraphQ", "[", "g_Graph", "]"}], ":=", 
+   RowBox[{"CKIGraphQ", "[", "g_Graph", "]"}], ":=", 
    RowBox[{"Module", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -411,7 +411,8 @@ False otherwise.\>\""}], ";"}], "\[IndentingNewLine]",
    3.654338035308124*^9, 3.654338092711759*^9}, {3.654582388903126*^9, 
    3.654582401190907*^9}, {3.654582448215816*^9, 3.65458245957381*^9}, {
    3.654582494873893*^9, 3.6545824956959953`*^9}, {3.656464498091254*^9, 
-   3.656464505306143*^9}, {3.656464654576359*^9, 3.6564646820885897`*^9}}],
+   3.656464505306143*^9}, {3.656464654576359*^9, 3.6564646820885897`*^9}, {
+   3.6564750982593*^9, 3.656475104081049*^9}}],
 
 Cell[CellGroupData[{
 
@@ -446,7 +447,7 @@ Cell[BoxData[
     RowBox[{
     "there", " ", "is", " ", "a", " ", "bug", " ", "in", " ", "this", " ", 
      "new", " ", "method"}], ",", " ", 
-    RowBox[{"c", ".", "f", ".", " ", "MKI6", "."}]}], "\[IndentingNewLine]", 
+    RowBox[{"c", ".", "f", ".", " ", "CKI6", "."}]}], "\[IndentingNewLine]", 
    "*)"}], "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
@@ -530,7 +531,8 @@ graph g\>\""}], ";"}], "\[IndentingNewLine]",
         "I", " ", "prefer", " ", "not", " ", "to", " ", "use", " ", "this", 
          " ", 
          RowBox[{"function", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
-      "]"}]}], ";"}]}]}]], "Input"],
+      "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{3.656475109826873*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -718,14 +720,14 @@ Cell[7317, 207, 1611, 37, 97, "Input"],
 Cell[8931, 246, 1235, 33, 114, "Input"],
 Cell[10169, 281, 1826, 45, 165, "Input"],
 Cell[11998, 328, 1651, 39, 114, "Input"],
-Cell[13652, 369, 1769, 44, 148, "Input"],
+Cell[13652, 369, 1817, 45, 148, "Input"],
 Cell[CellGroupData[{
-Cell[15446, 417, 96, 1, 64, "Section"],
-Cell[15545, 420, 4731, 112, 420, "Input"],
-Cell[20279, 534, 1523, 41, 148, "Input"],
-Cell[21805, 577, 1528, 37, 182, "Input"],
-Cell[23336, 616, 1360, 37, 114, "Input"],
-Cell[24699, 655, 953, 26, 114, "Input"]
+Cell[15494, 418, 96, 1, 64, "Section"],
+Cell[15593, 421, 4773, 113, 420, "Input"],
+Cell[20369, 536, 1523, 41, 148, "Input"],
+Cell[21895, 579, 1528, 37, 182, "Input"],
+Cell[23426, 618, 1360, 37, 114, "Input"],
+Cell[24789, 657, 953, 26, 114, "Input"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
