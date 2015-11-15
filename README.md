@@ -1,5 +1,5 @@
-# GraphTheory
-Functions for Graph Theory in Wolfram Language
+# Graph
+Working with graphs in Wolfram Language
 
 ## To Do
 1. Domination matrix
