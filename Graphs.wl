@@ -113,9 +113,10 @@ ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,obstvc},
 
 (* Implemented via an interface to igraph C library *)
 (*
-ObstructionFreeQC[]:=Module[{},];
-IGLADFindSubisomorphisms
-Work need to make it work with multigraphs
+ObstructionFreeQC[g_Graph,obstl_List]:=Module[{},
+	SameQ[Flatten[IGLADFindSubisomorphisms[g,#]&/@obstl],{}]];
+
+Work needed to make it compatible with multigraphs and digraphs.
 *)
 (* C++
 
@@ -189,7 +190,7 @@ ImmersionList[d_Graph]:=Module[{fiml,iml},
 
 (*To do*)
 (*
-SubgraphQ[g,sub]
+InducedSubgraphQ[g,subg]
 MinorQ[g,m]
 *)
 
@@ -204,7 +205,7 @@ ConnectedGraphList[n_Integer]:=Import["http://cs.anu.edu.au/~bdm/data/graph"<>To
 
 LineGraphList[n_Integer]:=Module[{gl,obstl},
 	gl=ConnectedGraphList[n];
-	obstl=Import["~/GitHub/GraphTheory/Data/obst4linemulti.graphml"];
+	obstl=Import["~/GitHub/data/obst4linemulti.graphml"];
 	Select[gl,ObstructionFreeQ[#,obstl]&]];
 
 OrientationList[g_Graph]:=Module[{el,tal,al},
