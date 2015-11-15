@@ -1,18 +1,22 @@
 (* ::Package:: *)
 
-BeginPackage["GraphTheory`"]
+BeginPackage["Graphs`"]
 
 EdmondsMatrix::usage="EdmondsMatrix[g] returns the LHS matrix of Edmonds odd set constraints Mx<=b";
 EdmondsVector::usage="EdmondsVector[g] returns the RHS vector of Edmonds odd set constraints Mx<=b";
+RothblumMatrix::usage="RothblumMatrix[g,pl] returns the Rothblum stability matrix";
+PreferenceList::usage="PreferenceList[g] returns a random prefrence list";
+DominationMatrix::usage="DominationMatrix[g] returns the kernel domination matrix";
+StabilityMatrix::usage="StabilityMatrix[g] returns the kernel stablity (clique-vertex incidence) matrix for graph g";
+
 CycleVertexMatrix::usage="CycleVertexMatrix[g] returns the cycle vertex incidence matrix for both undirected and directed graphs";
 CycleEdgeMatrix::usage="CycleEdgeMatrix[g] returns the cycle edge incidence matrix for undirected graphs ONLY";
 CycleArcMatrix::usage="CycleArcMatrix[d] returns the cycle arc incidence matrix for directed graphs ONLY";
-PreferenceList::usage="PreferenceList[g] returns a random prefrence list";
-RothblumMatrix::usage="RothblumMatrix[g,pl] returns the Rothblum stability matrix";
-CliqueVertexMatrix::usage="CliqueVertexMatrix[g] returns the clique vertex incidence matrix for graph g";
-DominationMatrix::usage="DominationMatrix[g] returns the kernel domination matrix";
+
+ObstructionFreeQ::usage="ObstructionFreeQ[d,obstl] tests whether digraph d is free of obstructions obstl";
 
 DeleteIsomorphicGraphs::usage="DeleteIsomorphicGraphs[gl] removes duplicate graphs under isomorphism";
+
 ImmersionContract::usage="ImmersionContract[d,v] returns the immersion minor of graph d after contracting vertex v";
 DeletionDistinctVertexList::usage="DeletionDistinctVertexList[g] returns the deletion-distinct vertices in graph g, where two vertices are deletion-distinct if their removal result in nonisomorphic graphs";
 ContractionDistinctVertexList::usage="ContractionDistinctVertexList[g] returns the immersion-distinct vertices in graph d";
@@ -25,7 +29,12 @@ But for specific problems, minor testing can be done in O(n2).*)
 MinorList::usage="MinorList[g] returns all nonisomorphic minors of graph g"; 
 ImmersionList::usage="ImmersionList[d] returns all nonisomorphic immersions of digraph d";
 
-ObstructionFreeQ::usage="ObstructionFreeQ[d,obstl] tests whether digraph d is free of obstructions obstl";
+LineGraphList::usage="LineGraphList[n] returns the list of connected line graphs with n vertices";
+OrientationList::usage="OrientationList[g] returns the list of orientations of graph g";
+SuperOrientationList::usage="SuperOrientationList[g] returns the list of superorientations of graph g.";
+KernelQ::usage="KernelQ[g,vl] yields True if vl is a kernel of graph g and False otherwise.";
+KernelExistsQ::usage="KernelExistsQ[g] yields True if g has a kernel and False otherwise.";
+CKIGraphQ::usage="CKIGraphQ[g] yields True if g is critical kernel imperfect (CKI) and False otherwise.";
 
 FeedbackVertexSetQ::usage="FeedbackVertexSetQ[d,vs] tests whether vertex set vs is a feedback vertex set";
 FeedbackVertexSetList::usage="FeedbackVertexSetList[g] returns all minimum feedback vertex sets";
@@ -47,7 +56,10 @@ PossibleDigraphList::usage="PossibleDigraphList[d] returns all possible orientio
 Begin["`Private`"]
 
 
-(*Graph matrices*)
+(* GRAPH MATRICES *)
+
+
+(* Stable matching constraints*)
 EdmondsMatrix[g_Graph]:=Module[{el,vl,subl},
 	el=EdgeList[g];
 	vl=VertexList[g];
@@ -59,6 +71,23 @@ EdmondsVector[g_Graph]:=Module[{subl},
 	(Length/@subl-1)/2
 ];
 
+RothblumMatrix[g_Graph,pl_List]:=Module[{el},
+	el=List@@@EdgeList@g;
+	Outer[Boole[#1==#2\[Or]IntersectingQ[#1,#2]&&
+		OrderedQ@{Position[pl[[Intersection[#1,#2][[1]]]],Complement[#2,Intersection[#1,#2]][[1]]],
+				Position[pl[[Intersection[#1,#2][[1]]]],Complement[#1,Intersection[#1,#2]][[1]]]}]&,el,el,1]];
+
+PreferenceList[g_Graph]:=Module[{},
+	Map[RandomSample[AdjacencyList[g,#]]&,VertexList@g]];
+
+(* Kernel constraints *)
+DominationMatrix[g_Graph]:=Module[{},
+	Outer[Boole[MemberQ[Flatten[List@@@#1],#2]]&,VertexOutComponent[g,{#},1]&/@VertexList[g],VertexList@g,1]];
+
+StabilityMatrix[g_Graph]:=Module[{},
+	Outer[Boole[MemberQ[Flatten[List@@@#1],#2]]&,FindClique[UndirectedGraph@g,Infinity,All],VertexList@g,1]];
+
+(* Miscellaneous *)
 CycleVertexMatrix[g_Graph]:=Module[{},
 	Outer[Boole[MemberQ[Flatten[List@@@#1],#2]]&,FindCycle[g,Infinity,All],VertexList@g,1]];
 
@@ -68,20 +97,41 @@ CycleEdgeMatrix[g_Graph]:=Module[{},
 CycleArcMatrix[g_Graph]:=Module[{},
 	Outer[Boole[MemberQ[#1,#2]]&,FindCycle[g,Infinity,All],EdgeList@g,1]];
 
-PreferenceList[g_Graph]:=Module[{},
-	Map[RandomSample[AdjacencyList[g,#]]&,VertexList@g]];
 
-RothblumMatrix[g_Graph,pl_List]:=Module[{el},
-	el=List@@@EdgeList@g;
-	Outer[Boole[#1==#2\[Or]IntersectingQ[#1,#2]&&
-		OrderedQ@{Position[pl[[Intersection[#1,#2][[1]]]],Complement[#2,Intersection[#1,#2]][[1]]],
-				Position[pl[[Intersection[#1,#2][[1]]]],Complement[#1,Intersection[#1,#2]][[1]]]}]&,el,el,1]];
+
+
+(*OBSTRUCTION TEST*)
+
+
+(* Induced subgraph isomorphism *)
+
+(* Implemented in Wolfram Language *)
+ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,obstvc},
+	obstvc=VertexCount/@obstl;
+	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,MinMax[obstvc]],WeaklyConnectedGraphQ];
+	\[Not]Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obstl]];
+
+(* Implemented via an interface to igraph C library *)
+(*
+ObstructionFreeQC[]:=Module[{},];
+IGLADFindSubisomorphisms
+Work need to make it work with multigraphs
+*)
+(* C++
+
+ObstructionFreeQCXX[]:Module[{},];
+"vf2_subgraph_iso" in Boost graph library (C++),
+*)
+
+
+(* DELETING ISOMORPHIC GRAPHS *)
+
+
+DeleteIsomorphicGraphs[gl_List]:= Module[{},
+	DeleteDuplicatesBy[gl,CanonicalGraph]];
 
 
 (*Graph minors and immersions*)
-DeleteIsomorphicGraphs[gl_List]:= Module[{},
-	DeleteDuplicates[gl,IsomorphicGraphQ]];
-
 ImmersionContract[d_Graph,v_Integer]:=Module[{vl,el,Nin,Nout,Nio},
 	Nin=VertexInComponent[d,{#},1]&;
 	Nout=VertexOutComponent[d,{#},1]&;
@@ -145,20 +195,65 @@ MinorQ[g,m]
 
 
 
-(*Obstruction (induced subgraph) test*)
-ObstructionFreeQ[d_Graph,obstl_List]:=Module[{subgl,obstvc},
-	obstvc=VertexCount/@obstl;
-	subgl=Select[Subgraph[d,#]&/@Subsets[VertexList@d,{Min@obstvc,Max@obstvc}],WeaklyConnectedGraphQ];
-(*
-	subgl=Select[Subgraph[d,#]&/@Subsets[VertexList@d,MinMax[obstvc]],WeaklyConnectedGraphQ];
-*)
-	\[Not]Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obstl]];
-(*
-An interface to function "vf2_subgraph_iso" in Boost graph library (C++),
-or "igraph_subisomorphic_lad" or "graph.get.subisomorphisms.vf2" in igraph C library,
-or "IGLADFindSubisomorphisms" in IGraphM package
-might boost the performance of obstruction test.
-*)
+(*CRITICAL KERNEL IMPERFECT (CKI) GRAPHS*)
+
+
+(*Generating functions*)
+ConnectedGraphList[n_Integer]:=Import["http://cs.anu.edu.au/~bdm/data/graph"<>ToString@n<>"c.g6"];
+(*ConnectedGraphList[n_Integer]:=GraphData/@GraphData["Connected",n])*)
+
+LineGraphList[n_Integer]:=Module[{gl,obstl},
+	gl=ConnectedGraphList[n];
+	obstl=Import["~/GitHub/GraphTheory/Data/obst4linemulti.graphml"];
+	Select[gl,ObstructionFreeQ[#,obstl]&]];
+
+OrientationList[g_Graph]:=Module[{el,tal,al},
+	el=EdgeList@g;
+	tal=DirectedEdge@@@el;
+	al=Tuples@Thread[List[tal,Reverse/@tal]];
+	DeleteIsomorphicGraphs[Graph/@al]];
+
+SuperOrientationList[g_Graph]:=Module[{el,tal,al},
+	el=EdgeList[g];
+	tal=DirectedEdge@@@el;
+	al=Flatten/@Tuples[Subsets[#,{1,2}]&/@Thread[List[tal,Reverse/@tal]]];
+	Graph/@al
+(*Since DeleteIsomorphicGraphs dependens on DeleteDuplicates which has quadratic time complexity, I prefer not to use this function.*)
+];
+
+(*Testing functions*)
+KernelQ[g_Graph,vl_List]:=Module[{},
+	Sort@VertexInComponent[g,vl,1]==Sort@VertexList[g]];
+
+KernelExistsQ[g_Graph]:=Module[{pkl},
+	pkl=FindIndependentVertexSet[g,{1,Length@VertexList[g]},All];
+	Apply[Or,KernelQ[g,#]&/@pkl]];
+
+CKIGraphQ[g_Graph]:=Module[{vl,subvl,subgl},
+	vl=VertexList@g;
+	subvl=Subsets[vl,{3,Length@vl-1}];
+	subgl=Subgraph[g,#]&/@subvl;
+	Not@KernelExistsQ[g]&&Apply[And,KernelExistsQ/@subgl]];
+
+(*Inner functions*)
+NormalGraphQ::usage="NormalGraphQ[g] yields True if every clique of g has a kernel and False otherwise";
+NormalGraphQ[g_Graph]:=Module[{cliquel,subgl},
+	cliquel=FindClique[UndirectedGraph@g,Length@VertexList[g],All];
+	subgl=Subgraph[g,#]&/@cliquel;
+	Apply[And,KernelExistsQ/@subgl]];
+
+ChordedQ::usage="ChordedQ[g,el] yields True if the directed cycle consisting of el has a (pseudo-)chord and False otherwise.";
+ChordedQ[g_Graph,el_List]:=Module[{vl,vpl,pl,chordlist},
+	vl=VertexList@Subgraph[g,el];
+	vpl=Subsets[vl,{2}];
+	pl=Union[DirectedEdge@@@vpl,Reverse/@DirectedEdge@@@vpl];
+	chordlist=Complement[pl,el];
+	Apply[Or,EdgeQ[g,#]&/@chordlist]];
+
+OddChordedGraphQ::usage="OddChordedGraphQ[g] yields True if every directed cycle has a (pseudo-)chord and False otherwise.";
+OddChordedGraphQ[g_Graph]:=Module[{cyclel},
+	cyclel=Flatten[FindCycle[g,{#},All]&/@Select[VertexList@g,OddQ],1];
+	Apply[And,ChordedQ[g,#]&/@cyclel]];
 
 
 (*Feedback Vertex Sets*)
@@ -225,12 +320,6 @@ HangingCycleList[d_Graph,v_Integer]:=Module[{vl,c2l,c3l,subg,cbad,td,ind},
 PossibleDigraphList[dsupp_Graph]:=Module[{el},
 	el=DirectedEdge@@@{#,Reverse@#}&/@EdgeList@GraphComplement@UndirectedGraph@dsupp;
 	EdgeAdd[dsupp,#]&/@Tuples[el]];
-
-
-DominationMatrix[g_Graph]:=Module[{},
-	Outer[Boole[MemberQ[Flatten[List@@@#1],#2]]&,VertexOutComponent[g,{#},1]&/@VertexList[g],VertexList@g,1]];
-CliqueVertexMatrix[g_Graph]:=Module[{},
-	Outer[Boole[MemberQ[Flatten[List@@@#1],#2]]&,FindClique[UndirectedGraph@g,Infinity,All],VertexList@g,1]];
 
 
 End[]
