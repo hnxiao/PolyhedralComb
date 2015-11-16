@@ -32,10 +32,10 @@ But for specific problems, minor testing can be done in O(n2).*)
 MinorList::usage="MinorList[g] returns all nonisomorphic minors of graph g"; 
 ImmersionList::usage="ImmersionList[d] returns all nonisomorphic immersions of digraph d";
 
-LineGraphList::usage="LineGraphList[n] returns the list of connected line graphs with n vertices";
+LineMultiGraphList::usage="LineMultiGraphList[n] returns the list of connected line graphs of multigraphs with n vertices";
 OrientationList::usage="OrientationList[g] returns the list of orientations of graph g";
 SuperOrientationList::usage="SuperOrientationList[g] returns the list of superorientations of graph g.";
-KernelQ::usage="KernelQ[g,vl] yields True if vl is a kernel of graph g and False otherwise.";
+DominatingVertexSetQ::usage="DominatingVertexSetQ[g,vl] yields True if vl is a kernel of graph g and False otherwise.";
 KernelExistsQ::usage="KernelExistsQ[g] yields True if g has a kernel and False otherwise.";
 CKIGraphQ::usage="CKIGraphQ[g] yields True if g is critical kernel imperfect (CKI) and False otherwise.";
 
@@ -120,16 +120,18 @@ DeleteIsomorphicGraphs[gl_List]:= Module[{},
 
 
 (*** Induced subgraph isomorphism ***)
-
-InducedSubgraphs[g_Graph,n_Integer]:=Module[{},
-	DeleteIsomorphicGraphs@Select[Subgraph[g,#]&/@Subsets[VertexList@g,{n}],WeaklyConnectedGraphQ]];
+InducedSubgraphs[g_Graph,n_Integer:0]:=Module[{}, 
+	If[n>0,
+		DeleteIsomorphicGraphs@Select[Subgraph[g,#]&/@Subsets[VertexList@g,{n}],WeaklyConnectedGraphQ],
+		Flatten[InducedSubgs[g,#]&/@Range[VertexCount@g]]]];
 
 ObstructionFreeQDevel[g_Graph,obstl_List]:=Module[{subgl,vc},
 	vc=VertexCount/@obstl;
 	subgl=InducedSubgraphs[g,#]&/@vc;
 	SetAttributes[IsomorphicGraphQ,Listable];
 	NoneTrue[TrueQ][Flatten@IsomorphicGraphQ[obstl,subgl]]];
-(* A safer way
+
+(* A safer way without setting IsomorphicGraphQ to be Listable:
 ObstructionFreeQDevel[g_Graph,obstl_List]:=Module[{subgl,vc},
 	vc=VertexCount/@obstl;
 	subgl=InducedSubgraphs[g,#]&/@vc;
@@ -223,12 +225,12 @@ MinorQ[g,m]
 
 
 (* Generating functions *)
-ConnectedGraphList[n_Integer]:=GraphData/@GraphData["Connected",n];
-(*
 ConnectedGraphList[n_Integer]:=Import["http://cs.anu.edu.au/~bdm/data/graph"<>ToString@n<>"c.g6"];
+(*
+ConnectedGraphList[n_Integer]:=GraphData/@GraphData["Connected",n];
 *)
 
-LineGraphList[n_Integer]:=Module[{gl,obstl},
+LineMultiGraphList[n_Integer]:=Module[{gl,obstl},
 	gl=ConnectedGraphList[n];
 	obstl=Import["~/GitHub/data/obst4linemulti.graphml"];
 	Select[gl,ObstructionFreeQ[#,obstl]&]];
@@ -248,12 +250,12 @@ SuperOrientationList[g_Graph]:=Module[{el,tal,al},
 ];
 
 (* Testing functions *)
-KernelQ[g_Graph,vl_List]:=Module[{},
+DominatingVertexSetQ[g_Graph,vl_List]:=Module[{},
 	Sort@VertexInComponent[g,vl,1]==Sort@VertexList[g]];
 
 KernelExistsQ[g_Graph]:=Module[{pkl},
 	pkl=FindIndependentVertexSet[g,{1,Length@VertexList[g]},All];
-	Apply[Or,KernelQ[g,#]&/@pkl]];
+	Apply[Or,DominatingVertexSetQ[g,#]&/@pkl]];
 
 CKIGraphQ[g_Graph]:=Module[{vl,subvl,subgl},
 	vl=VertexList@g;
