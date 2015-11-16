@@ -2,39 +2,45 @@
 
 BeginPackage["Graphs`",{"IGraphM`"}]
 (* Public import *)
+Get["mcdd`"]
 
-EdmondsMatrix::usage="EdmondsMatrix[g] returns the LHS matrix of Edmonds odd set constraints Mx<=b";
-EdmondsVector::usage="EdmondsVector[g] returns the RHS vector of Edmonds odd set constraints Mx<=b";
-RothblumMatrix::usage="RothblumMatrix[g,pl] returns the Rothblum stability matrix";
-PreferenceList::usage="PreferenceList[g] returns a random prefrence list";
-DominationMatrix::usage="DominationMatrix[g] returns the kernel domination matrix";
-StabilityMatrix::usage="StabilityMatrix[g] returns the kernel stablity (clique-vertex incidence) matrix for graph g";
+EdmondsMatrix::usage="EdmondsMatrix[g] returns the LHS matrix of Edmonds odd set constraints Mx<=b.";
+EdmondsVector::usage="EdmondsVector[g] returns the RHS vector of Edmonds odd set constraints Mx<=b.";
+RothblumMatrix::usage="RothblumMatrix[g,pl] returns the Rothblum stability matrix.";
+PreferenceList::usage="PreferenceList[g] returns a random prefrence list.";
+DominationMatrix::usage="DominationMatrix[g] returns the kernel domination matrix.";
+StabilityMatrix::usage="StabilityMatrix[g] returns the kernel stablity (clique-vertex incidence) matrix for graph g.";
 
-CycleVertexMatrix::usage="CycleVertexMatrix[g] returns the cycle vertex incidence matrix for both undirected and directed graphs";
-CycleEdgeMatrix::usage="CycleEdgeMatrix[g] returns the cycle edge incidence matrix for undirected graphs ONLY";
-CycleArcMatrix::usage="CycleArcMatrix[d] returns the cycle arc incidence matrix for directed graphs ONLY";
+CycleVertexMatrix::usage="CycleVertexMatrix[g] returns the cycle vertex incidence matrix for both undirected and directed graphs.";
+CycleEdgeMatrix::usage="CycleEdgeMatrix[g] returns the cycle edge incidence matrix for undirected graphs ONLY.";
+CycleArcMatrix::usage="CycleArcMatrix[d] returns the cycle arc incidence matrix for directed graphs ONLY.";
 
-DeleteIsomorphicGraphs::usage="DeleteIsomorphicGraphs[gl] removes duplicate graphs under isomorphism";
+DeleteIsomorphicGraphs::usage="DeleteIsomorphicGraphs[gl] removes duplicate graphs under isomorphism.";
 
-InducedSubgraphs::usage="InducedSubgraphs[g,n] returns all connected induced subgraphs with n vertices";
-ObstructionFreeQ::usage="ObstructionFreeQ[g,obstl] tests whether graph g is free of obstructions obstl";
-ObstructionFreeQC::usage="ObstructionFreeQC[g,obstl] tests whether graph g is free of obstructions obstl";
+InducedSubgraphs::usage=
+	"InducedSubgraphs[g] returns all induced subgraphs of g.\n"<>
+	"InducedSubgraphs[g,n] returns all connected induced subgraphs of g with n vertices.";
 
-ImmersionContract::usage="ImmersionContract[d,v] returns the immersion minor of graph d after contracting vertex v";
-DeletionDistinctVertexList::usage="DeletionDistinctVertexList[g] returns the deletion-distinct vertices in graph g, where two vertices are deletion-distinct if their removal result in nonisomorphic graphs";
-ContractionDistinctVertexList::usage="ContractionDistinctVertexList[g] returns the immersion-distinct vertices in graph d";
-DeletionDistinctEdgeList::usage="DeletionDistinctEdgeList[g] returns distinct edges in graph g, the deletion of which result in nonisomorphic graphs";
-ContractionDistinctEdgeList::usage="ContractionDistinctEdgeList[g] returns distinct edges in graph g, the constraction of which result in nonisomorphic graphs";
-FirstMinorList::usage="FirstMinorList[g] returns all nonisomorphic minors of graph g after one minor operation (vertex deletion, vertex contraction and edge deletion)";
-FirstImmersionList::usage="FirstImmersionList[d] returns all nonisomorphic immersions of graph d after one immersion operation (vertex deletion and immersion contraction)";
+ObstructionFreeQ::usage="ObstructionFreeQ[g,obstl] tests whether graph g is free of obstructions obstl.";
+ObstructionFreeQC::usage="ObstructionFreeQC[g,obstl] tests whether graph g is free of obstructions obstl.";
+
+ImmersionContract::usage="ImmersionContract[d,v] returns the immersion minor of graph d after contracting vertex v.";
+DeletionDistinctVertexList::usage="DeletionDistinctVertexList[g] returns the deletion-distinct vertices in graph g, where two vertices are deletion-distinct if their removal result in nonisomorphic graphs.";
+ContractionDistinctVertexList::usage="ContractionDistinctVertexList[g] returns the immersion-distinct vertices in graph d.";
+DeletionDistinctEdgeList::usage="DeletionDistinctEdgeList[g] returns distinct edges in graph g, the deletion of which result in nonisomorphic graphs.";
+ContractionDistinctEdgeList::usage="ContractionDistinctEdgeList[g] returns distinct edges in graph g, the constraction of which result in nonisomorphic graphs.";
+FirstMinorList::usage="FirstMinorList[g] returns all nonisomorphic minors of graph g after one minor operation (vertex deletion, vertex contraction and edge deletion).";
+FirstImmersionList::usage="FirstImmersionList[d] returns all nonisomorphic immersions of graph d after one immersion operation (vertex deletion and immersion contraction).";
 (*Caution: MinorList and ImmersionList are extremely slow due to their intrinsic computational hard property. 
 But for specific problems, minor testing can be done in O(n2).*)
-MinorList::usage="MinorList[g] returns all nonisomorphic minors of graph g"; 
-ImmersionList::usage="ImmersionList[d] returns all nonisomorphic immersions of digraph d";
+MinorList::usage="MinorList[g] returns all nonisomorphic minors of graph g."; 
+ImmersionList::usage="ImmersionList[d] returns all nonisomorphic immersions of digraph d.";
 
-LineMultiGraphList::usage="LineMultiGraphList[n] returns the list of connected line graphs of multigraphs with n vertices";
-OrientationList::usage="OrientationList[g] returns the list of orientations of graph g";
+LineMultiGraphList::usage="LineMultiGraphList[n] returns the list of connected line graphs of multigraphs with n vertices.";
+
+OrientationList::usage="OrientationList[g] returns the list of orientations of graph g.";
 SuperOrientationList::usage="SuperOrientationList[g] returns the list of superorientations of graph g.";
+
 DominatingVertexSetQ::usage="DominatingVertexSetQ[g,vl] yields True if vl is a kernel of graph g and False otherwise.";
 KernelExistsQ::usage="KernelExistsQ[g] yields True if g has a kernel and False otherwise.";
 CKIGraphQ::usage="CKIGraphQ[g] yields True if g is critical kernel imperfect (CKI) and False otherwise.";
@@ -42,18 +48,18 @@ CKIGraphQ::usage="CKIGraphQ[g] yields True if g is critical kernel imperfect (CK
 FeedbackVertexSetQ::usage="FeedbackVertexSetQ[d,vs] tests whether vertex set vs is a feedback vertex set";
 FeedbackVertexSetList::usage="FeedbackVertexSetList[g] returns all minimum feedback vertex sets";
 
-Tournament::usage="Tournament[n] returns a random tournament";
-SemiCompleteDigraph::usage="SemiCompleteDigraph[n,m] returns a random semicomplete digraph with m opposite oriented arcs ";
+Tournament::usage="Tournament[n] returns a random tournament.";
+SemiCompleteDigraph::usage="SemiCompleteDigraph[n,m] returns a random semicomplete digraph with m opposite oriented arcs.";
 
-GoodTournament::usage="GoodTournament[n] TRIES to return a strongly connected random tournament without obstructions within 1000 attempts";
-GoodSemiCompleteDigraph::usage="GoodSemiCompleteDigraph[n,m] TRIES to return a strongly connected random semicomplete digraph without obstructions within 1000 attempts";
-BFSVertexPartition::usage="BFSVertexPartition[d,r] returns a bfs vertex partition with root r. Moreover, each parition is returned in topological order if it is acyclic, otherwise a cycle list in this partition is accompanied";
-MaxOutDegreeVertexList::usage="MaxOutDegreeVertexList[d] returns all vertices with maximum out degree";
-MinInDegreeVertexList::usage="MinInDegreeVertexList[d] returns all vertices with minimum in degree";
-BFSVertexPartitionList::usage="BFSVertexPartitionList[d] returns all bfs vertex partitions rooted at vertices with maximum outdegree by using BFSVertexPartition[d,r]";
-HangingCycleList::usage="HangingCycleList[d,v] returns all good distinct cycles incident to vertex v in digrah v";
+GoodTournament::usage="GoodTournament[n] TRIES to return a strongly connected random tournament without obstructions within 1000 attempts.";
+GoodSemiCompleteDigraph::usage="GoodSemiCompleteDigraph[n,m] TRIES to return a strongly connected random semicomplete digraph without obstructions within 1000 attempts.";
+BFSVertexPartition::usage="BFSVertexPartition[d,r] returns a bfs vertex partition with root r. Moreover, each parition is returned in topological order if it is acyclic, otherwise a cycle list in this partition is accompanied.";
+MaxOutDegreeVertexList::usage="MaxOutDegreeVertexList[d] returns all vertices with maximum out degree.";
+MinInDegreeVertexList::usage="MinInDegreeVertexList[d] returns all vertices with minimum in degree.";
+BFSVertexPartitionList::usage="BFSVertexPartitionList[d] returns all bfs vertex partitions rooted at vertices with maximum outdegree by using BFSVertexPartition[d,r].";
+HangingCycleList::usage="HangingCycleList[d,v] returns all good distinct cycles incident to vertex v in digrah v.";
 
-PossibleDigraphList::usage="PossibleDigraphList[d] returns all possible orientions in a semicomplete digraph with a given supporting structure";
+PossibleDigraphList::usage="PossibleDigraphList[d] returns all possible orientions in a semicomplete digraph with a given supporting structure.";
 
 
 Begin["`Private`"]
