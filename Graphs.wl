@@ -14,10 +14,11 @@ CycleVertexMatrix::usage="CycleVertexMatrix[g] returns the cycle vertex incidenc
 CycleEdgeMatrix::usage="CycleEdgeMatrix[g] returns the cycle edge incidence matrix for undirected graphs ONLY";
 CycleArcMatrix::usage="CycleArcMatrix[d] returns the cycle arc incidence matrix for directed graphs ONLY";
 
+DeleteIsomorphicGraphs::usage="DeleteIsomorphicGraphs[gl] removes duplicate graphs under isomorphism";
+
+InducedSubgraphs::usage="InducedSubgraphs[g,n] returns all connected induced subgraphs with n vertices";
 ObstructionFreeQ::usage="ObstructionFreeQ[g,obstl] tests whether graph g is free of obstructions obstl";
 ObstructionFreeQC::usage="ObstructionFreeQC[g,obstl] tests whether graph g is free of obstructions obstl";
-
-DeleteIsomorphicGraphs::usage="DeleteIsomorphicGraphs[gl] removes duplicate graphs under isomorphism";
 
 ImmersionContract::usage="ImmersionContract[d,v] returns the immersion minor of graph d after contracting vertex v";
 DeletionDistinctVertexList::usage="DeletionDistinctVertexList[g] returns the deletion-distinct vertices in graph g, where two vertices are deletion-distinct if their removal result in nonisomorphic graphs";
@@ -108,27 +109,6 @@ CycleArcMatrix[g_Graph]:=Module[{},
 
 
 
-(*** OBSTRUCTION TEST ***)
-
-
-(* Induced subgraph isomorphism *)
-
-(* Implemented in Wolfram Language *)
-ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,obstvc},
-	obstvc=VertexCount/@obstl;
-	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,MinMax[obstvc]],WeaklyConnectedGraphQ];
-	\[Not]Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obstl]];
-
-(* Implemented via an interface to igraph C library *)
-ObstructionFreeQC[g_Graph,obstl_List]:=Module[{},
-	SameQ[Flatten[IGLADFindSubisomorphisms[#,g,"Induced"->True]&/@obstl],{}]];
-
-(* Implemented via an interface to Boost graph library (C++)
-ObstructionFreeQCXX[]:Module[{},];
-	vf2_subgraph_iso
-*)
-
-
 (*** DELETING ISOMORPHIC GRAPHS ***)
 
 
@@ -136,7 +116,47 @@ DeleteIsomorphicGraphs[gl_List]:= Module[{},
 	DeleteDuplicatesBy[gl,CanonicalGraph]];
 
 
-(*Graph minors and immersions*)
+(*** OBSTRUCTION TEST ***)
+
+
+(*** Induced subgraph isomorphism ***)
+
+InducedSubgraphs[g_Graph,n_Integer]:=Module[{},
+	DeleteIsomorphicGraphs@Select[Subgraph[g,#]&/@Subsets[VertexList@g,{n}],WeaklyConnectedGraphQ]];
+
+ObstructionFreeQDevel[g_Graph,obstl_List]:=Module[{subgl,vc},
+	vc=VertexCount/@obstl;
+	subgl=InducedSubgraphs[g,#]&/@vc;
+	SetAttributes[IsomorphicGraphQ,Listable];
+	NoneTrue[TrueQ][Flatten@IsomorphicGraphQ[obstl,subgl]]];
+(* A safer way
+ObstructionFreeQDevel[g_Graph,obstl_List]:=Module[{subgl,vc},
+	vc=VertexCount/@obstl;
+	subgl=InducedSubgraphs[g,#]&/@vc;
+	NoneTrue[TrueQ][IsomorphicGraphQ/@Flatten[Thread/@Thread[{obstl, subgl}],1]]];
+*)
+(* Implemented in Wolfram Language *)
+ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
+	vc=VertexCount/@obstl;
+	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,MinMax[vc]],WeaklyConnectedGraphQ];
+	\[Not]Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obstl]];
+
+(* Implemented via an interface to igraph C library *)
+ObstructionFreeQC[g_Graph,obstl_List]:=Module[{},
+	SameQ[Flatten[IGLADFindSubisomorphisms[#,g,"Induced"->True]&/@obstl],{}]];
+
+(* Implemented via an interface to Boost graph library (C++)
+ObstructionFreeQCXX[]:Module[{},vf2_subgraph_iso];
+*)
+
+(*To do
+InducedSubgraphList[g_Graph, n_Integer]
+*)
+
+
+(*** MINORS AND IMMERSIONS ***)
+
+
 ImmersionContract[d_Graph,v_Integer]:=Module[{vl,el,Nin,Nout,Nio},
 	Nin=VertexInComponent[d,{#},1]&;
 	Nout=VertexOutComponent[d,{#},1]&;
@@ -194,7 +214,6 @@ ImmersionList[d_Graph]:=Module[{fiml,iml},
 
 (*To do*)
 (*
-InducedSubgraphQ[g,subg]
 MinorQ[g,m]
 *)
 
