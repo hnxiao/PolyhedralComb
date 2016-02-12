@@ -43,6 +43,12 @@ SuperOrientationList::usage="SuperOrientationList[g] returns the list of superor
 
 DominatingVertexSetQ::usage="DominatingVertexSetQ[g,vl] yields True if vl is a kernel of graph g and False otherwise.";
 KernelExistsQ::usage="KernelExistsQ[g] yields True if g has a kernel and False otherwise.";
+FindKernel::usage="FindKernel[g] returns a random kernel of g.";
+(*
+FindKernel::usage=
+	"FindKernel[g] returns a random kernel of g.\n"<>
+	"FindKernel[g,"All"] returns all kernels of g.";
+*)
 CKIGraphQ::usage="CKIGraphQ[g] yields True if g is critical kernel imperfect (CKI) and False otherwise.";
 
 FeedbackVertexSetQ::usage="FeedbackVertexSetQ[d,vs] tests whether vertex set vs is a feedback vertex set";
@@ -126,6 +132,10 @@ DeleteIsomorphicGraphs[gl_List]:= Module[{},
 
 
 (*** Induced subgraph isomorphism ***)
+(*devel*)
+InducedSubgraphQ[subg_Graph,g_Graph]:=Module[{},
+	SameQ[IGLADFindSubisomorphisms[subg,g,"Induced"->True],{}]];
+
 InducedSubgraphs[g_Graph,n_Integer:0]:=Module[{}, 
 	If[n>0,
 		DeleteIsomorphicGraphs@Select[Subgraph[g,#]&/@Subsets[VertexList@g,{n}],WeaklyConnectedGraphQ],
@@ -263,6 +273,11 @@ KernelExistsQ[g_Graph]:=Module[{pkl},
 	pkl=FindIndependentVertexSet[g,{1,Length@VertexList[g]},All];
 	Apply[Or,DominatingVertexSetQ[g,#]&/@pkl]];
 
+(*Devel*)
+FindKernel[g_Graph]:=Module[{pkl},
+	pkl=FindIndependentVertexSet[g,{1,Length@VertexList[g]},All];
+	Select[pkl,DominatingVertexSetQ[g,#]&]];
+
 CKIGraphQ[g_Graph]:=Module[{vl,subvl,subgl},
 	vl=VertexList@g;
 	subvl=Subsets[vl,{3,Length@vl-1}];
@@ -270,6 +285,13 @@ CKIGraphQ[g_Graph]:=Module[{vl,subvl,subgl},
 	Not@KernelExistsQ[g]&&Apply[And,KernelExistsQ/@subgl]];
 
 (* Private functions *)
+(*Simple graph CliqueAcyclicGraphQ ONLY*)
+(*Devel*)
+CliqueAcyclicQ[d_Graph]:=Module[{cl,subgl},
+	cl=FindClique[d,Infinity,All];
+	subgl=Subgraph[d,#]&/@cl;
+	AllTrue[TrueQ][AcyclicGraphQ/@subgl]];
+
 NormalGraphQ::usage="NormalGraphQ[g] yields True if every clique of g has a kernel and False otherwise";
 NormalGraphQ[g_Graph]:=Module[{cliquel,subgl},
 	cliquel=FindClique[UndirectedGraph@g,Length@VertexList[g],All];
@@ -288,6 +310,19 @@ OddChordedGraphQ::usage="OddChordedGraphQ[g] yields True if every directed cycle
 OddChordedGraphQ[g_Graph]:=Module[{cyclel},
 	cyclel=Flatten[FindCycle[g,{#},All]&/@Select[VertexList@g,OddQ],1];
 	Apply[And,ChordedQ[g,#]&/@cyclel]];
+
+
+(*Devel*)
+FractionalKernelPolytopeVertexList[d_Graph]:=Module[{m1,m2,m3,m,b},
+	m1=-DominationMatrix@d;
+	m2=StabilityMatrix@d;
+	m3=-IdentityMatrix[VertexCount@d];
+	m=Join[m1,m2,m3];
+	b=Join[ConstantArray[-1,Length@m1],ConstantArray[1,Length@m2],ConstantArray[0,VertexCount@d]];
+	VertexEnumeration[m,b]];
+
+FractionalVertexQ[vl_List]:=Module[{},
+	UnsameQ[Complement[Union@Flatten@vl,{0,1}],{}]];
 
 
 (*Feedback Vertex Sets*)

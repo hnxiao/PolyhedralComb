@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     26934,        729]
-NotebookOptionsPosition[     25782,        688]
-NotebookOutlinePosition[     26140,        704]
-CellTagsIndexPosition[     26097,        701]
+NotebookDataLength[     29293,        801]
+NotebookOptionsPosition[     27988,        755]
+NotebookOutlinePosition[     28344,        771]
+CellTagsIndexPosition[     28301,        768]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -682,14 +682,81 @@ Cell[BoxData[
       RowBox[{"Return", "[", 
        RowBox[{"Graph", "/@", "onewayal"}], "]"}]}]}], "\[IndentingNewLine]", 
     "]"}]}], ";"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Development", "Section",
+ CellChangeTimes->{{3.662690913630342*^9, 3.662690928069162*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"FractionalKernelPolytopeVertexList", "[", "d_Graph", "]"}], ":=", 
+   
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m1", ",", "m2", ",", "m3", ",", "m", ",", "b"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"m1", "=", 
+       RowBox[{"-", 
+        RowBox[{"DominationMatrix", "@", "d"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"m2", "=", 
+       RowBox[{"StabilityMatrix", "@", "d"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"m3", "=", 
+       RowBox[{"-", 
+        RowBox[{"IdentityMatrix", "[", 
+         RowBox[{"VertexCount", "@", "d"}], "]"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"m", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{"m1", ",", "m2", ",", "m3"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"b", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{
+         RowBox[{"ConstantArray", "[", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", 
+           RowBox[{"Length", "@", "m1"}]}], "]"}], ",", 
+         RowBox[{"ConstantArray", "[", 
+          RowBox[{"1", ",", 
+           RowBox[{"Length", "@", "m2"}]}], "]"}], ",", 
+         RowBox[{"ConstantArray", "[", 
+          RowBox[{"0", ",", 
+           RowBox[{"VertexCount", "@", "d"}]}], "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"VertexEnumeration", "[", 
+       RowBox[{"m", ",", "b"}], "]"}]}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.662690962642517*^9, 3.662690973221924*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"FractionalVertexQ", "[", "vl_List", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"UnsameQ", "[", 
+      RowBox[{
+       RowBox[{"Complement", "[", 
+        RowBox[{
+         RowBox[{"Union", "@", 
+          RowBox[{"Flatten", "@", "vl"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}]}], "]"}], ",", 
+       RowBox[{"{", "}"}]}], "]"}]}], "]"}]}], ";"}]], "Input"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{808, 586},
-WindowMargins->{{214, Automatic}, {Automatic, 0}},
-FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
-2014)",
+WindowMargins->{{Automatic, -39}, {Automatic, 0}},
+FrontEndVersion->"10.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 9, \
+2015)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -728,6 +795,11 @@ Cell[20369, 536, 1523, 41, 148, "Input"],
 Cell[21895, 579, 1528, 37, 182, "Input"],
 Cell[23426, 618, 1360, 37, 114, "Input"],
 Cell[24789, 657, 953, 26, 114, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25779, 688, 96, 1, 64, "Section"],
+Cell[25878, 691, 1554, 42, 148, "Input"],
+Cell[27435, 735, 513, 15, 46, "Input"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
