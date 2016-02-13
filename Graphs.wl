@@ -191,9 +191,6 @@ MinorQ[g,m]
 
 
 
-(*** CRITICAL KERNEL IMPERFECT (CKI) GRAPHS ***)
-
-
 (* Generating functions *)
 ConnectedGraphList[n_Integer]:=Import["http://cs.anu.edu.au/~bdm/data/graph"<>ToString@n<>"c.g6"];
 (*
