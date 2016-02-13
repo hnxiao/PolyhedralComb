@@ -8,8 +8,6 @@ EdmondsMatrix::usage="EdmondsMatrix[g] returns the LHS matrix of Edmonds odd set
 EdmondsVector::usage="EdmondsVector[g] returns the RHS vector of Edmonds odd set constraints Mx<=b.";
 RothblumMatrix::usage="RothblumMatrix[g,pl] returns the Rothblum stability matrix.";
 PreferenceList::usage="PreferenceList[g] returns a random prefrence list.";
-DominationMatrix::usage="DominationMatrix[g] returns the kernel domination matrix.";
-StabilityMatrix::usage="StabilityMatrix[g] returns the kernel stablity (clique-vertex incidence) matrix for graph g.";
 
 CycleVertexMatrix::usage="CycleVertexMatrix[g] returns the cycle vertex incidence matrix for both undirected and directed graphs.";
 CycleEdgeMatrix::usage="CycleEdgeMatrix[g] returns the cycle edge incidence matrix for undirected graphs ONLY.";
@@ -41,15 +39,6 @@ LineMultiGraphList::usage="LineMultiGraphList[n] returns the list of connected l
 OrientationList::usage="OrientationList[g] returns the list of orientations of graph g.";
 SuperOrientationList::usage="SuperOrientationList[g] returns the list of superorientations of graph g.";
 
-DominatingVertexSetQ::usage="DominatingVertexSetQ[g,vl] yields True if vl is a kernel of graph g and False otherwise.";
-KernelExistsQ::usage="KernelExistsQ[g] yields True if g has a kernel and False otherwise.";
-FindKernel::usage="FindKernel[g] returns a random kernel of g.";
-(*
-FindKernel::usage=
-	"FindKernel[g] returns a random kernel of g.\n"<>
-	"FindKernel[g,"All"] returns all kernels of g.";
-*)
-CKIGraphQ::usage="CKIGraphQ[g] yields True if g is critical kernel imperfect (CKI) and False otherwise.";
 
 FeedbackVertexSetQ::usage="FeedbackVertexSetQ[d,vs] tests whether vertex set vs is a feedback vertex set";
 FeedbackVertexSetList::usage="FeedbackVertexSetList[g] returns all minimum feedback vertex sets";
@@ -266,37 +255,9 @@ SuperOrientationList[g_Graph]:=Module[{el,tal,al},
 ];
 
 (* Testing functions *)
-DominatingVertexSetQ[g_Graph,vl_List]:=Module[{},
-	Sort@VertexInComponent[g,vl,1]==Sort@VertexList[g]];
-
-KernelExistsQ[g_Graph]:=Module[{pkl},
-	pkl=FindIndependentVertexSet[g,{1,Length@VertexList[g]},All];
-	Apply[Or,DominatingVertexSetQ[g,#]&/@pkl]];
-
-(*Devel*)
-FindKernel[g_Graph]:=Module[{pkl},
-	pkl=FindIndependentVertexSet[g,{1,Length@VertexList[g]},All];
-	Select[pkl,DominatingVertexSetQ[g,#]&]];
-
-CKIGraphQ[g_Graph]:=Module[{vl,subvl,subgl},
-	vl=VertexList@g;
-	subvl=Subsets[vl,{3,Length@vl-1}];
-	subgl=Subgraph[g,#]&/@subvl;
-	Not@KernelExistsQ[g]&&Apply[And,KernelExistsQ/@subgl]];
 
 (* Private functions *)
-(*Simple graph CliqueAcyclicGraphQ ONLY*)
 (*Devel*)
-CliqueAcyclicQ[d_Graph]:=Module[{cl,subgl},
-	cl=FindClique[d,Infinity,All];
-	subgl=Subgraph[d,#]&/@cl;
-	AllTrue[TrueQ][AcyclicGraphQ/@subgl]];
-
-NormalGraphQ::usage="NormalGraphQ[g] yields True if every clique of g has a kernel and False otherwise";
-NormalGraphQ[g_Graph]:=Module[{cliquel,subgl},
-	cliquel=FindClique[UndirectedGraph@g,Length@VertexList[g],All];
-	subgl=Subgraph[g,#]&/@cliquel;
-	Apply[And,KernelExistsQ/@subgl]];
 
 ChordedQ::usage="ChordedQ[g,el] yields True if the directed cycle consisting of el has a (pseudo-)chord and False otherwise.";
 ChordedQ[g_Graph,el_List]:=Module[{vl,vpl,pl,chordlist},
@@ -310,19 +271,6 @@ OddChordedGraphQ::usage="OddChordedGraphQ[g] yields True if every directed cycle
 OddChordedGraphQ[g_Graph]:=Module[{cyclel},
 	cyclel=Flatten[FindCycle[g,{#},All]&/@Select[VertexList@g,OddQ],1];
 	Apply[And,ChordedQ[g,#]&/@cyclel]];
-
-
-(*Devel*)
-FractionalKernelPolytopeVertexList[d_Graph]:=Module[{m1,m2,m3,m,b},
-	m1=-DominationMatrix@d;
-	m2=StabilityMatrix@d;
-	m3=-IdentityMatrix[VertexCount@d];
-	m=Join[m1,m2,m3];
-	b=Join[ConstantArray[-1,Length@m1],ConstantArray[1,Length@m2],ConstantArray[0,VertexCount@d]];
-	VertexEnumeration[m,b]];
-
-FractionalVertexQ[vl_List]:=Module[{},
-	UnsameQ[Complement[Union@Flatten@vl,{0,1}],{}]];
 
 
 (*Feedback Vertex Sets*)
