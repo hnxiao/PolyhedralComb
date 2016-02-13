@@ -67,6 +67,7 @@ StabilityMatrix[g_Graph]:=Module[{},
 DominatingVertexSetQ[g_Graph,vl_List]:=Module[{},
 	Sort@VertexInComponent[g,vl,1]==Sort@VertexList[g]];
 
+ChordExistsQ::usage="ChordExistsQ[g,el] yields True if the directed cycle consisting of el has a (pseudo-)chord and False otherwise.";
 ChordExistsQ[g_Graph,el_List]:=Module[{vl,vpl,pl,chordlist},
 	vl=VertexList@Subgraph[g,el];
 	vpl=Subsets[vl,{2}];

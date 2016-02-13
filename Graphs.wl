@@ -4,11 +4,6 @@ BeginPackage["Graphs`",{"IGraphM`"}]
 (* Public import *)
 Get["mcdd`"]
 
-EdmondsMatrix::usage="EdmondsMatrix[g] returns the LHS matrix of Edmonds odd set constraints Mx<=b.";
-EdmondsVector::usage="EdmondsVector[g] returns the RHS vector of Edmonds odd set constraints Mx<=b.";
-RothblumMatrix::usage="RothblumMatrix[g,pl] returns the Rothblum stability matrix.";
-PreferenceList::usage="PreferenceList[g] returns a random prefrence list.";
-
 CycleVertexMatrix::usage="CycleVertexMatrix[g] returns the cycle vertex incidence matrix for both undirected and directed graphs.";
 CycleEdgeMatrix::usage="CycleEdgeMatrix[g] returns the cycle edge incidence matrix for undirected graphs ONLY.";
 CycleArcMatrix::usage="CycleArcMatrix[d] returns the cycle arc incidence matrix for directed graphs ONLY.";
@@ -69,34 +64,6 @@ Needs["IGraphM`"]
 (*** GRAPH MATRICES ***)
 
 
-(* Stable matching constraints *)
-EdmondsMatrix[g_Graph]:=Module[{el,vl,subl},
-	el=EdgeList[g];
-	vl=VertexList[g];
-	subl=Select[Subsets[vl,{3,Infinity,2}],!EmptyGraphQ[Subgraph[g,#]]&];
-	SparseArray[{i_,j_}/;(Length@Intersection[subl[[i]],List@@el[[j]]]==2):>1,{Length@subl,Length@el}]];
-
-EdmondsVector[g_Graph]:=Module[{subl},
-	subl=Select[Subsets[VertexList[g],{3,Infinity,2}],!EmptyGraphQ[Subgraph[g,#]]&];
-	(Length/@subl-1)/2
-];
-
-RothblumMatrix[g_Graph,pl_List]:=Module[{el},
-	el=List@@@EdgeList@g;
-	Outer[Boole[#1==#2\[Or]IntersectingQ[#1,#2]&&
-		OrderedQ@{Position[pl[[Intersection[#1,#2][[1]]]],Complement[#2,Intersection[#1,#2]][[1]]],
-				Position[pl[[Intersection[#1,#2][[1]]]],Complement[#1,Intersection[#1,#2]][[1]]]}]&,el,el,1]];
-
-PreferenceList[g_Graph]:=Module[{},
-	Map[RandomSample[AdjacencyList[g,#]]&,VertexList@g]];
-
-(* Kernel constraints *)
-DominationMatrix[g_Graph]:=Module[{},
-	Outer[Boole[MemberQ[Flatten[List@@@#1],#2]]&,VertexOutComponent[g,{#},1]&/@VertexList[g],VertexList@g,1]];
-
-StabilityMatrix[g_Graph]:=Module[{},
-	Outer[Boole[MemberQ[Flatten[List@@@#1],#2]]&,FindClique[UndirectedGraph@g,Infinity,All],VertexList@g,1]];
-
 (* Miscellaneous *)
 CycleVertexMatrix[g_Graph]:=Module[{},
 	Outer[Boole[MemberQ[Flatten[List@@@#1],#2]]&,FindCycle[g,Infinity,All],VertexList@g,1]];
@@ -106,8 +73,6 @@ CycleEdgeMatrix[g_Graph]:=Module[{},
 
 CycleArcMatrix[g_Graph]:=Module[{},
 	Outer[Boole[MemberQ[#1,#2]]&,FindCycle[g,Infinity,All],EdgeList@g,1]];
-
-
 
 
 (*** DELETING ISOMORPHIC GRAPHS ***)
@@ -122,7 +87,7 @@ DeleteIsomorphicGraphs[gl_List]:= Module[{},
 
 (*** Induced subgraph isomorphism ***)
 (*devel*)
-InducedSubgraphQ[subg_Graph,g_Graph]:=Module[{},
+InducedSubgraphQ[g_Graph,subg_Graph]:=Module[{},
 	SameQ[IGLADFindSubisomorphisms[subg,g,"Induced"->True],{}]];
 
 InducedSubgraphs[g_Graph,n_Integer:0]:=Module[{}, 
@@ -254,23 +219,6 @@ SuperOrientationList[g_Graph]:=Module[{el,tal,al},
 (*Since DeleteIsomorphicGraphs dependens on DeleteDuplicates which has quadratic time complexity, I prefer not to use this function.*)
 ];
 
-(* Testing functions *)
-
-(* Private functions *)
-(*Devel*)
-
-ChordedQ::usage="ChordedQ[g,el] yields True if the directed cycle consisting of el has a (pseudo-)chord and False otherwise.";
-ChordedQ[g_Graph,el_List]:=Module[{vl,vpl,pl,chordlist},
-	vl=VertexList@Subgraph[g,el];
-	vpl=Subsets[vl,{2}];
-	pl=Union[DirectedEdge@@@vpl,Reverse/@DirectedEdge@@@vpl];
-	chordlist=Complement[pl,el];
-	Apply[Or,EdgeQ[g,#]&/@chordlist]];
-
-OddChordedGraphQ::usage="OddChordedGraphQ[g] yields True if every directed cycle has a (pseudo-)chord and False otherwise.";
-OddChordedGraphQ[g_Graph]:=Module[{cyclel},
-	cyclel=Flatten[FindCycle[g,{#},All]&/@Select[VertexList@g,OddQ],1];
-	Apply[And,ChordedQ[g,#]&/@cyclel]];
 
 
 (*Feedback Vertex Sets*)
