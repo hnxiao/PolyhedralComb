@@ -30,6 +30,8 @@ But for specific problems, minor testing can be done in O(n2).*)
 MinorList::usage="MinorList[g] returns all nonisomorphic minors of graph g."; 
 ImmersionList::usage="ImmersionList[d] returns all nonisomorphic immersions of digraph d.";
 
+ConnectedGraphList::usage="ConnectedGraphList[n] returns the list of connected graphs with n vertices.";
+
 LineMultiGraphList::usage="LineMultiGraphList[n] returns the list of connected line graphs of multigraphs with n vertices.";
 
 OrientationList::usage="OrientationList[g] returns the list of orientations of graph g.";
@@ -96,11 +98,17 @@ InducedSubgraphQ[g_Graph,h_Graph]:=Module[{subgl},
 ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
 	vc=VertexCount/@obstl;
 	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,MinMax[vc]],WeaklyConnectedGraphQ];
-	\[Not]Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obstl]];
+	NoneTrue[TrueQ][Flatten@Outer[IsomorphicGraphQ,subgl,obstl]]];
 
-(*Slightly slower
+(*Slower implementations
 ObstructionFreeQ[g_Graph,obst_List]:=Module[{},
 	NoneTrue[TrueQ][InducedSubgraphQ[g,#]&/@obst]];
+
+ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc,vl},
+	vc=VertexCount/@obstl;
+	vl=Flatten[Subsets[VertexList@g,{#}]&/@vc,1];
+	subgl=Select[Subgraph[g,#]&/@vl,WeaklyConnectedGraphQ];
+	NoneTrue[TrueQ][Flatten@Outer[IsomorphicGraphQ,subgl,obstl]]];
 *)
 
 (*devel*)
@@ -205,10 +213,11 @@ MinorQ[g,m]
 
 
 (* Generating functions *)
-ConnectedGraphList[n_Integer]:=Import["http://cs.anu.edu.au/~bdm/data/graph"<>ToString@n<>"c.g6"];
 (*
-ConnectedGraphList[n_Integer]:=GraphData/@GraphData["Connected",n];
+ConnectedGraphList[n_Integer]:=Import["http://cs.anu.edu.au/~bdm/data/graph"<>ToString@n<>"c.g6"];
 *)
+
+ConnectedGraphList[n_Integer]:=GraphData/@GraphData["Connected",n];
 
 LineMultiGraphList[n_Integer]:=Module[{gl,obstl},
 	gl=ConnectedGraphList[n];
