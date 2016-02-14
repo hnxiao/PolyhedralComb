@@ -10,6 +10,7 @@ CycleArcMatrix::usage="CycleArcMatrix[d] returns the cycle arc incidence matrix 
 
 DeleteIsomorphicGraphs::usage="DeleteIsomorphicGraphs[gl] removes duplicate graphs under isomorphism.";
 
+InducedSubgraphQ::usage="InducedSubgraphQ[g,subg] returns True if subg is an induced subgraph of g and False otherwise.";
 InducedSubgraphs::usage=
 	"InducedSubgraphs[g] returns all induced subgraphs of g.\n"<>
 	"InducedSubgraphs[g,n] returns all connected induced subgraphs of g with n vertices.";
@@ -86,14 +87,31 @@ DeleteIsomorphicGraphs[gl_List]:= Module[{},
 
 
 (*** Induced subgraph isomorphism ***)
+
+(* Implemented in Wolfram Language *)
+InducedSubgraphQ[g_Graph,h_Graph]:=Module[{subgl},
+	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,{VertexCount@h}],WeaklyConnectedGraphQ];
+	AnyTrue[TrueQ][IsomorphicGraphQ[#,h]&/@subgl]];
+
+ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
+	vc=VertexCount/@obstl;
+	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,MinMax[vc]],WeaklyConnectedGraphQ];
+	\[Not]Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obstl]];
+
+(*Slightly slower
+ObstructionFreeQ[g_Graph,obst_List]:=Module[{},
+	NoneTrue[TrueQ][InducedSubgraphQ[g,#]&/@obst]];
+*)
+
 (*devel*)
-InducedSubgraphQ[g_Graph,subg_Graph]:=Module[{},
+(*LAD does NOT detect opposite arcs!!!*)
+InducedSubgraphQBug[g_Graph,subg_Graph]:=Module[{},
 	SameQ[IGLADFindSubisomorphisms[subg,g,"Induced"->True],{}]];
 
 InducedSubgraphs[g_Graph,n_Integer:0]:=Module[{}, 
 	If[n>0,
 		DeleteIsomorphicGraphs@Select[Subgraph[g,#]&/@Subsets[VertexList@g,{n}],WeaklyConnectedGraphQ],
-		Flatten[InducedSubgs[g,#]&/@Range[VertexCount@g]]]];
+		Flatten[InducedSubgraphs[g,#]&/@Range[VertexCount@g]]]];
 
 ObstructionFreeQDevel[g_Graph,obstl_List]:=Module[{subgl,vc},
 	vc=VertexCount/@obstl;
@@ -107,11 +125,6 @@ ObstructionFreeQDevel[g_Graph,obstl_List]:=Module[{subgl,vc},
 	subgl=InducedSubgraphs[g,#]&/@vc;
 	NoneTrue[TrueQ][IsomorphicGraphQ/@Flatten[Thread/@Thread[{obstl, subgl}],1]]];
 *)
-(* Implemented in Wolfram Language *)
-ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
-	vc=VertexCount/@obstl;
-	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,MinMax[vc]],WeaklyConnectedGraphQ];
-	\[Not]Or@@Flatten@Outer[IsomorphicGraphQ,subgl,obstl]];
 
 (* Implemented via an interface to igraph C library *)
 ObstructionFreeQC[g_Graph,obstl_List]:=Module[{},
