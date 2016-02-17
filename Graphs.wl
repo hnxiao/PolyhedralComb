@@ -38,6 +38,11 @@ OrientationList::usage="OrientationList[g] returns the list of orientations of g
 SuperOrientationList::usage="SuperOrientationList[g] returns the list of superorientations of graph g.";
 
 
+FindAllClique::usage="FindAllClique[g] returns all possible cliques (not just maximal ones) in graph g.";
+FindAllNonTrivialClique::usage="FindAllNonTrivialClique[g] returns all possible non-trivial cliques (of cardinality larger than two) in graph g.";
+FindAllIndependentVertexSet::usage="FindAllIndependentVertexSet[g] returns all possible independent vertex set (not just maximal ones) in graph g.";
+
+
 FeedbackVertexSetQ::usage="FeedbackVertexSetQ[d,vs] tests whether vertex set vs is a feedback vertex set";
 FeedbackVertexSetList::usage="FeedbackVertexSetList[g] returns all minimum feedback vertex sets";
 
@@ -238,6 +243,16 @@ SuperOrientationList[g_Graph]:=Module[{el,tal,al},
 (*Since DeleteIsomorphicGraphs dependens on DeleteDuplicates which has quadratic time complexity, I prefer not to use this function.*)
 ];
 
+
+
+FindAllClique[g_Graph]:=Module[{},
+	DeleteDuplicates[Join@@Map[Subsets,FindClique[g,Infinity,All]]]];
+
+FindAllNonTrivialClique[g_Graph]:=Module[{},
+	DeleteDuplicates[Join@@Map[Subsets[#,{3,Length@#}]&,FindClique[g,Infinity,All]]]];
+
+FindAllIndependentVertexSet[g_Graph]:=Module[{},
+	FindAllClique@GraphComplement[g]];
 
 
 (*Feedback Vertex Sets*)
