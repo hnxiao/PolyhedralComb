@@ -218,12 +218,12 @@ MinorQ[g,m]
 
 
 (* Generating functions *)
-(*
+
 ConnectedGraphList[n_Integer]:=Import["http://cs.anu.edu.au/~bdm/data/graph"<>ToString@n<>"c.g6"];
-*)
 
+(* Cannot return full list when n\[GreaterEqual]8
 ConnectedGraphList[n_Integer]:=GraphData/@GraphData["Connected",n];
-
+*)
 LineMultiGraphList[n_Integer]:=Module[{gl,obstl},
 	gl=ConnectedGraphList[n];
 	obstl=Import["~/GitHub/data/obst4linemulti.graphml"];

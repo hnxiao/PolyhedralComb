@@ -12,9 +12,11 @@ FindKernel::usage=
 *)
 FractionalKernelExistsQ::usage="FractionalKernelExistsQ[g] yields True if g has a FRACTIONAL kernel and False otherwise.";
 FindFractionalKernel::usage="FindFrKernel[g] returns all fractional kernels of g in incidence vectors.";
+
+KernelPerfectQ::usage="KernelPerfectQ[g] returns True if g is kernel perfect and False otherwise.";
 CriticalKernelImperfectQ::usage="CriticalKernelImperfectQ[g] yields True if g is critical kernel imperfect (CKI) and False otherwise.";
 CliqueAcyclicQ::usage="CliqueAcyclicQ[g] yields True if every clique of g has a kernel and False otherwise.";
-OddCycleChordExistsQ::usage="OddCycleChordExistQ[g] yields True if every directed cycle has a (pseudo-)chord and False otherwise.";
+OddCycleChordExistsQ::usage="OddCycleChordExistsQ[g] yields True if every directed cycle has a (pseudo-)chord and False otherwise.";
 
 
 Begin["`Private`"]
@@ -38,6 +40,12 @@ FindFractionalKernel[g_Graph]:=Module[{A1,A2,A3,A,b},
 	A=Join[A1,A2,A3];
 	b=Join[ConstantArray[-1,Length@A1],ConstantArray[1,Length@A2],ConstantArray[0,VertexCount@g]];
 	VertexEnumeration[A,b]];
+
+KernelPerfectQ[g_Graph]:=Module[{vl,subvl,subgl},
+	vl=VertexList@g;
+	subvl=Subsets[vl,{3,Length@vl}];
+	subgl=Subgraph[g,#]&/@subvl;
+	AllTrue[TrueQ][KernelExistsQ/@subgl]];
 
 CriticalKernelImperfectQ[g_Graph]:=Module[{vl,subvl,subgl},
 	vl=VertexList@g;
