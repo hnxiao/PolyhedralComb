@@ -38,6 +38,12 @@ OrientationList::usage="OrientationList[g] returns the list of orientations of g
 SuperOrientationList::usage="SuperOrientationList[g] returns the list of superorientations of graph g.";
 
 
+ChromaticNumber::usage="ChromaticNumber[g] returns the chromatic number of g.";
+ChromaticIndex::usage="ChromaticIndex[g] returns the chromatic index of g.";
+CliqueNumber::usage="CliqueNumber[g] returns the size of  maximum clqiue of g.";
+PerfectGraphQ::usage="PerfectGraphQ[g] returns True if g is perfect and False otherwise.";
+
+
 FindAllClique::usage="FindAllClique[g] returns all possible cliques (not just maximal ones) in graph g.";
 FindAllNonTrivialClique::usage="FindAllNonTrivialClique[g] returns all possible non-trivial cliques (of cardinality larger than two) in graph g.";
 FindAllIndependentVertexSet::usage="FindAllIndependentVertexSet[g] returns all possible independent vertex set (not just maximal ones) in graph g.";
@@ -264,6 +270,23 @@ FeedbackVertexSetList[g_Graph]:=Module[{vsl,fvsl},
 	Do[fvsl=Select[vsl[[i]],FeedbackVertexSetQ[g,#]&];
 		If[fvsl!={},Return@fvsl],{i,Length@vsl}]
 	];
+
+
+(*Devel*)
+ChromaticNumber[g_Graph]:=Module[{z},
+	MinValue[{z,z>0&&ChromaticPolynomial[g,z]>0},z,Integers]];
+ChromaticIndex[g_Graph]:=ChromaticNumber[LineGraph[g]];
+
+CliqueNumber[g_Graph]:=Length@@FindClique[g];
+
+PerfectGraphQ[g_Graph]:=Module[{vl,subvl,subgl,test},
+	vl=VertexList@g;
+	subvl=Subsets[vl,{3,Length@vl}];
+	subgl=Subgraph[g,#]&/@subvl;
+	test=Equal[ChromaticNumber[#],CliqueNumber[#]]&;
+	AllTrue[TrueQ][test/@subgl]];
+
+BergeGraphQ[g_Graph]:=PerfectGraphQ[g];
 
 
 (*Min-Max properties in semicomplete digraphs*)
