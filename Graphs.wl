@@ -42,6 +42,7 @@ ChromaticNumber::usage="ChromaticNumber[g] returns the chromatic number of g.";
 ChromaticIndex::usage="ChromaticIndex[g] returns the chromatic index of g.";
 CliqueNumber::usage="CliqueNumber[g] returns the size of  maximum clqiue of g.";
 PerfectGraphQ::usage="PerfectGraphQ[g] returns True if g is perfect and False otherwise.";
+BergeGraphQ::usage="BergeGraphQ[g] returns True if g is a Berge graph and False otherwise.";
 
 
 FindAllClique::usage="FindAllClique[g] returns all possible cliques (not just maximal ones) in graph g.";
@@ -286,7 +287,11 @@ PerfectGraphQ[g_Graph]:=Module[{vl,subvl,subgl,test},
 	test=Equal[ChromaticNumber[#],CliqueNumber[#]]&;
 	AllTrue[TrueQ][test/@subgl]];
 
-BergeGraphQ[g_Graph]:=PerfectGraphQ[g];
+BergeGraphQ[g_Graph]:=Module[{oddhole,oddantihole,obst},
+	oddhole=CycleGraph/@Select[Range[5,Max[5,VertexCount@g]],OddQ];
+	oddantihole=GraphComplement/@oddhole;
+	obst=Join[oddhole,oddantihole];
+	ObstructionFreeQ[g,obst]];
 
 
 (*Min-Max properties in semicomplete digraphs*)
