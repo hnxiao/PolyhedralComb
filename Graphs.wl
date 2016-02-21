@@ -226,16 +226,21 @@ MinorQ[g,m]
 
 (* Generating functions *)
 
+ConnectedGraphList[n_Integer]:=Import["https://github.com/hnxiao/data/blob/master/connected"<>ToString@n<>".graphml?raw=true"];
+(*
 ConnectedGraphList[n_Integer]:=Import["http://cs.anu.edu.au/~bdm/data/graph"<>ToString@n<>"c.g6"];
-
+*)
 (* Cannot return full list when n\[GreaterEqual]8
 ConnectedGraphList[n_Integer]:=GraphData/@GraphData["Connected",n];
 *)
+
+LineMultiGraphList[n_Integer]:=Import["https://github.com/hnxiao/data/blob/master/linemulti"<>ToString@n<>"c.graphml?raw=true"];
+(*
 LineMultiGraphList[n_Integer]:=Module[{gl,obstl},
 	gl=ConnectedGraphList[n];
-	obstl=Import["~/GitHub/data/obst4linemulti.graphml"];
+	obstl=Import["~/GitHub/data/obstruction4linemulti.graphml"];
 	Select[gl,ObstructionFreeQ[#,obstl]&]];
-
+*)
 OrientationList[g_Graph]:=Module[{el,tal,al},
 	el=EdgeList@g;
 	tal=DirectedEdge@@@el;
