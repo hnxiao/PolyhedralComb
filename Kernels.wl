@@ -4,14 +4,14 @@ BeginPackage["Kernels`",{"Graphs`"}]
 
 
 KernelExistsQ::usage="KernelExistsQ[g] yields True if g has a kernel and False otherwise.";
-FindKernel::usage="FindKernel[g] returns all kernels of g.";
+KernelEnumeration::usage="KernelEnumeration[g] returns a list of all kernels of g.";
 (*
 FindKernel::usage=
 	"FindKernel[g] returns a random kernel of g.\n"<>
 	"FindKernel[g,"All"] returns all kernels of g.";
 *)
 FractionalKernelExistsQ::usage="FractionalKernelExistsQ[g] yields True if g has a FRACTIONAL kernel and False otherwise.";
-FindFractionalKernel::usage="FindFrKernel[g] returns all fractional kernels of g in incidence vectors.";
+FractionalKernelEnumeration::usage="FractionalKernelEnumeration[g] returns all fractional kernels of g in incidence vectors.";
 
 KernelPerfectQ::usage="KernelPerfectQ[g] returns True if g is kernel perfect and False otherwise.";
 CriticalKernelImperfectQ::usage="CriticalKernelImperfectQ[g] yields True if g is critical kernel imperfect (CKI) and False otherwise.";
@@ -26,14 +26,14 @@ KernelExistsQ[g_Graph]:=Module[{pkl},
 	pkl=FindIndependentVertexSet[g,{1,Length@VertexList[g]},All];
 	Apply[Or,DominatingVertexSetQ[g,#]&/@pkl]];
 
-FindKernel[g_Graph]:=Module[{pkl},
+KernelEnumeration[g_Graph]:=Module[{pkl},
 	pkl=FindIndependentVertexSet[g,{1,Length@VertexList[g]},All];
 	Select[pkl,DominatingVertexSetQ[g,#]&]];
 
 FractionalKernelExistsQ[g_Graph]:=Module[{},
-	UnsameQ[Complement[Union@Flatten@FindFractionalKernel[g],{0,1}],{}]];
+	UnsameQ[Complement[Union@Flatten@FractionalKernelEnumeration[g],{0,1}],{}]];
 
-FindFractionalKernel[g_Graph]:=Module[{A1,A2,A3,A,b},
+FractionalKernelEnumeration[g_Graph]:=Module[{A1,A2,A3,A,b},
 	A1=-DominationMatrix@g;
 	A2=StabilityMatrix@g;
 	A3=-IdentityMatrix[VertexCount@g];
