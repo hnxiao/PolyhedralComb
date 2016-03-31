@@ -10,8 +10,13 @@ FindKernel::usage=
 	"FindKernel[g] returns a random kernel of g.\n"<>
 	"FindKernel[g,"All"] returns all kernels of g.";
 *)
-FractionalKernelExistsQ::usage="FractionalKernelExistsQ[g] yields True if g has a FRACTIONAL kernel and False otherwise.";
+
+FractionalKernelPolytope::usage="FractionalKernelPolytope[g] returns matrix A and vector b in Ax<=b as a list {A,b}, which defines the fractional kernel polytope.";
 FractionalKernelEnumeration::usage="FractionalKernelEnumeration[g] returns all fractional kernels of g in incidence vectors.";
+KernelIdealQ::usage="KernelIdealQ[g] returns True if the fractionak kernel polytope of g is integer otherwise False.";
+
+FractionalKernelExistsQ::usage="FractionalKernelExistsQ[g] yields True if g has a FRACTIONAL kernel and False otherwise.";
+
 
 KernelPerfectQ::usage="KernelPerfectQ[g] returns True if g is kernel perfect and False otherwise.";
 CriticalKernelImperfectQ::usage="CriticalKernelImperfectQ[g] yields True if g is critical kernel imperfect (CKI) and False otherwise.";
@@ -30,16 +35,22 @@ KernelEnumeration[g_Graph]:=Module[{pkl},
 	pkl=FindIndependentVertexSet[g,{1,Length@VertexList[g]},All];
 	Select[pkl,DominatingVertexSetQ[g,#]&]];
 
-FractionalKernelExistsQ[g_Graph]:=Module[{},
-	UnsameQ[Complement[Union@Flatten@FractionalKernelEnumeration[g],{0,1}],{}]];
-
-FractionalKernelEnumeration[g_Graph]:=Module[{A1,A2,A3,A,b},
+FractionalKernelPolytope[g_Graph]:=Module[{A1,A2,A3,A,b},
 	A1=-DominationMatrix@g;
 	A2=StabilityMatrix@g;
 	A3=-IdentityMatrix[VertexCount@g];
 	A=Join[A1,A2,A3];
 	b=Join[ConstantArray[-1,Length@A1],ConstantArray[1,Length@A2],ConstantArray[0,VertexCount@g]];
-	VertexEnumeration[A,b]];
+	List[A,b]];
+
+FractionalKernelEnumeration[g_Graph]:=Module[{},
+	VertexEnumeration@@FractionalKernelPolytope[g]];
+
+KernelIdealQ[g_Graph]:=Module[{},
+	IdealQ@@FractionalKernelPolytope[g]];
+
+FractionalKernelExistsQ[g_Graph]:=Module[{},
+	UnsameQ[Complement[Union@Flatten@FractionalKernelEnumeration[g],{0,1}],{}]];
 
 KernelPerfectQ[g_Graph]:=Module[{vl,subvl,subgl},
 	vl=VertexList@g;
