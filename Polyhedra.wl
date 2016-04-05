@@ -17,19 +17,22 @@ cddEnd[] := (
 
 
 VertexEnumeration::usage="VertexEnumeration[A,b] returns the vertex list of the polyhedron defined by linear inequality system Ax<=b.";
-VertexEnumeration[A_?MatrixQ,b_?VectorQ]:=Module[{M,rown,coln,vl},
-	M=MapThread[Insert,{-A,b,Table[1,{Length[b]}]}];
-	{rown,coln}=Dimensions[M];
-	vl=ToExpression/@AllVertices[rown, coln, ToString[Flatten@M]][[1,1]];
-	Return[Drop[#,1]&/@vl]]; (*The last operation drops the indicator of vertices.*)
+VertexEnumeration[A_?MatrixQ,b_?VectorQ]:=Module[{mat,row,col,extremes,vertices},
+	mat=MapThread[Insert,{-A,b,Table[1,{Length[b]}]}];
+	{row,col}=Dimensions[mat];
+	(*Enumerate extreme points and rays*)
+	extremes=AllVertices[row, col, ToString[Flatten@mat]][[1,1]];
+	(*Select extreme points and drop the indicator of each extreme point*)
+	vertices=Drop[#,1]&/@ToExpression[Cases[extremes,{"1",__}]];
+	vertices];
 
 IdealQ::usage="IdealQ[A,b] returns True if the polyhedron defined by Ax<=b is integer and returns False otherwise.";
 IdealQ[A_?MatrixQ,b_?VectorQ]:=Module[{},
 	AllTrue[Union@Flatten@VertexEnumeration[A,b],IntegerQ]]
 
-NonIdealQ::usage="NonIdealQ[A,b] returns True if the polyhedron defined by Ax<=b is not integer and returns False otherwise.";
-NonIdealQ[A_?MatrixQ,b_?VectorQ]:=Module[{},
-	AnyTrue[Union@Flatten@VertexEnumeration[A,b],Not@IntegerQ[#]&]]
+IntegerPolyhedronQ::usage="IntegerPolyhedronQ[A,b] returns True if the polyhedron defined by Ax<=b is integer and returns False otherwise.";
+IntegerPolyhedronQ[A_?MatrixQ,b_?VectorQ]:=Module[{},
+	AllTrue[Union@Flatten@VertexEnumeration[A,b],IntegerQ]]
 
 
 cddBegin[];
