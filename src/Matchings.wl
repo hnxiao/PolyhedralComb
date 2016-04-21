@@ -36,7 +36,7 @@ RothblumMatrix[g_Graph,pl_List]:=Module[{el},
 				Position[pl[[Intersection[#1,#2][[1]]]],Complement[#1,Intersection[#1,#2]][[1]]]}]&,el,el,1]];
 
 PreferenceList[g_Graph]:=Module[{},
-	Map[RandomSample[AdjacencyList[g,#]]&,VertexList@g]];
+	Map[RandomSample[AdjacencyList[g,#]]&,Sort@VertexList[g]]];
 
 
 RothblumPolytope[g_Graph,p_List]:=Module[{A1,A2,A3,A,b},
