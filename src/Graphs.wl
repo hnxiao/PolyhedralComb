@@ -241,6 +241,24 @@ LineMultiGraphList[n_Integer]:=Module[{gl,obstl},
 	obstl=Import["~/GitHub/data/obstruction4linemulti.graphml"];
 	Select[gl,ObstructionFreeQ[#,obstl]&]];
 *)
+
+(*
+Caution:
+We strongly suggest use utilities 'directg' or 'waterclutter2' from 'nauty'
+to generate the list of orientations as well as superorientations.
+
+The input format could be Graph6 or Sparse6.
+The default output format is Digraph6, which is not supported by Mathematica.
+However, it provides another output format, so call T-code(with option [-T] in directg).
+T-code is a is a simple ASCII output format.
+Every line contains one graph.
+First the number of vertices,
+then the number of arcs,
+and then the list of arcs with the start first and the end then.
+E.g.: 3 2 0 1 2 1 means 3 vertices, 2 arcs: 0-->1 and 2-->1.
+When time permits, a interface to directg will be added.
+*)
+
 OrientationList[g_Graph]:=Module[{el,tal,al},
 	el=EdgeList@g;
 	tal=DirectedEdge@@@el;
@@ -254,6 +272,7 @@ SuperOrientationList[g_Graph]:=Module[{el,tal,al},
 	Graph/@al
 (*Since DeleteIsomorphicGraphs dependens on DeleteDuplicates which has quadratic time complexity, I prefer not to use this function.*)
 ];
+
 
 
 
