@@ -7,6 +7,8 @@ EdmondsVector::usage="EdmondsVector[g] returns the RHS vector of Edmonds odd set
 RothblumMatrix::usage="RothblumMatrix[g,pl] returns the Rothblum stability matrix.";
 PreferenceList::usage="PreferenceList[g] returns a random prefrence list.";
 
+RothblumPolytope::usage="RothblumPolytope[g,p] returns the linear systme Ax<=b defining fractional stable matching polytope";
+EdmondsRothblumPolytope::usage="EdmondsRothblumPolytope[g,p] returns the linear systme Ax<=b defining fractional stable matching polytope";
 
 
 Begin["`Private`"]
@@ -35,6 +37,21 @@ RothblumMatrix[g_Graph,pl_List]:=Module[{el},
 
 PreferenceList[g_Graph]:=Module[{},
 	Map[RandomSample[AdjacencyList[g,#]]&,VertexList@g]];
+
+
+RothblumPolytope[g_Graph,p_List]:=Module[{A1,A2,A3,A,b},
+	A1=-RothblumMatrix[g,p];
+	A2=IncidenceMatrix@g;
+	A3=-IdentityMatrix[EdgeCount@g];
+	A=Join[A1,A2,A3];
+	b=Join[ConstantArray[-1,Length@A1],ConstantArray[1,Length@A2],ConstantArray[0,EdgeCount@g]];
+	List[A,b]];
+
+EdmondsRothblumPolytope[g_Graph,p_List]:=Module[{},
+	{A,b}=RothblumPolytope[g,p];
+	A=Join[A,EdmondsMatrix[g]];
+	b=Join[b,EdmondsVector[g]];
+	List[A,b]];
 
 
 End[]
