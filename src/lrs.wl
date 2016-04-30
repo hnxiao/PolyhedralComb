@@ -3,11 +3,11 @@
 (*    ============= Interface to lrs  ================     *)
 
 
-VElrs::usage =  "VElrs[A,B} returns  a list  of all  vertices of  the
+VELRS::usage =  "VELRS[A,B} returns  a list  of all  vertices of  the
 convex polyhedron {x|Ax<=b}"
 
 
-VElrs[A_,b_]:= Module[ {inStream,outStream,mat,m,n,i,j,result,beg,end,extremes,vertices},
+VELRS[A_,b_]:= Module[ {inStream,outStream,mat,m,n,i,j,result,beg,end,extremes,vertices},
                inStream = OpenTemporary[];
                outStream = OpenTemporary[];
            (* H-representation format for input to lcdd *)

@@ -3,11 +3,11 @@
 (*    ============= Interface to cdd  ================     *)
 
 
-VEcdd::usage =  "VEcdd[A,B} returns  a list  of all  vertices of  the
+VECDD::usage =  "VECDD[A,B} returns  a list  of all  vertices of  the
 convex polyhedron {x|Ax<=b}"
 
 
-VEcdd[A_,b_]:= Module[ {inStream,outStream,mat,m,n,i,j,result,beg,end,extremes,vertices},
+VECDD[A_,b_]:= Module[ {inStream,outStream,mat,m,n,i,j,result,beg,end,extremes,vertices},
                inStream = OpenTemporary[];
                outStream = OpenTemporary[];
            (* H-representation format for input to lcdd *)

@@ -3,11 +3,11 @@
 (*    ============= Interface to cdd  ================     *)
 
 
-VEppl::usage =  "VEppl[A,B} returns  a list  of all  vertices of  the
+VEPPL::usage =  "VEPPL[A,B} returns  a list  of all  vertices of  the
 convex polyhedron {x|Ax<=b}"
 
 
-VEppl[A_,b_]:= Module[ {inStream,outStream,mat,m,n,i,j,result,beg,end,extremes,vertices},
+VEPPL[A_,b_]:= Module[ {inStream,outStream,mat,m,n,i,j,result,beg,end,extremes,vertices},
                inStream = OpenTemporary[];
                outStream = OpenTemporary[];
            (* H-representation format for input to lcdd *)
