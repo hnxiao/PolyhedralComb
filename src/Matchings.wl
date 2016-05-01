@@ -2,16 +2,18 @@
 
 BeginPackage["Matchings`",{"Graphs`"}]
 
-EdmondsSystem::usage="EdmondsSystem[g] returns the Edmonds' odd set constraints Mx<=b.";
-EdmondsMatrix::usage="EdmondsMatrix[g] returns the LHS matrix of Edmonds' odd set constraints Mx<=b.";
-EdmondsVector::usage="EdmondsVector[g] returns the RHS vector of Edmonds' odd set constraints Mx<=b.";
-RothblumMatrix::usage="RothblumMatrix[g,pl] returns the Rothblum stability matrix.";
-PreferenceEdgeList::usage="PreferenceEdgeList[g] returns a random prefrence list in edges.";
-SubPreferenceEdgeList::usage="SubPreferenceEdgeList[subg,pl] returns the preference list restricted to subgraph subg.";
-PreferenceVertexList::usage="PreferenceVertexList[g] returns a random prefrence list in vertices.";
+BlossomSystem::usage="BlossomSystem[g] returns the linear system Ax<=b of odd set constraints in list {A,b}.";
+BlossomMatrix::usage="BlossomMatrix[g] returns the LHS matrix of odd set constraints Ax<=b.";
+BlossomVector::usage="BlossomVector[g] returns the RHS vector of odd set constraints Ax<=b.";
 
-RothblumPolytope::usage="RothblumPolytope[g,p] returns the linear systme Ax<=b defining fractional stable matching polytope";
-EdmondsRothblumPolytope::usage="EdmondsRothblumPolytope[g,p] returns the linear systme Ax<=b defining fractional stable matching polytope";
+EdgeDominatingMatrix::usage="EdgeDominatingMatrix[g,pl] returns the Rothblum stability matrix.";
+PreferenceList::usage="PreferenceList[g] returns a random prefrence list in edges.";
+SubPreferenceList::usage="SubPreferenceList[subg,pl] returns the preference list restricted to subgraph subg.";
+
+BirkhoffSystem::usage="BirkhoffSystem[g] returns the Birkhoff system for bipartite graph g"
+EdmondsSystem::usage="EdmondsSystem[g] returns the fractional matching system.";
+RothblumSystem::usage="RothblumSystem[g,p] returns the linear systme Ax<=b defining fractional stable matching polytope";
+EdmondsRothblumSystem::usage="EdmondsRothblumSystem[g,p] returns the linear systme Ax<=b defining fractional stable matching polytope";
 
 
 Begin["`Private`"]
@@ -20,18 +22,8 @@ Begin["`Private`"]
 (*** GRAPH MATRICES ***)
 
 
-(* Stable matching constraints *)
-EdmondsMatrix[g_Graph]:=Module[{el,vl,subl},
-	el=EdgeList[g];
-	vl=VertexList[g];
-	subl=Select[Subsets[vl,{3,Infinity,2}],!EmptyGraphQ[Subgraph[g,#]]&];
-	SparseArray[{i_,j_}/;(Length@Intersection[subl[[i]],List@@el[[j]]]==2):>1,{Length@subl,Length@el}]];
-
-EdmondsVector[g_Graph]:=Module[{subl},
-	subl=Select[Subsets[VertexList[g],{3,Infinity,2}],!EmptyGraphQ[Subgraph[g,#]]&];
-	(Length/@subl-1)/2];
-
-EdmondsSystem[g_Graph]:=Module[{el,vl,subl,mat,vec},
+(* Edmonds odd set system or blossom system *)
+BlossomSystem[g_Graph]:=Module[{el,vl,subl,mat,vec},
 	el=EdgeList[g];
 	vl=VertexList[g];
 	subl=Select[Subsets[vl,{3,Infinity,2}],!EmptyGraphQ[Subgraph[g,#]]&];
@@ -39,9 +31,13 @@ EdmondsSystem[g_Graph]:=Module[{el,vl,subl,mat,vec},
 	vec=(Length/@subl-1)/2;
 	{mat,vec}];
 
-(*Caution: Preference List should be given in the same order with the result of EdgeList*)
-RothblumMatrix[g_Graph,pl_List]:=Module[{cel,cpl,del},
-(*A auto sort operation putting preference list to canonial form should be added*)
+BlossomMatrix[g_Graph]:=BlossomSystem[g][[1]];
+
+BlossomVector[g_Graph]:=BlossomSystem[g][[2]];
+
+
+EdgeDominatingMatrix[g_Graph,pl_List]:=Module[{cel,cpl,del},
+(*EdgeDominatingMatrix is NOT sensitive to the order of PreferenceList*)
 	cel=Sort/@EdgeList@g;(*Put edges in canonical form*)
 	cpl=Map[Sort,pl,{2}];(*Put edges in canonical form*)
 	del=dominatingEdges[cpl,#]&/@cel;
@@ -52,40 +48,50 @@ dominatingEdges[cpl_List,ce_UndirectedEdge]:=Module[{epl},
 	epl=Select[cpl,MemberQ[#,ce]&];
 	Apply[Union,Take[#,Position[#,ce][[1]][[1]]]&/@epl]];
 
-
-(*
-RothblumMatrix[g_Graph,pl_List]:=Module[{el},
-	el=List@@@EdgeList@g;
-	Outer[Boole[#1==#2\[Or]IntersectingQ[#1,#2]&&
-		OrderedQ@{Position[pl[[Intersection[#1,#2][[1]]]],Complement[#2,Intersection[#1,#2]][[1]]],
-				Position[pl[[Intersection[#1,#2][[1]]]],Complement[#1,Intersection[#1,#2]][[1]]]}]&,el,el,1]];
-*)
-
-PreferenceEdgeList[g_Graph]:=Module[{},
+PreferenceList[g_Graph]:=Module[{},
 	Map[RandomSample[IncidenceList[g,#]]&,Sort@VertexList@g]];
 
-SubPreferenceEdgeList[subg_Graph,pl_List]:=Module[{cel,cpl,subpl},
+SubPreferenceList[subg_Graph,pl_List]:=Module[{cel,cpl,subpl},
 	cel=Sort/@EdgeList@subg;
 	cpl=Map[Sort,pl,{2}];
 	subpl=Intersection[#,cel]&/@cpl;
 	Select[subpl,UnsameQ[#,{}]&]];
-
+(*
+EdgeDominatingMatrix[g_Graph,pl_List]:=Module[{el},
+	el=List@@@EdgeList@g;
+	Outer[Boole[#1==#2\[Or]IntersectingQ[#1,#2]&&
+		OrderedQ@{Position[pl[[Intersection[#1,#2][[1]]]],Complement[#2,Intersection[#1,#2]][[1]]],
+				Position[pl[[Intersection[#1,#2][[1]]]],Complement[#1,Intersection[#1,#2]][[1]]]}]&,el,el,1]];
 PreferenceVertexList[g_Graph]:=Module[{},
 	Map[RandomSample[AdjacencyList[g,#]]&,Sort@VertexList[g]]];
+*)
 
 
-RothblumPolytope[g_Graph,p_List]:=Module[{A1,A2,A3,A,b},
-	A1=-RothblumMatrix[g,p];
+BirkhoffSystem[g_Graph]:=Module[{A1,A2,A,b},
+	A1=ncidenceMatrix@g;
+	A2=-IdentityMatrix[EdgeCount@g];
+	A=Join[A1,A2];
+	b=Join[ConstantArray[1,Length@A2],ConstantArray[0,EdgeCount@g]];
+	{A,b}];
+
+EdmondsSystem[g_Graph]:=Module[{A,b},
+	{A,b}=BirkhoffSystem@g;
+	A=Join[A,BlossomMatrix@g];
+	b=Join[b,BlossomVector@g];
+	{A,b}];
+
+RothblumSystem[g_Graph,p_List]:=Module[{A1,A2,A3,A,b},
+	A1=-EdgeDominatingMatrix[g,p];
 	A2=IncidenceMatrix@g;
 	A3=-IdentityMatrix[EdgeCount@g];
 	A=Join[A1,A2,A3];
 	b=Join[ConstantArray[-1,Length@A1],ConstantArray[1,Length@A2],ConstantArray[0,EdgeCount@g]];
 	List[A,b]];
 
-EdmondsRothblumPolytope[g_Graph,p_List]:=Module[{},
-	{A,b}=RothblumPolytope[g,p];
-	A=Join[A,EdmondsMatrix[g]];
-	b=Join[b,EdmondsVector[g]];
+EdmondsRothblumSystem[g_Graph,p_List]:=Module[{A,b},
+	{A,b}=RothblumSystem[g,p];
+	A=Join[A,BlossomMatrix[g]];
+	b=Join[b,BlossomVector[g]];
 	List[A,b]];
 
 
