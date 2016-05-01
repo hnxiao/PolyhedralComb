@@ -67,11 +67,9 @@ PreferenceVertexList[g_Graph]:=Module[{},
 *)
 
 
-BirkhoffSystem[g_Graph]:=Module[{A1,A2,A,b},
-	A1=ncidenceMatrix@g;
-	A2=-IdentityMatrix[EdgeCount@g];
-	A=Join[A1,A2];
-	b=Join[ConstantArray[1,Length@A2],ConstantArray[0,EdgeCount@g]];
+BirkhoffSystem[g_Graph]:=Module[{A,b},
+	A=Join[IncidenceMatrix@g,-IdentityMatrix[EdgeCount@g]];
+	b=Join[ConstantArray[1,VertexCount@g],ConstantArray[0,EdgeCount@g]];
 	{A,b}];
 
 EdmondsSystem[g_Graph]:=Module[{A,b},
@@ -80,19 +78,17 @@ EdmondsSystem[g_Graph]:=Module[{A,b},
 	b=Join[b,BlossomVector@g];
 	{A,b}];
 
-RothblumSystem[g_Graph,p_List]:=Module[{A1,A2,A3,A,b},
-	A1=-EdgeDominatingMatrix[g,p];
-	A2=IncidenceMatrix@g;
-	A3=-IdentityMatrix[EdgeCount@g];
-	A=Join[A1,A2,A3];
-	b=Join[ConstantArray[-1,Length@A1],ConstantArray[1,Length@A2],ConstantArray[0,EdgeCount@g]];
-	List[A,b]];
+RothblumSystem[g_Graph,p_List]:=Module[{A,b},
+	{A,b}=BirkhoffSystem[g];
+	A=Join[A,-EdgeDominatingMatrix[g,p]];
+	b=Join[b,-ConstantArray[1,EdgeCount@g]];
+	{A,b}];
 
 EdmondsRothblumSystem[g_Graph,p_List]:=Module[{A,b},
 	{A,b}=RothblumSystem[g,p];
 	A=Join[A,BlossomMatrix[g]];
 	b=Join[b,BlossomVector[g]];
-	List[A,b]];
+	{A,b}];
 
 
 End[]
