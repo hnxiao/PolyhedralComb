@@ -31,5 +31,16 @@ Reject[rpref_List,prop_List]:=Module[{IncidentQ,MaxPosition,conflicts,subpref,in
 
 UpdatePreference[pref_List,rej_List]:=Fold[DeleteCases,#,rej]&/@pref;
 
+(*A improvement not carefully tested*)
+Rej[rpref_List,prop_List]:=Module[{subg,ListPosition,indices,conflicts,subpref,neverindices,neveredges},
+	subg=Graph[prop];
+	conflicts=Select[IncidenceList[subg,#]&/@VertexList[subg],Length[#]>1&];
+	If[conflicts=={},Return[{}]];
+	subpref=Select[rpref,IntersectingQ[#,Flatten@conflicts]&];
+	ListPosition=Flatten@Position[#1,Alternatives@@#2]&;
+	indices=ListPosition@@@Gather[Join[subpref,conflicts],IntersectingQ];
+	neverindices=Drop[#,1]&/@Sort/@indices;
+	Flatten[Part@@@Transpose@Join[{subpref},{neverindices}]]];
+
 
 CompleteBipartiteGraph[i_Integer]:=CompleteGraph[{i,i}]
