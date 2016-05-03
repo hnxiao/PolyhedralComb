@@ -19,6 +19,29 @@ EdmondsRothblumSystem::usage="EdmondsRothblumSystem[g,p] returns the linear syst
 Begin["`Private`"]
 
 
+StableMatchingQ[g_Graph,pref_List,sm_List]:=Module[{els,sms,prefs,DominatedEdge},
+	els=Sort/@EdgeList@g;
+	sms=Sort/@sm;
+	If[!IndependentEdgeSetQ[Graph[els],sms],Return["Not matching"]];
+	prefs=Map[Sort,pref,{2}];
+	DominatedEdge[e_]:=Apply[Union,Take[#,Position[#,e][[1]][[1]]]&/@{Reverse/@Select[prefs,MemberQ[#,e]&]}];
+	SameQ[Sort@Union@Flatten[DominatedEdge[#]&/@els],Sort@els]];
+
+
+DominatedQ[pref_List,sm_List,e_UndirectedEdge]:=Module[{prefs,sms,es,l,Index,eindex,smindex},
+	prefs=Map[Sort,pref,{2}];
+	sms=Sort/@sm;
+	es=Sort@e;
+    Index=Position[#1,#2][[1]][[1]]&;
+	smindex=Index[#,Alternatives@@sms]&/@Select[prefs,MemberQ[#,es]&];
+	eindex=Index[#,es]&/@Select[prefs,MemberQ[#,es]&];
+	AnyTrue[Apply[LessEqual]][Thread/@Thread[{smindex, eindex}]]
+(*
+	SetAttributes[LessEqual,Listable];
+	Or@@LessEqual[smindex,eindex]
+*)]
+
+
 (*** Fractional matching linear systems ***)
 
 
