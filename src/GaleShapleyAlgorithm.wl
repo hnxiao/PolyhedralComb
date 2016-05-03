@@ -1,22 +1,18 @@
 (* ::Package:: *)
 
-GaleShapleyAlgorithm[g_Graph,pref_List]:=Module[{vc,cel,cpref,mpref,wpref,proposals,rejects},
-	If[Not@BipartiteGraphQ[g],Return["Not bipartite graph"]];
-	vc=VertexCount@g;
-	cel=Sort/@EdgeList@g;
-	cpref=Map[Sort,pref,{2}];
-	rejects=EdgeList@g;
+GaleShapleyAlgorithm[ppref_List,rpref_List]:=Module[{pprefs,rprefs,proposals,rejects},
+	If[Not@BipartiteGraphQ[Graph[Flatten@ppref]],Return["Not bipartite graph"]];
+	pprefs=Map[Sort,ppref,{2}];
+	rprefs=Map[Sort,rpref,{2}];
+	rejects=Last/@Select[rprefs,UnsameQ[#,{}]&];
 	While[rejects!={},
-	mpref=Part[cpref,1;;vc/2]; (*This part is sensitive to the preference list provided*)
-	wpref=Part[cpref,(vc/2+1);;vc]; (*The same with above*)
-	proposals=Propose[mpref];
-	rejects=Reject[wpref,proposals];
-	If[rejects=={},Return@proposals];
-	cpref=UpdatePreference[cpref,rejects];
-	Print@proposals; Print@rejects; Print@Column@cpref;]];
+	proposals=Propose[pprefs]; Print@proposals;
+	rejects=Reject[rprefs,proposals]; Print@rejects;
+	{pprefs,rprefs}=UpdatePreference[pprefs,rprefs,rejects]];
+	proposals];
 
 
-Propose[ppref_List]:=First/@ppref;
+Propose[ppref_List]:=First/@Select[ppref,UnsameQ[#,{}]&];
 
 Reject[rpref_List,prop_List]:=Module[{conflicts,Rejects},
 	conflicts=Select[IncidenceList[Graph@prop,#]&/@VertexList[Graph@prop],Length[#]>1&];
@@ -33,7 +29,10 @@ Reject[rpref_List,prop_List]:=Module[{subg,conflicts,subpref,ListPosition,confli
 	conflictindices=ListPosition@@@Gather[Join[subpref,conflicts],IntersectingQ];
 	Flatten[Part@@@Transpose@Join[{subpref},{Drop[#,1]&/@Sort/@conflictindices}]]];
 *)
-UpdatePreference[pref_List,rej_List]:=Fold[DeleteCases,#,rej]&/@pref;
+UpdatePreference[ppref_List,rpref_List,rej_List]:=Map[Fold[DeleteCases,#,rej]&,{ppref,rpref},{2}];
 
 
-CompleteBipartiteGraph[i_Integer]:=CompleteGraph[{i,i}]
+CompleteBipartitePreferenceSystem[i_Integer]:=Module[{g,pref,ppref,rpref},
+	g=CompleteGraph[{i,i}];
+	pref=PreferenceList@g;
+	{ppref,rpref}={pref[[1;;i]],pref[[i+1;;2i]]}];
