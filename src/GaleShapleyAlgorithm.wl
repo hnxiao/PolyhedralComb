@@ -19,16 +19,7 @@ Reject[rpref_List,prop_List]:=Module[{conflicts,Rejects},
 	If[conflicts=={},Return[{}]];
 	Rejects[l_,subl_]:=DeleteCases[subl,_?(SameQ[Position[l,#][[1]][[1]],Min@@Flatten@@{Position[l,#]&/@subl}]&)];
 	Flatten[Rejects@@@Select[Gather[Join[rpref,conflicts],IntersectingQ],Length[#]>1&]]];
-(*
-Reject[rpref_List,prop_List]:=Module[{subg,conflicts,subpref,ListPosition,conflictindices},
-	subg=Graph[prop];
-	conflicts=Select[IncidenceList[subg,#]&/@VertexList[subg],Length[#]>1&];
-	If[conflicts=={},Return[{}]];
-	subpref=Select[rpref,IntersectingQ[#,Flatten@conflicts]&];
-	ListPosition=Flatten@Position[#1,Alternatives@@#2]&;
-	conflictindices=ListPosition@@@Gather[Join[subpref,conflicts],IntersectingQ];
-	Flatten[Part@@@Transpose@Join[{subpref},{Drop[#,1]&/@Sort/@conflictindices}]]];
-*)
+
 UpdatePreference[ppref_List,rpref_List,rej_List]:=Map[Fold[DeleteCases,#,rej]&,{ppref,rpref},{2}];
 
 
