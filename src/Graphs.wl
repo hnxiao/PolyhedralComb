@@ -146,7 +146,7 @@ ObstructionFreeQDevel[g_Graph,obstl_List]:=Module[{subgl,vc},
 	NoneTrue[TrueQ][IsomorphicGraphQ/@Flatten[Thread/@Thread[{obstl, subgl}],1]]];
 *)
 
-(* Implemented via an interface to igraph C library *)
+(* Implemented via an interface to igraph C library. LAD does NOT detect opposite arcs!!! *)
 ObstructionFreeQC[g_Graph,obstl_List]:=Module[{},
 	SameQ[Flatten[IGLADFindSubisomorphisms[#,g,"Induced"->True]&/@obstl],{}]];
 
