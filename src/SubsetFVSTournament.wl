@@ -3,9 +3,6 @@
 BeginPackage["SubsetFVSTournament`",{"Graphs`"}]
 
 
-Get["Hypergraphs`"]
-
-
 gentourngAdjacencyMatrix::usage="BlossomSystem[g] returns the linear system Ax<=b of odd set constraints in list {A,b}.";
 TriangleVertexList::usage="BlossomMatrix[g] returns the LHS matrix of odd set constraints Ax<=b.";
 SpecialVertexSets::usage="BlossomVector[g] returns the RHS vector of odd set constraints Ax<=b.";

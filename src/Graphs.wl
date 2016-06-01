@@ -4,10 +4,6 @@ BeginPackage["Graphs`",{"IGraphM`"}]
 (* Public import *)
 Get["Polyhedra`"]
 
-CycleVertexMatrix::usage="CycleVertexMatrix[g] returns the cycle vertex incidence matrix for both undirected and directed graphs.";
-CycleEdgeMatrix::usage="CycleEdgeMatrix[g] returns the cycle edge incidence matrix for undirected graphs ONLY.";
-CycleArcMatrix::usage="CycleArcMatrix[d] returns the cycle arc incidence matrix for directed graphs ONLY.";
-
 DeleteIsomorphicGraphs::usage="DeleteIsomorphicGraphs[gl] removes duplicate graphs under isomorphism.";
 
 InducedSubgraphQ::usage="InducedSubgraphQ[g,subg] returns True if subg is an induced subgraph of g and False otherwise.";
@@ -54,6 +50,17 @@ FeedbackVertexSetQ::usage="FeedbackVertexSetQ[d,vs] tests whether vertex set vs 
 FeedbackVertexSetList::usage="FeedbackVertexSetList[g] returns all minimum feedback vertex sets";
 
 
+(*** HYPERGRAPHS ***)
+
+
+HypergraphIncidenceMatrix::usage="HypergraphIncidenceMatrix[vl,el] returns the edge-vertex incidence matrix of the hypergraph.";
+HypergraphCoveringSystem::usage="HypergraphCoveringSystem[vl,el] returns the hypergraph covering system Mx>=1, Ix>=0 as Ax<=b in list {A,b}.";
+
+CycleVertexMatrix::usage="CycleVertexMatrix[g] returns the cycle vertex incidence matrix for both undirected and directed graphs.";
+CycleEdgeMatrix::usage="CycleEdgeMatrix[g] returns the cycle edge incidence matrix for undirected graphs ONLY.";
+CycleArcMatrix::usage="CycleArcMatrix[d] returns the cycle arc incidence matrix for directed graphs ONLY.";
+
+
 Begin["`Private`"]
 
 
@@ -67,14 +74,7 @@ Needs["IGraphM`"]
 
 
 (* Miscellaneous *)
-CycleVertexMatrix[g_Graph]:=Module[{},
-	Outer[Boole[MemberQ[Flatten[List@@@#1],#2]]&,FindCycle[g,Infinity,All],VertexList@g,1]];
 
-CycleEdgeMatrix[g_Graph]:=Module[{},
-	Outer[Boole[MemberQ[Sort/@#1,#2]]&,FindCycle[g,Infinity,All],EdgeList@g,1]];
-
-CycleArcMatrix[g_Graph]:=Module[{},
-	Outer[Boole[MemberQ[#1,#2]]&,FindCycle[g,Infinity,All],EdgeList@g,1]];
 
 
 (*** DELETING ISOMORPHIC GRAPHS ***)
@@ -303,6 +303,28 @@ BergeGraphQ[g_Graph]:=Module[{oddhole,oddantihole,obst},
 	oddantihole=GraphComplement/@oddhole;
 	obst=Join[oddhole,oddantihole];
 	ObstructionFreeQ[g,obst]];
+
+
+(*** HYPERGRAPHS ***)
+
+
+HypergraphIncidenceMatrix[vl_List,el_List]:=Module[{},
+	Outer[Boole[MemberQ[#1,#2]]&,el,vl,1]];
+
+HypergraphCoveringSystem[vl_List,el_List]:=Module[{mat,vec},
+	mat=Join[HypergraphIncidenceMatrix[vl,el],IdentityMatrix[Length@vl]];
+	vec=Join[ConstantArray[1,Length@el],ConstantArray[0,Length@vl]];
+	{-mat,-vec}];
+
+(*Some applications*)
+CycleVertexMatrix[g_Graph]:=Module[{},
+	Outer[Boole[MemberQ[Flatten[List@@@#1],#2]]&,FindCycle[g,Infinity,All],VertexList@g,1]];
+
+CycleEdgeMatrix[g_Graph]:=Module[{},
+	Outer[Boole[MemberQ[Sort/@#1,#2]]&,FindCycle[g,Infinity,All],EdgeList@g,1]];
+
+CycleArcMatrix[g_Graph]:=Module[{},
+	Outer[Boole[MemberQ[#1,#2]]&,FindCycle[g,Infinity,All],EdgeList@g,1]];
 
 
 End[]
