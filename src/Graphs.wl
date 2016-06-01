@@ -7,12 +7,10 @@ Get["Polyhedra`"]
 DeleteIsomorphicGraphs::usage="DeleteIsomorphicGraphs[gl] removes duplicate graphs under isomorphism.";
 
 InducedSubgraphQ::usage="InducedSubgraphQ[g,subg] returns True if subg is an induced subgraph of g and False otherwise.";
-InducedSubgraphs::usage=
-	"InducedSubgraphs[g] returns all induced subgraphs of g.\n"<>
-	"InducedSubgraphs[g,n] returns all connected induced subgraphs of g with n vertices.";
-
 ObstructionFreeQ::usage="ObstructionFreeQ[g,obstl] tests whether graph g is free of obstructions obstl.";
-ObstructionFreeQC::usage="ObstructionFreeQC[g,obstl] tests whether graph g is free of obstructions obstl.";
+
+SubgraphsFreeQ::usage="SubgraphsFreeQ[graph,subgraphs] tests whether none of subgraphs is contained in graph.";
+InducedSubgraphsFreeQ::usage="InducedSubgraphsFreeQ[graph,subgraphs] tests whether none of subgraphs is contained in graph as an induced subgraph.";
 
 ImmersionContract::usage="ImmersionContract[d,v] returns the immersion minor of graph d after contracting vertex v.";
 DeletionDistinctVertexList::usage="DeletionDistinctVertexList[g] returns the deletion-distinct vertices in graph g, where two vertices are deletion-distinct if their removal result in nonisomorphic graphs.";
@@ -70,13 +68,6 @@ Needs["IGraphM`"]
 *)
 
 
-(*** GRAPH MATRICES ***)
-
-
-(* Miscellaneous *)
-
-
-
 (*** DELETING ISOMORPHIC GRAPHS ***)
 
 
@@ -87,9 +78,8 @@ DeleteIsomorphicGraphs[gl_List]:= Module[{},
 (*** OBSTRUCTION TEST ***)
 
 
-(*** Induced subgraph isomorphism ***)
+(** INDUCED subgraph isomorphism **)
 
-(* Implemented in Wolfram Language *)
 InducedSubgraphQ[g_Graph,h_Graph]:=Module[{subgl},
 	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,{VertexCount@h}],WeaklyConnectedGraphQ];
 	AnyTrue[TrueQ][IsomorphicGraphQ[#,h]&/@subgl]];
@@ -99,51 +89,27 @@ ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
 	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,MinMax[vc]],WeaklyConnectedGraphQ];
 	NoneTrue[TrueQ][Flatten@Outer[IsomorphicGraphQ,subgl,obstl]]];
 
-(*Slower implementations
+(* Slower implementations
 ObstructionFreeQ[g_Graph,obst_List]:=Module[{},
 	NoneTrue[TrueQ][InducedSubgraphQ[g,#]&/@obst]];
 
-ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc,vl},
+ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
 	vc=VertexCount/@obstl;
-	vl=Flatten[Subsets[VertexList@g,{#}]&/@vc,1];
-	subgl=Select[Subgraph[g,#]&/@vl,WeaklyConnectedGraphQ];
-	NoneTrue[TrueQ][Flatten@Outer[IsomorphicGraphQ,subgl,obstl]]];
-*)
-
-(*devel*)
-(*LAD does NOT detect opposite arcs!!!*)
-InducedSubgraphQBug[g_Graph,subg_Graph]:=Module[{},
-	SameQ[IGLADFindSubisomorphisms[subg,g,"Induced"->True],{}]];
-
-InducedSubgraphs[g_Graph,n_Integer:0]:=Module[{}, 
-	If[n>0,
-		DeleteIsomorphicGraphs@Select[Subgraph[g,#]&/@Subsets[VertexList@g,{n}],WeaklyConnectedGraphQ],
-		Flatten[InducedSubgraphs[g,#]&/@Range[VertexCount@g]]]];
-
-ObstructionFreeQDevel[g_Graph,obstl_List]:=Module[{subgl,vc},
-	vc=VertexCount/@obstl;
-	subgl=InducedSubgraphs[g,#]&/@vc;
+	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,MinMax[vc]],WeaklyConnectedGraphQ];
 	SetAttributes[IsomorphicGraphQ,Listable];
 	NoneTrue[TrueQ][Flatten@IsomorphicGraphQ[obstl,subgl]]];
-
-(* A safer way without setting IsomorphicGraphQ to be Listable:
-ObstructionFreeQDevel[g_Graph,obstl_List]:=Module[{subgl,vc},
-	vc=VertexCount/@obstl;
-	subgl=InducedSubgraphs[g,#]&/@vc;
-	NoneTrue[TrueQ][IsomorphicGraphQ/@Flatten[Thread/@Thread[{obstl, subgl}],1]]];
 *)
 
-(* Implemented via an interface to igraph C library. LAD does NOT detect opposite arcs!!! *)
-ObstructionFreeQC[g_Graph,obstl_List]:=Module[{},
-	SameQ[Flatten[IGLADFindSubisomorphisms[#,g,"Induced"->True]&/@obstl],{}]];
 
-(* Implemented via an interface to Boost graph library (C++)
-ObstructionFreeQCXX[]:Module[{},vf2_subgraph_iso];
-*)
+(** Using igraph C Library **)
+(* Subgraph test *)
+SubgraphsFreeQ[g_Graph,subgl_List]:=Module[{},
+	NoneTrue[TrueQ][IGSubisomorphicQ[#,g]&/@subgl]];
 
-(*To do
-InducedSubgraphList[g_Graph, n_Integer]
-*)
+(* Induced subgraph test *)
+(*LAD algo can be used for testing INDUCED subgraph isomorphism, but it does NOT detect opposite arcs?*)
+InducedSubgraphsFreeQ[g_Graph,subgl_List]:=Module[{},
+	NoneTrue[TrueQ][IGLADSubisomorphicQ[#,g,"Induced"->True]&/@subgl]];
 
 
 (*** MINORS AND IMMERSIONS ***)
