@@ -6,11 +6,13 @@ Get["Polyhedra`"]
 
 DeleteIsomorphicGraphs::usage="DeleteIsomorphicGraphs[gl] removes duplicate graphs under isomorphism.";
 
-InducedSubgraphQ::usage="InducedSubgraphQ[g,subg] returns True if subg is an induced subgraph of g and False otherwise.";
-ObstructionFreeQ::usage="ObstructionFreeQ[g,obstl] tests whether graph g is free of obstructions obstl.";
-
-SubgraphsFreeQ::usage="SubgraphsFreeQ[graph,subgraphs] tests whether none of subgraphs is contained in graph.";
+InducedSubgraphQ::usage="InducedSubgraphQ[graph1,graph2] tests whether graph2 is an induced subgraph of graph1.";
 InducedSubgraphsFreeQ::usage="InducedSubgraphsFreeQ[graph,subgraphs] tests whether none of subgraphs is contained in graph as an induced subgraph.";
+
+IGSubgraphsFreeQ::usage="IGSubgraphsFreeQ[graph,subgraphs] tests whether none of subgraphs is contained in graph.";
+IGInducedSubgraphsFreeQ::usage="IGInducedSubgraphsFreeQ[graph,subgraphs] tests whether none of subgraphs is contained in graph as an induced subgraph.";
+
+ObstructionFreeQ::usage="ObstructionFreeQ[graph,obstructions] tests whether graph is free of obstructions.";
 
 ImmersionContract::usage="ImmersionContract[d,v] returns the immersion minor of graph d after contracting vertex v.";
 DeletionDistinctVertexList::usage="DeletionDistinctVertexList[g] returns the deletion-distinct vertices in graph g, where two vertices are deletion-distinct if their removal result in nonisomorphic graphs.";
@@ -24,12 +26,12 @@ But for specific problems, minor testing can be done in O(n2).*)
 MinorList::usage="MinorList[g] returns all nonisomorphic minors of graph g."; 
 ImmersionList::usage="ImmersionList[d] returns all nonisomorphic immersions of digraph d.";
 
-ConnectedGraphList::usage="ConnectedGraphList[n] returns the list of connected graphs with n vertices.";
+ConnectedGraphs::usage="ConnectedGraphs[n] returns the list of connected graphs with n vertices.";
 
-LineMultiGraphList::usage="LineMultiGraphList[n] returns the list of connected line graphs of multigraphs with n vertices.";
+LineMultiGraphs::usage="LineMultiGraphs[n] returns the list of connected line graphs of multigraphs with n vertices.";
 
-OrientationList::usage="OrientationList[g] returns the list of orientations of graph g.";
-SuperOrientationList::usage="SuperOrientationList[g] returns the list of superorientations of graph g.";
+Orientations::usage="Orientations[g] returns the list of orientations of graph g.";
+SuperOrientations::usage="SuperOrientations[g] returns the list of superorientations of graph g.";
 
 
 ChromaticNumber::usage="ChromaticNumber[g] returns the chromatic number of g.";
@@ -78,11 +80,26 @@ DeleteIsomorphicGraphs[gl_List]:= Module[{},
 (*** OBSTRUCTION TEST ***)
 
 
-(** INDUCED subgraph isomorphism **)
+(** Using igraph C Library **)
 
+(* Subgraph isomorphism *)
+IGSubgraphsFreeQ[g_Graph,obstl_List]:=Module[{},
+	NoneTrue[TrueQ][IGSubisomorphicQ[#,g]&/@obstl]];
+
+(* Induced subgraph isomorphism *)
+IGInducedSubgraphsFreeQ[g_Graph,obstl_List]:=Module[{},
+	NoneTrue[TrueQ][IGLADSubisomorphicQ[#,g,"Induced"->True]&/@obstl]];
+
+
+(* Induced subgraph isomorphism *)
 InducedSubgraphQ[g_Graph,h_Graph]:=Module[{subgl},
 	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,{VertexCount@h}],WeaklyConnectedGraphQ];
 	AnyTrue[TrueQ][IsomorphicGraphQ[#,h]&/@subgl]];
+
+InducedSubgraphsFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
+	vc=VertexCount/@obstl;
+	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,MinMax[vc]],WeaklyConnectedGraphQ];
+	NoneTrue[TrueQ][Flatten@Outer[IsomorphicGraphQ,subgl,obstl]]];
 
 ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
 	vc=VertexCount/@obstl;
@@ -90,26 +107,15 @@ ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
 	NoneTrue[TrueQ][Flatten@Outer[IsomorphicGraphQ,subgl,obstl]]];
 
 (* Slower implementations
-ObstructionFreeQ[g_Graph,obst_List]:=Module[{},
-	NoneTrue[TrueQ][InducedSubgraphQ[g,#]&/@obst]];
+InducedSubgraphsFreeQ[g_Graph,obstl_List]:=Module[{},
+	NoneTrue[TrueQ][InducedSubgraphQ[g,#]&/@obstl]];
 
-ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
+InducedSubgraphsFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
 	vc=VertexCount/@obstl;
 	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,MinMax[vc]],WeaklyConnectedGraphQ];
 	SetAttributes[IsomorphicGraphQ,Listable];
-	NoneTrue[TrueQ][Flatten@IsomorphicGraphQ[obstl,subgl]]];
+	NoneTrue[TrueQ][Flatten@IsomorphicGraphQ[subgl,obstl]]];
 *)
-
-
-(** Using igraph C Library **)
-(* Subgraph test *)
-SubgraphsFreeQ[g_Graph,subgl_List]:=Module[{},
-	NoneTrue[TrueQ][IGSubisomorphicQ[#,g]&/@subgl]];
-
-(* Induced subgraph test *)
-(*LAD algo can be used for testing INDUCED subgraph isomorphism, but it does NOT detect opposite arcs?*)
-InducedSubgraphsFreeQ[g_Graph,subgl_List]:=Module[{},
-	NoneTrue[TrueQ][IGLADSubisomorphicQ[#,g,"Induced"->True]&/@subgl]];
 
 
 (*** MINORS AND IMMERSIONS ***)
@@ -179,17 +185,17 @@ MinorQ[g,m]
 
 (* Generating functions *)
 
-ConnectedGraphList[n_Integer]:=Import["https://github.com/hnxiao/data/blob/master/connected"<>ToString@n<>".graphml?raw=true"];
+ConnectedGraphs[n_Integer]:=Import["https://github.com/hnxiao/data/blob/master/connected"<>ToString@n<>".graphml?raw=true"];
 (*
-ConnectedGraphList[n_Integer]:=Import["http://cs.anu.edu.au/~bdm/data/graph"<>ToString@n<>"c.g6"];
+ConnectedGraphs[n_Integer]:=Import["http://cs.anu.edu.au/~bdm/data/graph"<>ToString@n<>"c.g6"];
 *)
 (* Cannot return full list when n\[GreaterEqual]8
-ConnectedGraphList[n_Integer]:=GraphData/@GraphData["Connected",n];
+ConnectedGraphs[n_Integer]:=GraphData/@GraphData["Connected",n];
 *)
 
-LineMultiGraphList[n_Integer]:=Import["https://github.com/hnxiao/data/blob/master/linemulti"<>ToString@n<>"c.graphml?raw=true"];
+LineMultiGraphs[n_Integer]:=Import["https://github.com/hnxiao/data/blob/master/linemulti"<>ToString@n<>"c.graphml?raw=true"];
 (*
-LineMultiGraphList[n_Integer]:=Module[{gl,obstl},
+LineMultiGraphs[n_Integer]:=Module[{gl,obstl},
 	gl=ConnectedGraphList[n];
 	obstl=Import["~/GitHub/data/obstruction4linemulti.graphml"];
 	Select[gl,ObstructionFreeQ[#,obstl]&]];
@@ -212,13 +218,13 @@ E.g.: 3 2 0 1 2 1 means 3 vertices, 2 arcs: 0-->1 and 2-->1.
 When time permits, a interface to directg will be added.
 *)
 
-OrientationList[g_Graph]:=Module[{el,tal,al},
+Orientations[g_Graph]:=Module[{el,tal,al},
 	el=EdgeList@g;
 	tal=DirectedEdge@@@el;
 	al=Tuples@Thread[List[tal,Reverse/@tal]];
 	DeleteIsomorphicGraphs[Graph/@al]];
 
-SuperOrientationList[g_Graph]:=Module[{el,tal,al},
+SuperOrientations[g_Graph]:=Module[{el,tal,al},
 	el=EdgeList[g];
 	tal=DirectedEdge@@@el;
 	al=Flatten/@Tuples[Subsets[#,{1,2}]&/@Thread[List[tal,Reverse/@tal]]];
