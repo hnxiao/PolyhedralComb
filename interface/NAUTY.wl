@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-(* directg\:ff0fwatercluster2 *)
+(* directg or watercluster2 *)
 (* We do NOT use str=Import[outStream[[1]],"Table"] because Import[] is extremely slow. *)
 
 

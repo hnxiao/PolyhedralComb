@@ -3,7 +3,7 @@
 (*    ============= Interface to cdd  ================     *)
 
 
-VEPPL::usage =  "VEPPL[A,B} returns  a list  of all  vertices of  the
+VEPPL::usage =  "VEPPL[A,B] returns  a list  of all  vertices of  the
 convex polyhedron {x|Ax<=b}"
 
 

@@ -3,7 +3,7 @@
 (*    ============= Interface to lrs  ================     *)
 
 
-VELRS::usage =  "VELRS[A,B} returns  a list  of all  vertices of  the
+VELRS::usage =  "VELRS[A,B] returns  a list  of all  vertices of  the
 convex polyhedron {x|Ax<=b}"
 
 

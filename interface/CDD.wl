@@ -3,7 +3,7 @@
 (*    ============= Interface to cdd  ================     *)
 
 
-VECDD::usage =  "VECDD[A,B} returns  a list  of all  vertices of  the
+VECDD::usage =  "VECDD[A,B] returns  a list  of all  vertices of  the
 convex polyhedron {x|Ax<=b}"
 
 
