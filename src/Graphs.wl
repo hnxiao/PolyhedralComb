@@ -96,25 +96,17 @@ InducedSubgraphQ[g_Graph,h_Graph]:=Module[{subgl},
 	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,{VertexCount@h}],WeaklyConnectedGraphQ];
 	AnyTrue[TrueQ][IsomorphicGraphQ[#,h]&/@subgl]];
 
-InducedSubgraphsFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
-	vc=VertexCount/@obstl;
-	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,MinMax[vc]],WeaklyConnectedGraphQ];
-	NoneTrue[TrueQ][Flatten@Outer[IsomorphicGraphQ,subgl,obstl]]];
+InducedSubgraphsFreeQ[g_Graph,obstl_List]:=Module[{},
+	NoneTrue[TrueQ][InducedSubgraphQ[g,#]&/@obstl]];
 
+(* Comment: ObstructionFreeQ is faster than InducedSubgraphsFreeQ. *)
 ObstructionFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
 	vc=VertexCount/@obstl;
 	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,MinMax[vc]],WeaklyConnectedGraphQ];
 	NoneTrue[TrueQ][Flatten@Outer[IsomorphicGraphQ,subgl,obstl]]];
-
-(* Slower implementations
-InducedSubgraphsFreeQ[g_Graph,obstl_List]:=Module[{},
-	NoneTrue[TrueQ][InducedSubgraphQ[g,#]&/@obstl]];
-
-InducedSubgraphsFreeQ[g_Graph,obstl_List]:=Module[{subgl,vc},
-	vc=VertexCount/@obstl;
-	subgl=Select[Subgraph[g,#]&/@Subsets[VertexList@g,MinMax[vc]],WeaklyConnectedGraphQ];
-	SetAttributes[IsomorphicGraphQ,Listable];
-	NoneTrue[TrueQ][Flatten@IsomorphicGraphQ[subgl,obstl]]];
+(* 
+After SetAttributes[IsomorphicGraphQ,Listable],
+Outer[IsomorphicGraphQ,subgl,obstl]==IsomorphicGraphQ[subgl,obstl].
 *)
 
 
