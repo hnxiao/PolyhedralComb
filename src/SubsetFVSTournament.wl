@@ -3,7 +3,6 @@
 BeginPackage["SubsetFVSTournament`",{"Graphs`"}]
 
 
-gentourngAdjacencyMatrix::usage="BlossomSystem[g] returns the linear system Ax<=b of odd set constraints in list {A,b}.";
 TriangleVertexList::usage="BlossomMatrix[g] returns the LHS matrix of odd set constraints Ax<=b.";
 SpecialVertexSets::usage="BlossomVector[g] returns the RHS vector of odd set constraints Ax<=b.";
 IdealPairQ::usage="BlossomVector[g] returns the RHS vector of odd set constraints Ax<=b.";
@@ -15,12 +14,6 @@ MNIVertexSets::usage="BlossomVector[g] returns the RHS vector of odd set constra
 
 Begin["`Private`"]
 
-
-gentourngAdjacencyMatrix[l_List]:=Module[{n,mat,auxmat},
-	n=Abs[1/2 (1-Sqrt[1+8*Length@l])];
-	mat=SparseArray[Rule[#1,#2]&@@@Thread@{Flatten[Table[{i,j+1},{i,n},{j,i,n}],1],l}];
-	mat=Append[mat,ConstantArray[0,n+1]];
-	auxmat=SparseArray[{i_,j_}/;i<j->1,{n+1,n+1}];mat+Transpose[auxmat-mat]];
 
 TriangleVertexList[g_Graph,v_]:=Union@@@Apply[List,FindCycle[{g,v},{3},All],2];
 
