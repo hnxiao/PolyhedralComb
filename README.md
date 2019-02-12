@@ -1,4 +1,4 @@
-# Research Kits
+# Polyhedral Kits
 Working with graphs in Wolfram Language
 
 ## To Do
